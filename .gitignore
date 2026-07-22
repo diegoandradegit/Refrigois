@@ -1,0 +1,14 @@
+# Dependencias — o Netlify instala sozinho a cada build
+node_modules/
+
+# Resultado do build — gerado, nunca versionado
+dist/
+
+# Variaveis locais
+.env
+.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log

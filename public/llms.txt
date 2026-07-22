@@ -1,0 +1,73 @@
+# Refrigóis
+
+> Empresa de refrigeração comercial e industrial em Maringá (PR), Brasil. Fabricação, instalação e manutenção de equipamentos de refrigeração e câmaras frias.
+
+A Refrigóis atende indústrias, comércios, supermercados, açougues, padarias, bares e restaurantes com fabricação sob medida, manutenção preventiva/corretiva e instalação de sistemas de refrigeração comercial e industrial. Atuação principal em Maringá e região, com atendimento a Paraná, Santa Catarina e São Paulo conforme o serviço.
+
+## Serviços: Câmara Fria (/servicos/camara-fria)
+- Instalação de Câmara Fria: /servicos/camara-fria/instalacao
+- Fabricação de Câmara Fria: /servicos/camara-fria/fabricacao
+- Manutenção e Conserto de Câmara Fria: /servicos/camara-fria/manutencao
+- Reforma de Câmara Fria: /servicos/camara-fria/reforma
+- Higienização de Câmara Fria: /servicos/camara-fria/higienizacao
+
+## Serviços: Refrigeração Comercial (/servicos/refrigeracao-comercial)
+- Freezer Comercial: /servicos/refrigeracao-comercial/freezer-comercial
+- Geladeira Comercial: /servicos/refrigeracao-comercial/geladeira-comercial
+- Balcão Refrigerado: /servicos/refrigeracao-comercial/balcao-refrigerado
+- Expositor Refrigerado: /servicos/refrigeracao-comercial/expositor-refrigerado
+- Ilha Refrigerada: /servicos/refrigeracao-comercial/ilha-refrigerada
+- Mesa Refrigerada: /servicos/refrigeracao-comercial/mesa-refrigerada
+- Resfriador de Bebidas: /servicos/refrigeracao-comercial/resfriador-de-bebidas
+- Chopeira: /servicos/refrigeracao-comercial/chopeira
+- Máquina de Gelo: /servicos/refrigeracao-comercial/maquina-de-gelo
+- Bebedouro Industrial: /servicos/refrigeracao-comercial/bebedouro-industrial
+
+## Produtos
+- Balcão refrigerado em aço inox: /produtos/balcao-refrigerado-aco-inox
+- Vitrine refrigerada em aço inox: /produtos/vitrine-refrigerada-aco-inox
+- Coifa em aço inox industrial: /produtos/coifa-aco-inox-industrial
+- Bancada industrial em aço inox: /produtos/bancada-industrial-aco-inox
+- Balcão vitrine para açougue, padaria e lanchonete: /produtos/balcao-vitrine-acougue-padaria-lanchonete
+- Ilha de congelados e bebidas (freezer ilha): /produtos/ilha-de-congelados-e-bebidas
+- Expositor vertical de bebidas (1, 2 ou 3 portas): /produtos/expositor-vertical-de-bebidas
+- Catálogo completo: /produtos
+
+## Contato
+- Orçamento e contato: /contato
+
+## Blog
+Categorias:
+- Câmara Fria: /blog/categoria/camara-fria
+- Refrigeração Comercial: /blog/categoria/refrigeracao-comercial
+- Manutenção e Conservação: /blog/categoria/manutencao
+- Notícias do Setor: /blog/categoria/noticias
+
+Artigos:
+- Câmara Fria Não Está Gelando: O Que Fazer: /blog/camara-fria-nao-esta-gelando-o-que-fazer
+- Câmara Fria com Barulho ou Vazamento: Causas: /blog/camara-fria-fazendo-barulho-ou-vazando
+- Quanto Custa Instalar uma Câmara Fria: /blog/quanto-custa-instalar-camara-fria
+- Manutenção Preventiva x Corretiva: Qual a Diferença: /blog/manutencao-preventiva-x-corretiva-refrigeracao
+- Checklist de Manutenção de Refrigeração Comercial: /blog/checklist-manutencao-refrigeracao-comercial-mensal
+- Vida Útil do Compressor de Refrigeração Comercial: /blog/quanto-tempo-dura-compressor-refrigeracao-comercial
+- Vida Útil do Compressor de Refrigeração Comercial: /blog/quanto-tempo-dura-compressor-refrigeracao-comercial
+- Como Dimensionar uma Câmara Fria: /blog/como-dimensionar-uma-camara-fria
+- Consumo de Energia de Câmara Fria: /blog/quanto-camara-fria-consome-de-energia
+- Câmara Fria de Resfriados x Congelados: /blog/camara-fria-resfriados-x-congelados-qual-escolher
+- Refrigeração Comercial no Verão: Como se Preparar: /blog/como-preparar-refrigeracao-comercial-para-o-verao
+- Como Escolher Freezer ou Geladeira Comercial: /blog/como-escolher-freezer-ou-geladeira-comercial
+- Expositor Vertical ou Ilha Refrigerada: Qual Escolher: /blog/expositor-vertical-ou-ilha-refrigerada-qual-escolher
+- Chopeira Não Está Gelando o Chope: Causas: /blog/chopeira-nao-esta-gelando-o-chope
+- Blog completo: /blog
+
+## Soluções por Segmento
+- Açougues: /solucoes/acougues
+- Supermercados: /solucoes/supermercados
+- Restaurantes: /solucoes/restaurantes
+- Padarias: /solucoes/padarias
+- Distribuidoras de Bebidas: /solucoes/distribuidoras-de-bebidas
+- Farmácias: /solucoes/farmacias
+- Sorveterias: /solucoes/sorveterias
+
+## Páginas
+- Projetos realizados (por segmento: supermercados, açougues, padarias, restaurantes, farmácias, cozinhas industriais, distribuidoras): /projetos

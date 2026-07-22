@@ -1,0 +1,12 @@
+# Rotas com parâmetros dinâmicos que NÃO têm HTML pré-renderizado individual
+# precisam cair no SPA (index.html, status 200) para o React Router resolver.
+# As demais rotas já existem como HTML estático no dist e são servidas direto.
+# Rotas realmente inexistentes caem no 404.html (status 404 real) — bom para SEO.
+
+# Páginas de cidade são resolvidas pelo React em runtime (não pré-renderizadas)
+/cidades/*  /index.html  200
+
+# Paginação e categorias dinâmicas de blog já são pré-renderizadas,
+# mas garantimos o fallback do SPA para combinações não geradas:
+/blog/pagina/*  /index.html  200
+/blog/categoria/*  /index.html  200

@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Crawlers de IA / assistentes (GPTBot, ClaudeBot, Google-Extended etc.)
+# liberados para permitir que a Refrigóis apareça em respostas de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://refrigois.com.br/sitemap.xml

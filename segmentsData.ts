@@ -1,0 +1,130 @@
+import { Segment } from './types';
+
+export const segmentsData: Segment[] = [
+  {
+    slug: 'acougues',
+    title: 'Refrigeração para Açougue',
+    metaTitle: 'Câmara Fria e Refrigeração para Açougue | Refrigóis',
+    description: 'Câmara fria, balcão vitrine e equipamentos de refrigeração comercial para açougue em Maringá — fabricação sob medida, instalação e manutenção.',
+    intro: 'No açougue, a temperatura errada não é só prejuízo — é risco sanitário. A Refrigóis fabrica e instala câmaras frias e balcões vitrine sob medida para açougues, com o dimensionamento certo para o volume de carne que você trabalha e atendimento rápido quando algo precisa de manutenção.',
+    painPoints: [
+      'Câmara fria pequena demais para o volume de carne, forçando o compressor',
+      'Balcão vitrine embaçando ou perdendo temperatura em dias de pico de movimento',
+      'Necessidade de manter a cadeia de frio dentro das normas da vigilância sanitária',
+    ],
+    relevantServices: ['camara-fria/instalacao', 'camara-fria/fabricacao', 'camara-fria/manutencao', 'refrigeracao-comercial/balcao-refrigerado'],
+    faq: [
+      { question: 'Qual o tamanho mínimo de câmara fria para um açougue?', answer: 'Depende do volume de carne processado por semana, mas trabalhamos com projetos a partir de poucos metros quadrados até câmaras de grande porte para açougues com produção própria.' },
+      { question: 'Vocês atendem em caso de pane fora do horário comercial?', answer: 'Sim, contratos de manutenção preventiva incluem prioridade de atendimento em caso de emergência, já que sabemos que carne parada é prejuízo imediato.' },
+    ],
+    image: '/images/projetos/acougue-sao-jose-balcao-3.jpg',
+  },
+  {
+    slug: 'supermercados',
+    title: 'Refrigeração para Supermercado',
+    metaTitle: 'Refrigeração Comercial para Supermercado | Refrigóis',
+    description: 'Câmara fria, ilha de congelados, expositores verticais e balcões refrigerados para supermercado em Maringá — projeto completo de refrigeração comercial.',
+    intro: 'Um supermercado depende de dezenas de pontos de refrigeração funcionando ao mesmo tempo — câmara fria de estoque, ilhas de congelados, expositores de bebidas e balcões de frios. A Refrigóis projeta e mantém esse conjunto completo, com atendimento rápido pra minimizar qualquer parada.',
+    painPoints: [
+      'Múltiplos equipamentos de refrigeração para manter funcionando ao mesmo tempo',
+      'Ilhas de congelados e expositores com fluxo intenso de abertura o dia todo',
+      'Necessidade de contrato de manutenção preventiva pra não depender de emergência',
+    ],
+    relevantServices: ['camara-fria/instalacao', 'refrigeracao-comercial/ilha-refrigerada', 'refrigeracao-comercial/expositor-refrigerado', 'camara-fria/manutencao'],
+    faq: [
+      { question: 'Fazem manutenção de vários equipamentos no mesmo contrato?', answer: 'Sim, os contratos de manutenção preventiva cobrem múltiplos equipamentos do mesmo estabelecimento, com cronograma único de visitas.' },
+      { question: 'Trabalham com retrofit de sistemas antigos?', answer: 'Sim, fazemos reforma de câmaras frias e atualização de sistemas de refrigeração para melhorar eficiência energética.' },
+    ],
+    image: '/images/solucoes/supermercados.jpg',
+  },
+  {
+    slug: 'restaurantes',
+    title: 'Refrigeração para Restaurante',
+    metaTitle: 'Refrigeração Comercial para Restaurante | Refrigóis',
+    description: 'Câmara fria, mesa refrigerada (pista fria) e geladeira comercial para restaurante em Maringá — equipamentos sob medida para cozinha profissional.',
+    intro: 'A cozinha de um restaurante não pode parar no meio do serviço. A Refrigóis fabrica mesas refrigeradas, câmaras frias e geladeiras comerciais pensadas pro ritmo de uma cozinha profissional, com manutenção rápida pra nunca comprometer o atendimento.',
+    painPoints: [
+      'Mesa refrigerada (pista fria) perdendo temperatura durante o serviço de pico',
+      'Câmara fria compartilhada entre vários fornecedores e tipos de insumo',
+      'Necessidade de adequação às normas da vigilância sanitária',
+    ],
+    relevantServices: ['refrigeracao-comercial/mesa-refrigerada', 'camara-fria/instalacao', 'refrigeracao-comercial/geladeira-comercial', 'camara-fria/higienizacao'],
+    faq: [
+      { question: 'Fabricam mesa refrigerada sob medida pro tamanho da minha cozinha?', answer: 'Sim, a mesa refrigerada (pista fria) é fabricada sob medida em aço inox, conforme o espaço e a quantidade de cubas necessárias.' },
+      { question: 'Fazem higienização de câmara fria pra adequação sanitária?', answer: 'Sim, oferecemos higienização especializada que atende às exigências da vigilância sanitária para estabelecimentos alimentícios.' },
+    ],
+    image: '/images/solucoes/restaurantes.jpg',
+  },
+  {
+    slug: 'padarias',
+    title: 'Refrigeração para Padaria',
+    metaTitle: 'Refrigeração Comercial para Padaria e Confeitaria | Refrigóis',
+    description: 'Vitrine refrigerada, câmara fria para insumos e balcão vitrine para padaria e confeitaria em Maringá — fabricação sob medida com iluminação em LED.',
+    intro: 'Na padaria e confeitaria, a vitrine é vitrine de venda — precisa refrigerar direito e ainda destacar o produto. A Refrigóis fabrica balcões e vitrines refrigeradas sob medida com iluminação em LED, além de câmara fria pra armazenamento de insumos.',
+    painPoints: [
+      'Vitrine refrigerada que não destaca bem os produtos (iluminação fraca)',
+      'Câmara fria para insumos de confeitaria (laticínios, recheios) com temperatura instável',
+      'Necessidade de layout que aproveite o espaço de loja pequena',
+    ],
+    relevantServices: ['refrigeracao-comercial/balcao-refrigerado', 'camara-fria/fabricacao', 'camara-fria/manutencao'],
+    faq: [
+      { question: 'A vitrine pode ter iluminação em LED pra destacar os doces?', answer: 'Sim, fabricamos vitrines com iluminação em LED direcionada, pensada pra valorizar bolos, doces e salgados expostos.' },
+      { question: 'Fazem vitrine pra produtos quentes também, tipo salgados assados?', answer: 'Sim, trabalhamos com vitrines refrigeradas, quentes ou mistas, conforme a necessidade da padaria.' },
+    ],
+    image: '/images/projetos/duda-mel-expositor-3.jpg',
+  },
+  {
+    slug: 'distribuidoras-de-bebidas',
+    title: 'Refrigeração para Distribuidora de Bebidas',
+    metaTitle: 'Refrigeração Comercial para Distribuidora de Bebidas | Refrigóis',
+    description: 'Câmara fria com porta de vidro (walk-in cooler), resfriador de bebidas e chopeira para distribuidora e depósito de bebidas em Maringá.',
+    intro: 'Distribuidora de bebidas vive de manter grande volume gelado e disponível. A Refrigóis fabrica câmaras frias com porta de vidro (walk-in cooler / beer cave), resfriadores de bebidas e dá manutenção em chopeiras, pra você nunca perder venda por falta de produto gelado.',
+    painPoints: [
+      'Necessidade de resfriar grande volume de bebida com recuperação rápida de temperatura',
+      'Câmara fria com porta de vidro pra autoatendimento (beer cave) que precisa vedar bem',
+      'Chopeira e cervejeira exigindo manutenção constante de pressão e limpeza de linha',
+    ],
+    relevantServices: ['camara-fria/instalacao', 'refrigeracao-comercial/resfriador-de-bebidas', 'refrigeracao-comercial/chopeira'],
+    faq: [
+      { question: 'O que é um walk-in cooler e vocês fabricam?', answer: 'É uma câmara fria com porta de vidro, também chamada de beer cave, onde o cliente entra ou pega o produto direto na prateleira. Fabricamos sob medida para distribuidoras e bares.' },
+      { question: 'Fazem manutenção de chopeira com contrato mensal?', answer: 'Sim, oferecemos manutenção preventiva de chopeiras, incluindo limpeza de linha e ajuste de pressão de CO2.' },
+    ],
+    image: '/images/solucoes/distribuidoras-de-bebidas.jpg',
+  },
+  {
+    slug: 'farmacias',
+    title: 'Refrigeração para Farmácia',
+    metaTitle: 'Câmara Fria para Farmácia e Medicamentos | Refrigóis',
+    description: 'Câmara fria para armazenamento de medicamentos e vacinas em farmácia, com controle de temperatura e telemetria, em Maringá.',
+    intro: 'Armazenamento de medicamentos e vacinas exige controle de temperatura rigoroso, com margem de erro praticamente zero. A Refrigóis instala câmaras frias com telemetria e alarme de desvio de temperatura, dentro das exigências sanitárias do setor farmacêutico.',
+    painPoints: [
+      'Necessidade de controle de temperatura preciso, sem oscilações',
+      'Exigência de registro/telemetria de temperatura para auditoria',
+      'Risco de perda de lote inteiro de medicamento em caso de falha',
+    ],
+    relevantServices: ['camara-fria/instalacao', 'camara-fria/manutencao', 'camara-fria/higienizacao'],
+    faq: [
+      { question: 'A câmara fria registra a temperatura pra auditoria?', answer: 'Sim, instalamos sistemas com telemetria de temperatura 24h e alarme de desvio, gerando histórico para fins de auditoria sanitária.' },
+      { question: 'Qual a faixa de temperatura pra armazenamento de vacinas?', answer: 'Varia conforme o tipo de medicamento/vacina — o sistema é configurado conforme a especificação do fabricante do produto armazenado.' },
+    ],
+    image: '/images/solucoes/farmacias.jpg',
+  },
+  {
+    slug: 'sorveterias',
+    title: 'Refrigeração para Sorveteria',
+    metaTitle: 'Refrigeração Comercial para Sorveteria | Refrigóis',
+    description: 'Freezer comercial, ilha refrigerada e câmara fria para sorveteria em Maringá — equipamentos para congelados de alta rotatividade.',
+    intro: 'Sorveteria trabalha com produto que não perdoa oscilação de temperatura. A Refrigóis fabrica e instala freezers comerciais, ilhas refrigeradas e câmaras frias para congelados, dimensionados pro volume e pro fluxo intenso de clientes em dias quentes.',
+    painPoints: [
+      'Freezer ou ilha refrigerada perdendo temperatura em dias de pico de venda',
+      'Câmara fria para estoque de sorvete em grande volume',
+      'Necessidade de recuperação rápida de temperatura após aberturas constantes',
+    ],
+    relevantServices: ['refrigeracao-comercial/freezer-comercial', 'refrigeracao-comercial/ilha-refrigerada', 'camara-fria/fabricacao'],
+    faq: [
+      { question: 'Qual a temperatura ideal pra armazenar sorvete?', answer: 'Geralmente -18°C ou inferior, dependendo do tipo de sorvete — dimensionamos o equipamento pra manter essa faixa mesmo com abertura frequente.' },
+      { question: 'Fazem manutenção de urgência em dia de muito movimento?', answer: 'Sim, priorizamos atendimento de emergência pra sorveterias em dias de pico, já que a parada nesse segmento é especialmente crítica.' },
+    ],
+    image: '/images/solucoes/sorveterias.jpg',
+  },
+];
