@@ -1,0 +1,155 @@
+{
+ "categorias": [
+  {
+   "slug": "camara-fria",
+   "title": "Câmara Fria",
+   "description": "Instalação, fabricação, manutenção, reforma e higienização de câmara fria e câmara frigorífica em Maringá e região.",
+   "image": "/images/servicos/categorias/camara-fria.jpg"
+  },
+  {
+   "slug": "refrigeracao-comercial",
+   "title": "Refrigeração Comercial",
+   "description": "Venda, instalação e manutenção de freezer comercial, geladeira comercial, balcão refrigerado, expositores, ilhas, chopeiras e mais equipamentos para o seu negócio em Maringá.",
+   "image": "/images/servicos/categorias/refrigeracao-comercial.jpg"
+  }
+ ],
+ "servicos": [
+  {
+   "key": "camara-fria/instalacao",
+   "title": "Instalação de Câmara Fria em Maringá | Refrigóis",
+   "description": "Instalação de câmara fria com levantamento em campo e cálculo de carga térmica, para açougue, supermercado, restaurante e distribuidora. Veja como funciona.",
+   "image": "/og/servicos-camara-fria-instalacao.jpg",
+   "serviceTitle": "Instalação de Câmara Fria",
+   "faq": [
+    {
+     "q": "O que vocês precisam saber para dimensionar a câmara?",
+     "a": "Quatro informações resolvem a maior parte do cálculo: o que será armazenado, em que temperatura, quantas vezes a porta abre por dia e se o produto entra frio ou ainda quente. Com isso, mais o espaço disponível e o ponto de instalação da condensadora, o dimensionamento sai de base técnica em vez de estimativa."
+    },
+    {
+     "q": "Dá para instalar câmara fria em espaço pequeno?",
+     "a": "Dá, e é situação comum em restaurantes e padarias. O que limita não costuma ser o espaço interno, e sim encontrar um local ventilado para a unidade condensadora dissipar calor. Esse ponto é avaliado no levantamento, antes de qualquer definição."
+    },
+    {
+     "q": "A câmara pode ser ampliada depois?",
+     "a": "Em muitos casos sim, por ser construída em painéis modulares. Mas a ampliação precisa considerar se o sistema comporta a nova carga térmica. Aumentar o volume sem reavaliar a capacidade resulta em câmara que não alcança a temperatura desejada."
+    },
+    {
+     "q": "Vocês instalam câmara com porta de vidro?",
+     "a": "Sim. É a configuração conhecida como walk-in cooler ou beer cave, usada em distribuidoras de bebidas, bares e lojas de conveniência. Permite exposição e autosserviço sem abrir a câmara inteira a cada retirada."
+    }
+   ]
+  },
+  {
+   "key": "camara-fria/fabricacao",
+   "title": "Fabricação de Câmara Fria | Refrigóis",
+   "description": "Fabricação de câmara fria sob medida para supermercados, açougues, padarias, restaurantes e distribuidoras em Maringá.",
+   "image": "/og/servicos-camara-fria-fabricacao.jpg",
+   "serviceTitle": "Fabricação de Câmara Fria",
+   "faq": []
+  },
+  {
+   "key": "camara-fria/manutencao",
+   "title": "Manutenção e Conserto de Câmara Fria | Refrigóis",
+   "description": "Manutenção preventiva e conserto de câmara fria para supermercados, restaurantes, açougues e centros de distribuição, com atendimento rápido em Maringá e região.",
+   "image": "/og/servicos-camara-fria-manutencao.jpg",
+   "serviceTitle": "Manutenção e Conserto de Câmara Fria",
+   "faq": []
+  },
+  {
+   "key": "camara-fria/reforma",
+   "title": "Reforma de Câmara Fria | Refrigóis",
+   "description": "Reforma e modernização de câmara fria: troca de isolamento, painéis, portas e atualização do sistema de refrigeração em Maringá.",
+   "image": "/og/servicos-camara-fria-reforma.jpg",
+   "serviceTitle": "Reforma de Câmara Fria",
+   "faq": []
+  },
+  {
+   "key": "camara-fria/higienizacao",
+   "title": "Higienização de Câmara Fria | Refrigóis",
+   "description": "Higienização e limpeza especializada de câmara fria para garantir segurança sanitária e desempenho, em Maringá e região.",
+   "image": "/og/servicos-camara-fria-higienizacao.jpg",
+   "serviceTitle": "Higienização de Câmara Fria",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/freezer-comercial",
+   "title": "Freezer Comercial | Refrigóis",
+   "description": "Venda, instalação e manutenção de freezer comercial para supermercados, açougues, padarias e distribuidoras em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-freezer-comercial.jpg",
+   "serviceTitle": "Freezer Comercial",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/geladeira-comercial",
+   "title": "Geladeira Comercial | Refrigóis",
+   "description": "Venda, instalação e manutenção de geladeira comercial para bares, restaurantes, lanchonetes e mercados em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-geladeira-comercial.jpg",
+   "serviceTitle": "Geladeira Comercial",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/balcao-refrigerado",
+   "title": "Balcão Refrigerado | Refrigóis",
+   "description": "Fabricação, instalação e manutenção de balcão refrigerado e vitrine refrigerada para açougue, padaria e lanchonete em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-balcao-refrigerado.jpg",
+   "serviceTitle": "Balcão Refrigerado",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/expositor-refrigerado",
+   "title": "Expositor Refrigerado | Refrigóis",
+   "description": "Venda, instalação e manutenção de expositor vertical refrigerado (1, 2 ou 3 portas) para bares, mercados e conveniências em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-expositor-refrigerado.jpg",
+   "serviceTitle": "Expositor Refrigerado",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/ilha-refrigerada",
+   "title": "Ilha Refrigerada | Refrigóis",
+   "description": "Venda, instalação e manutenção de ilha refrigerada (ilha de congelados / freezer ilha) para supermercados e lojas de conveniência em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-ilha-refrigerada.jpg",
+   "serviceTitle": "Ilha Refrigerada",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/mesa-refrigerada",
+   "title": "Mesa Refrigerada | Refrigóis",
+   "description": "Fabricação, instalação e manutenção de mesa refrigerada para pizzarias, lanchonetes e cozinhas industriais em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-mesa-refrigerada.jpg",
+   "serviceTitle": "Mesa Refrigerada",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/resfriador-de-bebidas",
+   "title": "Resfriador de Bebidas | Refrigóis",
+   "description": "Venda, instalação e manutenção de resfriador de bebidas para bares, distribuidoras e lojas de conveniência em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-resfriador-de-bebidas.jpg",
+   "serviceTitle": "Resfriador de Bebidas",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/chopeira",
+   "title": "Chopeira | Refrigóis",
+   "description": "Manutenção e instalação de chopeira e cervejeira para bares, restaurantes e distribuidoras em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-chopeira.jpg",
+   "serviceTitle": "Chopeira",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/maquina-de-gelo",
+   "title": "Máquina de Gelo | Refrigóis",
+   "description": "Manutenção e instalação de máquina de gelo comercial para bares, restaurantes e distribuidoras em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-maquina-de-gelo.jpg",
+   "serviceTitle": "Máquina de Gelo",
+   "faq": []
+  },
+  {
+   "key": "refrigeracao-comercial/bebedouro-industrial",
+   "title": "Bebedouro Industrial | Refrigóis",
+   "description": "Manutenção e instalação de bebedouro industrial para indústrias, escritórios e cozinhas industriais em Maringá.",
+   "image": "/og/servicos-refrigeracao-comercial-bebedouro-industrial.jpg",
+   "serviceTitle": "Bebedouro Industrial",
+   "faq": []
+  }
+ ]
+}

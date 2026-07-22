@@ -90,6 +90,12 @@ export interface BlogPost {
   readingMinutes?: number;
 }
 
+/** Passo do "como funciona" — reduz o receio de nao saber no que se esta entrando. */
+export interface ServiceStep {
+  title: string;
+  text: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -98,11 +104,30 @@ export interface Service {
   description: string;
   longDescription?: string;
   image: string;
+  imageAlt?: string;
   features?: string[];
   technicalInfo?: string;
   warranty?: string;
   deliveryArea?: string;
   images?: string[];
+
+  // --- Estrutura de conteudo por secao ---
+
+  /** Promessa curta no topo, abaixo do titulo. Uma linha. */
+  promise?: string;
+  /** A dor que o visitante veio resolver. Vem antes da solucao. */
+  problem?: { heading?: string; paragraphs: string[] };
+  /** Para quais segmentos serve, com link para a pagina de cada um. */
+  appliesTo?: { segmentSlug: string; label: string; note?: string }[];
+  /** Obras do portfolio que comprovam este servico. */
+  relatedProjectSlugs?: string[];
+  /** Passos do primeiro contato ate a entrega. */
+  howItWorks?: ServiceStep[];
+  /** Perguntas proprias deste servico — viram FAQPage no prerender. */
+  faq?: { q: string; a: string }[];
+  /** Meta tags proprias. */
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 /**

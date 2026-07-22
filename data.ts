@@ -23,12 +23,83 @@ export const servicesData: Service[] = [
     categorySlug: 'camara-fria',
     title: 'Instalação de Câmara Fria',
     description: 'Instalação de câmara fria e câmara frigorífica para açougue, supermercado, restaurante e distribuidora, com projeto sob medida em Maringá.',
-    longDescription: 'A instalação de câmara fria exige planejamento técnico preciso: dimensionamento da carga térmica, escolha dos painéis isotérmicos corretos e posicionamento da unidade condensadora. Cuidamos de todo o processo, do projeto à entrega — incluindo câmaras com porta de vidro (walk-in cooler / beer cave) para bares e distribuidoras de bebidas — garantindo eficiência energética desde o primeiro dia.',
+    promise: 'Projeto dimensionado para o seu produto, o seu movimento e o espaço que você tem.',
     image: '/images/servicos/instalacao.jpg',
-    features: ['Projeto e dimensionamento de carga térmica', 'Montagem de painéis isotérmicos EPS/PUR', 'Instalação de unidade condensadora e evaporadora', 'Opção com porta de vidro (walk-in cooler / beer cave)'],
-    technicalInfo: 'Instalação para câmaras resfriadas (0°C a 5°C) e congeladas (-18°C a -25°C), de pequeno a grande porte.',
+    imageAlt: 'Técnico da Refrigóis instalando sistema de refrigeração de câmara fria em estabelecimento comercial',
+
+    problem: {
+      heading: 'Câmara mal instalada cobra a conta todo mês',
+      paragraphs: [
+        'Uma câmara fria instalada sem dimensionamento correto não avisa no primeiro dia. Ela funciona, gela, e o problema só aparece depois: a temperatura que não segura em dia de calor, o compressor que liga mais do que deveria, a conta de energia que sobe sem explicação e a mercadoria que começa a durar menos do que durava.',
+        'Os erros que mais aparecem quando somos chamados para corrigir instalação de terceiros são sempre os mesmos: capacidade calculada pelo tamanho da câmara em vez da carga térmica real, painel fino demais para a temperatura de trabalho, condensadora colocada em local sem ventilação e infraestrutura elétrica improvisada. Nenhum deles é visível no dia da entrega, e todos custam caro depois.',
+      ],
+    },
+
+    longDescription: 'A instalação de câmara fria começa antes do equipamento: no levantamento do que será armazenado, em que temperatura, com que frequência a porta abre e onde existe espaço ventilado para a unidade condensadora. É esse levantamento que define a capacidade do sistema, a espessura do painel isotérmico e o tipo de degelo. Executamos o processo completo, do projeto à entrega, incluindo câmaras com porta de vidro para bares e distribuidoras de bebidas.',
+    features: [
+      'Levantamento em campo e cálculo de carga térmica',
+      'Montagem de painéis isotérmicos EPS ou PUR',
+      'Instalação de unidade condensadora e evaporadora',
+      'Tubulação frigorífica, dreno e infraestrutura elétrica',
+      'Câmara com porta de vidro (walk-in cooler / beer cave)',
+      'Partida assistida e ajuste dos parâmetros de operação',
+    ],
+
+    appliesTo: [
+      { segmentSlug: 'acougues', label: 'Açougues', note: 'Resfriados com temperatura estável e acesso frequente' },
+      { segmentSlug: 'supermercados', label: 'Supermercados', note: 'Estoque de alto giro, resfriados e congelados' },
+      { segmentSlug: 'restaurantes', label: 'Restaurantes', note: 'Espaço reduzido e entrada de produto ainda quente' },
+      { segmentSlug: 'distribuidoras-de-bebidas', label: 'Distribuidoras', note: 'Câmara com porta de vidro para exposição e autosserviço' },
+      { segmentSlug: 'padarias', label: 'Padarias', note: 'Porta abrindo dezenas de vezes por dia' },
+      { segmentSlug: 'farmacias', label: 'Farmácias', note: 'Controle rigoroso e registro de temperatura' },
+    ],
+
+    relatedProjectSlugs: ['camara-frigorifica-industrial', 'refrigeracao-para-acougue', 'refrigeracao-para-farmacia'],
+
+    howItWorks: [
+      {
+        title: 'Levantamento',
+        text: 'Conversamos sobre o que será armazenado, em que temperatura e com que movimento. Avaliamos o espaço disponível, o local para a condensadora e a capacidade elétrica existente.',
+      },
+      {
+        title: 'Projeto e proposta',
+        text: 'Com os dados em mãos, definimos capacidade do sistema, espessura do painel, tipo de porta e sistema de degelo. Você recebe a especificação do que será instalado, item por item.',
+      },
+      {
+        title: 'Execução',
+        text: 'Montagem dos painéis, instalação das unidades, tubulação frigorífica, dreno e ligação elétrica. O acompanhamento é feito por quem executou o projeto, não por terceiros.',
+      },
+      {
+        title: 'Partida e entrega',
+        text: 'Colocamos o sistema em operação, ajustamos os parâmetros, conferimos a temperatura em regime e explicamos a rotina de uso e os cuidados que evitam chamado desnecessário.',
+      },
+    ],
+
+    technicalInfo: 'Instalação para câmaras resfriadas (0°C a 5°C) e congeladas (-18°C a -25°C), de pequeno a grande porte, com painéis EPS ou PUR e degelo elétrico ou a gás quente.',
     warranty: '12 meses para a instalação completa.',
-    deliveryArea: 'Maringá e região, com atendimento nacional para projetos agendados.'
+    deliveryArea: 'Maringá e região, com atendimento em todo o Paraná para projetos agendados.',
+
+    faq: [
+      {
+        q: 'O que vocês precisam saber para dimensionar a câmara?',
+        a: 'Quatro informações resolvem a maior parte do cálculo: o que será armazenado, em que temperatura, quantas vezes a porta abre por dia e se o produto entra frio ou ainda quente. Com isso, mais o espaço disponível e o ponto de instalação da condensadora, o dimensionamento sai de base técnica em vez de estimativa.',
+      },
+      {
+        q: 'Dá para instalar câmara fria em espaço pequeno?',
+        a: 'Dá, e é situação comum em restaurantes e padarias. O que limita não costuma ser o espaço interno, e sim encontrar um local ventilado para a unidade condensadora dissipar calor. Esse ponto é avaliado no levantamento, antes de qualquer definição.',
+      },
+      {
+        q: 'A câmara pode ser ampliada depois?',
+        a: 'Em muitos casos sim, por ser construída em painéis modulares. Mas a ampliação precisa considerar se o sistema comporta a nova carga térmica. Aumentar o volume sem reavaliar a capacidade resulta em câmara que não alcança a temperatura desejada.',
+      },
+      {
+        q: 'Vocês instalam câmara com porta de vidro?',
+        a: 'Sim. É a configuração conhecida como walk-in cooler ou beer cave, usada em distribuidoras de bebidas, bares e lojas de conveniência. Permite exposição e autosserviço sem abrir a câmara inteira a cada retirada.',
+      },
+    ],
+
+    seoTitle: 'Instalação de Câmara Fria em Maringá | Refrigóis',
+    seoDescription: 'Instalação de câmara fria com levantamento em campo e cálculo de carga térmica, para açougue, supermercado, restaurante e distribuidora. Veja como funciona.',
   },
   {
     id: '2',

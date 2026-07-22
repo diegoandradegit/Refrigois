@@ -79,83 +79,22 @@ const CATEGORIES = {
 };
 
 // Sub-serviços: chave = `${categorySlug}/${slug}`
-const SERVICES = {
-  'camara-fria/instalacao': {
-    title: 'Instalação de Câmara Fria | Refrigóis',
-    description: 'Instalação de câmara fria e câmara frigorífica para açougue, supermercado, restaurante e distribuidora, com projeto sob medida em Maringá.',
-    image: '/og/servicos-camara-fria-instalacao.jpg',
-  },
-  'camara-fria/fabricacao': {
-    title: 'Fabricação de Câmara Fria | Refrigóis',
-    description: 'Fabricação de câmara fria sob medida para supermercados, açougues, padarias, restaurantes e distribuidoras em Maringá.',
-    image: '/og/servicos-camara-fria-fabricacao.jpg',
-  },
-  'camara-fria/manutencao': {
-    title: 'Manutenção e Conserto de Câmara Fria | Refrigóis',
-    description: 'Manutenção preventiva e conserto de câmara fria para supermercados, restaurantes, açougues e centros de distribuição, com atendimento rápido em Maringá e região.',
-    image: '/og/servicos-camara-fria-manutencao.jpg',
-  },
-  'camara-fria/reforma': {
-    title: 'Reforma de Câmara Fria | Refrigóis',
-    description: 'Reforma e modernização de câmara fria: troca de isolamento, painéis, portas e atualização do sistema de refrigeração em Maringá.',
-    image: '/og/servicos-camara-fria-reforma.jpg',
-  },
-  'camara-fria/higienizacao': {
-    title: 'Higienização de Câmara Fria | Refrigóis',
-    description: 'Higienização e limpeza especializada de câmara fria para garantir segurança sanitária e desempenho, em Maringá e região.',
-    image: '/og/servicos-camara-fria-higienizacao.jpg',
-  },
-  'refrigeracao-comercial/freezer-comercial': {
-    title: 'Freezer Comercial | Refrigóis',
-    description: 'Venda, instalação e manutenção de freezer comercial para supermercados, açougues, padarias e distribuidoras em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-freezer-comercial.jpg',
-  },
-  'refrigeracao-comercial/geladeira-comercial': {
-    title: 'Geladeira Comercial | Refrigóis',
-    description: 'Venda, instalação e manutenção de geladeira comercial para bares, restaurantes, lanchonetes e mercados em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-geladeira-comercial.jpg',
-  },
-  'refrigeracao-comercial/balcao-refrigerado': {
-    title: 'Balcão Refrigerado | Refrigóis',
-    description: 'Fabricação, instalação e manutenção de balcão refrigerado e vitrine refrigerada para açougue, padaria e lanchonete em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-balcao-refrigerado.jpg',
-  },
-  'refrigeracao-comercial/expositor-refrigerado': {
-    title: 'Expositor Refrigerado | Refrigóis',
-    description: 'Venda, instalação e manutenção de expositor vertical refrigerado (1, 2 ou 3 portas) para bares, mercados e conveniências em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-expositor-refrigerado.jpg',
-  },
-  'refrigeracao-comercial/ilha-refrigerada': {
-    title: 'Ilha Refrigerada | Refrigóis',
-    description: 'Venda, instalação e manutenção de ilha refrigerada (ilha de congelados / freezer ilha) para supermercados e lojas de conveniência em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-ilha-refrigerada.jpg',
-  },
-  'refrigeracao-comercial/mesa-refrigerada': {
-    title: 'Mesa Refrigerada | Refrigóis',
-    description: 'Fabricação, instalação e manutenção de mesa refrigerada para pizzarias, lanchonetes e cozinhas industriais em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-mesa-refrigerada.jpg',
-  },
-  'refrigeracao-comercial/resfriador-de-bebidas': {
-    title: 'Resfriador de Bebidas | Refrigóis',
-    description: 'Venda, instalação e manutenção de resfriador de bebidas para bares, distribuidoras e lojas de conveniência em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-resfriador-de-bebidas.jpg',
-  },
-  'refrigeracao-comercial/chopeira': {
-    title: 'Chopeira | Refrigóis',
-    description: 'Manutenção e instalação de chopeira e cervejeira para bares, restaurantes e distribuidoras em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-chopeira.jpg',
-  },
-  'refrigeracao-comercial/maquina-de-gelo': {
-    title: 'Máquina de Gelo | Refrigóis',
-    description: 'Manutenção e instalação de máquina de gelo comercial para bares, restaurantes e distribuidoras em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-maquina-de-gelo.jpg',
-  },
-  'refrigeracao-comercial/bebedouro-industrial': {
-    title: 'Bebedouro Industrial | Refrigóis',
-    description: 'Manutenção e instalação de bebedouro industrial para indústrias, escritórios e cozinhas industriais em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial-bebedouro-industrial.jpg',
-  },
-};
+// Servicos vindos de generated/servicos.json, escrito pelo
+// exportar-servicos.js a partir do data.ts. Fonte unica: o que aparece na
+// pagina e o que vai para o <title> e para o schema sao a mesma coisa.
+const SERVICES = {};
+const SERVICOS_FONTE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'generated/servicos.json'), 'utf-8')
+);
+for (const s of SERVICOS_FONTE.servicos) {
+  SERVICES[s.key] = {
+    title: s.title,
+    description: s.description,
+    image: s.image,
+    serviceTitle: s.serviceTitle,
+    faq: s.faq,
+  };
+}
 
 const BLOG_CATEGORIES = {
   'camara-fria': {
@@ -371,17 +310,6 @@ function buildArticleSchema(meta, url) {
 
 // FAQ do artigo em schema proprio. Perguntas e respostas marcadas aumentam a
 // chance de aparecer em resultado expandido na busca.
-function buildFaqSchema(faq) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  };
-}
 
 function buildProductSchema(meta, url) {
   return {
@@ -484,9 +412,6 @@ function injectMeta(html, meta, routePath) {
     scripts.push(buildServiceSchema(meta, url));
   } else if (meta.schemaKind === 'article') {
     scripts.push(buildArticleSchema(meta, url));
-    if (meta.faq && meta.faq.length) {
-      scripts.push(buildFaqSchema(meta.faq));
-    }
   } else if (meta.schemaKind === 'product') {
     scripts.push(buildProductSchema(meta, url));
   } else if (meta.schemaKind === 'project') {
@@ -495,8 +420,15 @@ function injectMeta(html, meta, routePath) {
   if (meta.breadcrumb) {
     scripts.push(buildBreadcrumbSchema(meta.breadcrumb));
   }
-  if (meta.faq) {
+  // FAQ da propria pagina. Quando existe, o FAQPage global do template e
+  // removido: duas FAQPage na mesma pagina competem entre si e o Google pode
+  // acabar ignorando as duas.
+  if (meta.faq && meta.faq.length) {
     scripts.push(buildFAQSchema(meta.faq));
+    out = out.replace(
+      /<script type="application\/ld\+json">\s*\{[^<]*"@type":\s*"FAQPage"[\s\S]*?<\/script>/,
+      ''
+    );
   }
   if (scripts.length) {
     const tags = scripts.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n  ') + '\n  </head>';
