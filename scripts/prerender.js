@@ -180,13 +180,19 @@ const BLOG_CATEGORIES = {
   },
 };
 
+// Cartoes de compartilhamento gerados pelo gerar-og.js. Quando o cartao nao
+// pode ser gerado, o valor cai na foto de capa — nunca fica sem imagem.
+const OG = fs.existsSync(path.join(ROOT, 'generated/og.json'))
+  ? JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/og.json'), 'utf-8'))
+  : {};
+
 // Metadados dos artigos, vindos do arquivo gerado a partir do banco.
 const BLOG_POSTS = {};
 for (const a of JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/artigos.json'), 'utf-8'))) {
   BLOG_POSTS[a.slug] = {
     title: a.metaTitle || `${a.title} | Refrig\u00f3is`,
     description: a.description,
-    image: a.ogImage || `/og/blog-${a.slug}.jpg`,
+    image: a.ogImage || OG[`blog/${a.slug}`] || a.image,
     publishedAt: a.publishedAt,
     updatedAt: a.updatedAt,
     categorySlug: a.categorySlug,
@@ -270,7 +276,7 @@ for (const p of JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/projetos.j
   PROJECTS[p.slug] = {
     title: p.seoTitle || `${p.title} | Refrig\u00f3is`,
     description: p.seoDescription || p.description || '',
-    image: p.ogImage || p.image,
+    image: p.ogImage || OG[`projetos/${p.slug}`] || p.image,
     category: p.category,
     projectTitle: p.title,
     photos: (p.photos || []).map((f) => ({ src: f.src, alt: f.alt, caption: f.caption || null })),
