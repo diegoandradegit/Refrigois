@@ -17,7 +17,7 @@ export const Reveal: React.FC<RevealProps> = ({ children, className = '', delay 
   return (
     <div
       ref={ref}
-      className={`${isInView ? 'animate-reveal' : 'opacity-0'} ${className}`}
+      className={`${isInView ? 'animate-reveal' : 'reveal-oculto'} ${className}`}
       style={isInView && delay ? { animationDelay: `${delay}ms` } : undefined}
     >
       {children}

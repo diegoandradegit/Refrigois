@@ -2,11 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { blogPostsData } from '../blogData';
+import { formatarData } from '../utils/data';
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-}
 
 export const BlogPreview: React.FC = () => {
   const latest = [...blogPostsData]
@@ -53,7 +50,7 @@ export const BlogPreview: React.FC = () => {
                 <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">{post.title}</h4>
                 <span className="flex items-center gap-1.5 text-xs text-slate-400 mt-auto">
                   <Calendar size={13} />
-                  {formatDate(post.publishedAt)}
+                  {formatarData(post.publishedAt)}
                 </span>
               </div>
             </Link>

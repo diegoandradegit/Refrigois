@@ -162,7 +162,14 @@
 
     <!-- Preload da imagem hero para melhorar o LCP (Core Web Vitals) -->
     <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
-    </head>
+        <script>
+      // Marca que o JavaScript esta ativo, antes da primeira pintura.
+      // As secoes so comecam invisiveis (para a animacao de entrada) quando
+      // existe JavaScript para revela-las. Sem ele, o conteudo aparece
+      // normalmente em vez de ficar preso invisivel.
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>

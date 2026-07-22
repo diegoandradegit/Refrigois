@@ -8,15 +8,12 @@ import { ServiceArea } from '../components/ServiceArea';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { Button } from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
+import { formatarData } from '../utils/data';
 
 interface BlogPostPageProps {
   onOpenQuote: () => void;
 }
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-}
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({ onOpenQuote }) => {
   const { slug } = useParams<{ slug: string }>();
@@ -96,12 +93,12 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ onOpenQuote }) => {
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar size={14} />
-                {formatDate(post.publishedAt)}
+                {formatarData(post.publishedAt)}
               </span>
               {post.updatedAt && post.updatedAt !== post.publishedAt && (
                 <span className="flex items-center gap-1.5">
                   <RefreshCw size={14} />
-                  Atualizado em {formatDate(post.updatedAt)}
+                  Atualizado em {formatarData(post.updatedAt)}
                 </span>
               )}
               {post.readingMinutes && (

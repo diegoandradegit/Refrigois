@@ -7,6 +7,7 @@ import { ServiceArea } from '../components/ServiceArea';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { Pagination } from '../components/Pagination';
 import { useSEO } from '../hooks/useSEO';
+import { formatarData } from '../utils/data';
 
 interface BlogCategoryPageProps {
   onOpenQuote: () => void;
@@ -14,10 +15,6 @@ interface BlogCategoryPageProps {
 
 const POSTS_PER_PAGE = 9;
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-}
 
 export const BlogCategoryPage: React.FC<BlogCategoryPageProps> = ({ onOpenQuote }) => {
   const { categorySlug, page } = useParams<{ categorySlug: string; page?: string }>();
@@ -91,7 +88,7 @@ export const BlogCategoryPage: React.FC<BlogCategoryPageProps> = ({ onOpenQuote 
                   <div className="flex items-center justify-between mt-auto">
                     <span className="flex items-center gap-1.5 text-xs text-slate-400">
                       <Calendar size={14} />
-                      {formatDate(post.publishedAt)}
+                      {formatarData(post.publishedAt)}
                     </span>
                     <span className="inline-flex items-center text-sm font-bold text-brand-600 group-hover:text-brand-800 transition-colors">
                       Ler

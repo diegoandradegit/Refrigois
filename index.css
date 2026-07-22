@@ -24,3 +24,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Animacao de entrada das secoes.
+   O estado inicial invisivel depende da classe .js no <html>: sem JavaScript,
+   nada some. Com JavaScript, a secao entra com o fade + subida suave. */
+.reveal-oculto {
+  opacity: 1;
+}
+.js .reveal-oculto {
+  opacity: 0;
+}

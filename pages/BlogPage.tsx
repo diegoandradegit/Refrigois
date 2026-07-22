@@ -6,6 +6,7 @@ import { Contact } from '../components/Contact';
 import { ServiceArea } from '../components/ServiceArea';
 import { Pagination } from '../components/Pagination';
 import { useSEO } from '../hooks/useSEO';
+import { formatarData } from '../utils/data';
 
 interface BlogPageProps {
   onOpenQuote: () => void;
@@ -13,10 +14,6 @@ interface BlogPageProps {
 
 const POSTS_PER_PAGE = 9;
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-}
 
 export const BlogPage: React.FC<BlogPageProps> = ({ onOpenQuote }) => {
   const { page } = useParams<{ page?: string }>();
@@ -96,7 +93,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onOpenQuote }) => {
                     <span className="flex items-center gap-3 text-xs text-slate-400">
                       <span className="flex items-center gap-1.5">
                         <Calendar size={14} />
-                        {formatDate(post.publishedAt)}
+                        {formatarData(post.publishedAt)}
                       </span>
                       {post.readingMinutes && (
                         <span className="flex items-center gap-1.5">
