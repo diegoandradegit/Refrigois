@@ -9,7 +9,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -440,10 +440,34 @@ function injectMeta(html, meta, routePath) {
 
 const WRITTEN_ROUTES = [];
 
-function writeRoute(template, routePath, meta) {
+// Renderizador de HTML, vindo do bundle de servidor gerado pelo
+// "vite build --ssr". Quando ele nao existe, o site continua sendo publicado
+// com o <body> montado pelo navegador — nao vale derrubar a publicacao por
+// causa disso, mas o aviso aparece no log.
+let renderizar = null;
+try {
+  ({ render: renderizar } = await import(
+    pathToFileURL(path.join(ROOT, 'dist-ssr', 'entry-server.js')).href
+  ));
+} catch (e) {
+  console.log(`  ⚠ HTML nao sera renderizado no build (${e.message.split('\n')[0]})`);
+}
+
+async function writeRoute(template, routePath, meta) {
   const outDir = path.join(DIST, routePath);
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'index.html'), injectMeta(template, meta, `/${routePath}`));
+  let html = injectMeta(template, meta, `/${routePath}`);
+
+  if (renderizar) {
+    try {
+      const corpo = await renderizar(`/${routePath}`);
+      html = html.replace('<div id="root"></div>', `<div id="root">${corpo}</div>`);
+    } catch (e) {
+      console.log(`  ⚠ /${routePath}: falha ao renderizar (${e.message.split('\n')[0]})`);
+    }
+  }
+
+  fs.writeFileSync(path.join(outDir, 'index.html'), html);
   // Guarda a rota para o sitemap. noindex fica de fora (ex.: /link).
   if (!meta.noindex) {
     WRITTEN_ROUTES.push({ path: routePath, lastmod: meta.publishedAt || null });
@@ -470,7 +494,7 @@ function writeSitemap() {
   console.log(`  ✓ sitemap.xml (${urls.length} URLs)`);
 }
 
-function run() {
+async function run() {
   const templatePath = path.join(DIST, 'index.html');
   if (!fs.existsSync(templatePath)) {
     console.error('dist/index.html não encontrado — rode "vite build" antes deste script.');
@@ -481,7 +505,7 @@ function run() {
   console.log('Pré-renderizando meta tags por rota...');
 
   for (const [route, meta] of Object.entries(STATIC_PAGES)) {
-    writeRoute(template, route.replace(/^\//, ''), meta);
+    await writeRoute(template, route.replace(/^\//, ''), meta);
   }
 
   // 404.html — o Netlify serve automaticamente este arquivo para rotas não
@@ -503,7 +527,7 @@ function run() {
     console.log('  ✓ 404.html (noindex)');
   }
   for (const [slug, meta] of Object.entries(CATEGORIES)) {
-    writeRoute(template, `servicos/${slug}`, {
+    await writeRoute(template, `servicos/${slug}`, {
       ...meta,
       schemaKind: 'service',
       breadcrumb: [
@@ -515,7 +539,7 @@ function run() {
   for (const [key, meta] of Object.entries(SERVICES)) {
     const [catSlug] = key.split('/');
     const catMeta = CATEGORIES[catSlug];
-    writeRoute(template, `servicos/${key}`, {
+    await writeRoute(template, `servicos/${key}`, {
       ...meta,
       schemaKind: 'service',
       breadcrumb: [
@@ -526,7 +550,7 @@ function run() {
     });
   }
   for (const [slug, meta] of Object.entries(PRODUCTS)) {
-    writeRoute(template, `produtos/${slug}`, {
+    await writeRoute(template, `produtos/${slug}`, {
       ...meta,
       schemaKind: 'product',
       breadcrumb: [
@@ -536,7 +560,7 @@ function run() {
     });
   }
   for (const [slug, meta] of Object.entries(PROJECTS)) {
-    writeRoute(template, `projetos/${slug}`, {
+    await writeRoute(template, `projetos/${slug}`, {
       ...meta,
       schemaKind: 'project',
       breadcrumb: [
@@ -547,7 +571,7 @@ function run() {
   }
 
   for (const [slug, meta] of Object.entries(BLOG_POSTS)) {
-    writeRoute(template, `blog/${slug}`, {
+    await writeRoute(template, `blog/${slug}`, {
       ...meta,
       schemaKind: 'article',
       breadcrumb: [
@@ -557,7 +581,7 @@ function run() {
     });
   }
   for (const [slug, meta] of Object.entries(BLOG_CATEGORIES)) {
-    writeRoute(template, `blog/categoria/${slug}`, {
+    await writeRoute(template, `blog/categoria/${slug}`, {
       ...meta,
       breadcrumb: [
         { name: 'Blog', path: '/blog' },
@@ -572,7 +596,7 @@ function run() {
   const allPostSlugs = Object.keys(BLOG_POSTS);
   const totalBlogPages = Math.max(1, Math.ceil(allPostSlugs.length / POSTS_PER_PAGE));
   for (let p = 2; p <= totalBlogPages; p++) {
-    writeRoute(template, `blog/pagina/${p}`, {
+    await writeRoute(template, `blog/pagina/${p}`, {
       title: `Blog — Página ${p} | Dicas de Refrigeração Comercial`,
       description: 'Artigos e notícias sobre manutenção de câmara fria, refrigeração comercial, freezer e geladeira comercial — conteúdo técnico da Refrigóis para o seu negócio.',
       image: '/og/blog.jpg',
@@ -585,7 +609,7 @@ function run() {
     const totalCatPages = Math.max(1, Math.ceil(postsInCat.length / POSTS_PER_PAGE));
     const catTitle = catMeta.title.replace(' | Blog Refrigóis', '');
     for (let p = 2; p <= totalCatPages; p++) {
-      writeRoute(template, `blog/categoria/${catSlug}/pagina/${p}`, {
+      await writeRoute(template, `blog/categoria/${catSlug}/pagina/${p}`, {
         title: `${catTitle} — Página ${p} | Blog Refrigóis`,
         description: catMeta.description,
         image: catMeta.image,
@@ -599,7 +623,7 @@ function run() {
   }
 
   for (const [slug, meta] of Object.entries(SEGMENTS)) {
-    writeRoute(template, `solucoes/${slug}`, {
+    await writeRoute(template, `solucoes/${slug}`, {
       ...meta,
       schemaKind: 'service',
       breadcrumb: [
@@ -610,8 +634,25 @@ function run() {
     });
   }
 
+  // A home nao passa pelo writeRoute: ela e o proprio arquivo base, e ja tem
+  // as meta tags certas no index.html. Mas o corpo dela tambem precisa vir
+  // renderizado, senao a pagina mais importante do site e a unica que chega
+  // vazia para quem nao executa JavaScript.
+  if (renderizar) {
+    try {
+      const corpo = await renderizar('/');
+      fs.writeFileSync(
+        templatePath,
+        template.replace('<div id="root"></div>', `<div id="root">${corpo}</div>`)
+      );
+      console.log('  ✓ / (home)');
+    } catch (e) {
+      console.log(`  ⚠ home: falha ao renderizar (${e.message.split('\n')[0]})`);
+    }
+  }
+
   writeSitemap();
   console.log('Pré-renderização concluída.');
 }
 
-run();
+await run();

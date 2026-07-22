@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/sync-conteudo.js && node scripts/exportar-servicos.js && vite build && node scripts/gerar-og.js && node scripts/prerender.js && node scripts/verificar-sitemap.js && node scripts/gerar-redirects.js",
+    "build": "node scripts/sync-conteudo.js && node scripts/exportar-servicos.js && vite build && vite build --ssr entry-server.tsx --outDir dist-ssr && node scripts/gerar-og.js && node scripts/prerender.js && node scripts/verificar-sitemap.js && node scripts/gerar-redirects.js",
     "preview": "vite preview"
   },
   "dependencies": {

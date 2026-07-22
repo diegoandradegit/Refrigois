@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
@@ -36,14 +36,21 @@ const PageFallback: React.FC = () => (
   </div>
 );
 
-const App: React.FC = () => {
+/**
+ * Conteudo do site, sem o roteador em volta.
+ *
+ * Existe separado porque o build tambem renderiza estas paginas em HTML
+ * (scripts/render-html.js), e nesse momento o roteador precisa ser o estatico,
+ * nao o do navegador.
+ */
+export const AppContent: React.FC = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   const openQuote = () => setIsQuoteModalOpen(true);
   const closeQuote = () => setIsQuoteModalOpen(false);
 
   return (
-    <Router>
+    <>
       <div className="min-h-screen font-sans text-slate-900">
         <Header onOpenQuote={openQuote} />
         
@@ -81,8 +88,14 @@ const App: React.FC = () => {
         <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuote} />
         <AnnouncementPopup onOpenQuote={openQuote} />
       </div>
-    </Router>
+    </>
   );
 };
+
+const App: React.FC = () => (
+  <BrowserRouter>
+    <AppContent />
+  </BrowserRouter>
+);
 
 export default App;
