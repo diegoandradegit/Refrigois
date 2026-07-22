@@ -12,3 +12,6 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
+
+# Conteudo gerado a partir do banco no momento do build.
+# Versionado de proposito: serve de referencia e permite rodar em modo dev.

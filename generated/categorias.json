@@ -1,0 +1,22 @@
+[
+ {
+  "slug": "camara-fria",
+  "title": "Câmara Fria",
+  "description": "Instalação, fabricação, manutenção, reforma e diagnóstico de problemas em câmaras frias e câmaras frigoríficas."
+ },
+ {
+  "slug": "refrigeracao-comercial",
+  "title": "Refrigeração Comercial",
+  "description": "Guias e comparativos sobre freezer, geladeira, expositores, chopeiras e demais equipamentos de refrigeração comercial."
+ },
+ {
+  "slug": "manutencao",
+  "title": "Manutenção e Conservação",
+  "description": "Boas práticas de manutenção preventiva e corretiva para prolongar a vida útil dos seus equipamentos de refrigeração."
+ },
+ {
+  "slug": "noticias",
+  "title": "Notícias do Setor",
+  "description": "Novidades, tendências e atualizações relevantes do mercado de refrigeração comercial e industrial."
+ }
+]

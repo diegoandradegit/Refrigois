@@ -180,46 +180,20 @@ const BLOG_CATEGORIES = {
   },
 };
 
-// Metadados dos artigos, lidos direto do blogData.ts. Antes esta lista era
-// mantida a mao aqui e ficava dessincronizada do conteudo real. Quando o
-// painel administrativo entrar, este bloco vira uma consulta ao banco.
+// Metadados dos artigos, vindos do arquivo gerado a partir do banco.
 const BLOG_POSTS = {};
-{
-  const src = fs.readFileSync(path.join(ROOT, 'blogData.ts'), 'utf-8');
-  const block = src.slice(src.indexOf('export const blogPostsData'));
-  const entries = block.split(/\n  \{\n/).slice(1);
-
-  for (const entry of entries) {
-    const pick = (field) => {
-      const m = entry.match(new RegExp(`${field}: '((?:[^'\\\\]|\\\\.)*)'`));
-      return m ? m[1].replace(/\\'/g, "'") : null;
-    };
-    const slug = pick('slug');
-    if (!slug) continue;
-
-    // FAQ do artigo -> FAQPage schema.
-    const faq = [];
-    const faqMatch = entry.match(/faq: \[([\s\S]*?)\n    \]/);
-    if (faqMatch) {
-      const re = /\{ q: '((?:[^'\\\\]|\\\\.)*)', a: '((?:[^'\\\\]|\\\\.)*)' \}/g;
-      let m;
-      while ((m = re.exec(faqMatch[1])) !== null) {
-        faq.push({ q: m[1].replace(/\\'/g, "'"), a: m[2].replace(/\\'/g, "'") });
-      }
-    }
-
-    BLOG_POSTS[slug] = {
-      title: pick('metaTitle') || `${pick('title')} | Refrig\u00f3is`,
-      description: pick('description'),
-      image: `/og/blog-${slug}.jpg`,
-      publishedAt: pick('publishedAt'),
-      updatedAt: pick('updatedAt'),
-      categorySlug: pick('categorySlug'),
-      articleTitle: pick('title'),
-      readingMinutes: pick('readingMinutes'),
-      faq,
-    };
-  }
+for (const a of JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/artigos.json'), 'utf-8'))) {
+  BLOG_POSTS[a.slug] = {
+    title: a.metaTitle || `${a.title} | Refrig\u00f3is`,
+    description: a.description,
+    image: a.ogImage || `/og/blog-${a.slug}.jpg`,
+    publishedAt: a.publishedAt,
+    updatedAt: a.updatedAt,
+    categorySlug: a.categorySlug,
+    articleTitle: a.title,
+    readingMinutes: a.readingMinutes,
+    faq: a.faq || [],
+  };
 }
 
 const SEGMENTS = {
@@ -288,54 +262,19 @@ const SEGMENTS = {
   },
 };
 
-// Projetos do portfólio. Rotas NOVAS (/projetos/:slug) — não alteram
-// nenhuma URL já indexada; apenas somam ao sitemap. Cada projeto ganha
-// title/description próprios e schema ImageObject com as fotos da obra.
+// Projetos e artigos vem dos arquivos gerados pelo sync-conteudo.js, que os
+// escreve a partir do banco antes do build. Antes este trecho interpretava o
+// data.ts como texto; agora le a mesma fonte que o site usa.
 const PROJECTS = {};
-{
-  const projectsSource = fs.readFileSync(path.join(ROOT, 'data.ts'), 'utf-8');
-  const start = projectsSource.indexOf('export const projectsData');
-  const end = projectsSource.indexOf('export const projectCategories');
-  const block = projectsSource.slice(start, end);
-
-  // Extrai os campos que o prerender precisa direto do data.ts, sem precisar
-  // compilar TypeScript. Quando o painel administrativo entrar, este trecho é
-  // substituído por uma consulta ao banco — o resto do arquivo não muda.
-  const entries = block.split(/\n  \{\n/).slice(1);
-  for (const entry of entries) {
-    const pick = (field) => {
-      const m = entry.match(new RegExp(`${field}: '((?:[^'\\\\]|\\\\.)*)'`));
-      return m ? m[1].replace(/\\'/g, "'") : null;
-    };
-    const slug = pick('slug');
-    if (!slug) continue;
-    const title = pick('title');
-    const seoTitle = pick('seoTitle');
-    const seoDescription = pick('seoDescription');
-    const description = pick('description');
-    const category = pick('category');
-    const image = pick('image');
-
-    // Fotos com alt (bloco `photos`) para o schema ImageObject.
-    const photos = [];
-    const photosMatch = entry.match(/photos: \[([\s\S]*?)\n    \]/);
-    if (photosMatch) {
-      const re = /\{ src: '([^']+)', alt: '((?:[^'\\\\]|\\\\.)*)'(?:, caption: '((?:[^'\\\\]|\\\\.)*)')? \}/g;
-      let m;
-      while ((m = re.exec(photosMatch[1])) !== null) {
-        photos.push({ src: m[1], alt: m[2].replace(/\\'/g, "'"), caption: m[3] ? m[3].replace(/\\'/g, "'") : null });
-      }
-    }
-
-    PROJECTS[slug] = {
-      title: seoTitle || `${title} | Refrigóis`,
-      description: seoDescription || description || '',
-      image,
-      category,
-      projectTitle: title,
-      photos: photos.length ? photos : (image ? [{ src: image, alt: title, caption: null }] : []),
-    };
-  }
+for (const p of JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/projetos.json'), 'utf-8'))) {
+  PROJECTS[p.slug] = {
+    title: p.seoTitle || `${p.title} | Refrig\u00f3is`,
+    description: p.seoDescription || p.description || '',
+    image: p.ogImage || p.image,
+    category: p.category,
+    projectTitle: p.title,
+    photos: (p.photos || []).map((f) => ({ src: f.src, alt: f.alt, caption: f.caption || null })),
+  };
 }
 
 const PRODUCTS = {
@@ -516,7 +455,9 @@ function injectMeta(html, meta, routePath) {
   const url = `${SITE_URL}${routePath}`;
   const rawImage = meta.image ?? '/og/home.jpg';
   const image = rawImage.startsWith('http') ? rawImage : `${SITE_URL}${rawImage}`;
-  const type = meta.type ?? 'website';
+  // Artigo do blog e 'article', nao 'website'. Isso muda como Facebook,
+  // WhatsApp e LinkedIn classificam o link compartilhado.
+  const type = meta.type ?? (meta.schemaKind === 'article' ? 'article' : 'website');
 
   let out = html;
   out = out.replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
