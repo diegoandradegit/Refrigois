@@ -1,4 +1,5 @@
 import React from 'react';
+import variantes from '../generated/variantes.json';
 
 /**
  * Imagem responsiva do portfólio.
@@ -40,6 +41,9 @@ function buildSrcSet(src: string) {
   return WIDTHS.map((w) => `${withoutExt}-${w}.webp ${w}w`).join(', ');
 }
 
+/** Imagens que possuem as versoes -640.webp e -1280.webp geradas. */
+const VARIANTES = new Set(variantes as string[]);
+
 export const SmartImage: React.FC<SmartImageProps> = ({
   src,
   alt,
@@ -66,7 +70,13 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   // Imagem que já é .webp não tem variantes: usar <picture> aqui apontaria
   // para um arquivo inexistente e a imagem não carregaria.
   const jaEhWebp = /\.webp(\?|$)/i.test(src);
-  if (noWebp || jaEhWebp) return img;
+
+  // So usa <picture> para imagem que realmente tem variante gerada. O registro
+  // e escrito pelo scripts/gerar-variantes.js durante o build. Sem essa
+  // checagem, o <source> apontaria para arquivo inexistente e a imagem nao
+  // carregaria — foi o que aconteceu com as fotos do catalogo de produtos.
+  const temVariante = VARIANTES.has(src.split('?')[0]);
+  if (noWebp || jaEhWebp || !temVariante) return img;
 
   return (
     <picture>
