@@ -1,85 +1,107 @@
 import React from 'react';
-import { ArrowRight, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { productsData } from '../data';
+import { ArrowRight } from 'lucide-react';
+import { productsData, productCategories } from '../data';
+import { SmartImage } from './SmartImage';
+import { Reveal } from './Reveal';
+import type { Product } from '../types';
+
+/**
+ * Linha de especificacao do card: material, medida e faixa de temperatura.
+ *
+ * E o que torna um catalogo util — da para comparar modelos sem abrir
+ * nenhum. Card de produto sem medida e card de servico disfarcado.
+ */
+function resumoTecnico(p: Product): string {
+  const buscar = (...termos: string[]) =>
+    p.ficha?.find((f) => termos.some((t) => f.rotulo.toLowerCase().includes(t)))?.valor;
+
+  return [
+    buscar('material')?.split(/[,(]/)[0].trim(),
+    buscar('dimens', 'medida'),
+    buscar('temperatura'),
+  ]
+    .filter(Boolean)
+    .join(' · ');
+}
 
 interface ProductsProps {
   onOpenQuote: () => void;
-  limit?: number;
   hideButton?: boolean;
 }
 
-export const Products: React.FC<ProductsProps> = ({ onOpenQuote, limit, hideButton }) => {
-  const withGallery = productsData.filter((p) => p.images && p.images.length > 1);
-  const withoutGallery = productsData.filter((p) => !(p.images && p.images.length > 1));
-  const orderedData = limit ? [...withGallery, ...withoutGallery] : productsData;
-  const displayData = limit ? orderedData.slice(0, limit) : orderedData;
-  const isCarousel = !!limit;
+export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
+  const categorias = productCategories.filter((c) =>
+    productsData.some((p) => p.categorySlug === c.slug)
+  );
 
   return (
-    <section id="products" className={`bg-white border-t border-brand-100 ${hideButton ? 'py-8' : 'py-24'}`}>
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideButton && (
-          <div className="text-center mb-16">
-            <h2 className="text-brand-600 font-bold tracking-widest uppercase text-sm mb-3">Nossos Produtos</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
-              Equipamentos Prontos para o Seu Negócio
-            </h3>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Conheça nossa linha de produtos fabricados sob rigorosos padrões de qualidade.
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Modelos que fabricamos
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Equipamentos em aço inox produzidos sob medida. Veja as fichas técnicas.
             </p>
           </div>
         )}
 
-        <div 
-          className={
-            isCarousel
-              ? "flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory"
-              : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          }
-          style={isCarousel ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : undefined}
-        >
-          {displayData.map((product) => (
-            <Link 
-              key={product.id} 
-              to={`/produtos/${product.slug}`}
-              className={
-                isCarousel
-                  ? "block snap-center shrink-0 w-[85%] sm:w-[45%] lg:w-[30%] bg-white group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
-                  : "block bg-white group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
-              }
-            >
-              <div className="relative h-64 overflow-hidden bg-white mb-6">
-                <img 
-                  src={product.image} 
-                  alt={product.title}
-                  loading="lazy"
-                  className="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              
-              <div className="px-4 text-center">
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  <strong className="text-slate-900 text-base">{product.title}</strong>
-                  {product.shortDescription ? `, ${product.shortDescription.toLowerCase()}` : ''}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {categorias.map((cat) => {
+          const doGrupo = productsData.filter((p) => p.categorySlug === cat.slug);
+          return (
+            <div key={cat.slug} className="mb-14 last:mb-0">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-brand-600 mb-5 pb-2 border-b border-slate-200">
+                {cat.nome}
+              </h3>
 
-        {!hideButton && (
-          <div className="text-center mt-12">
-            <Link 
-              to="/produtos"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold transition-all duration-200 uppercase tracking-wider bg-brand-600 hover:bg-brand-700 text-white rounded-sm"
-            >
-              <ShoppingCart className="mr-2" size={18} />
-              Ver Todos os Produtos
-            </Link>
-          </div>
-        )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {doGrupo.map((produto) => {
+                  const tecnico = resumoTecnico(produto);
+                  return (
+                    <Reveal key={produto.slug}>
+                      <Link
+                        to={`/produtos/${produto.slug}`}
+                        className="group flex flex-col h-full bg-white border border-slate-200 rounded-sm overflow-hidden hover:border-brand-400 hover:shadow-lg transition-all"
+                      >
+                        <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                          <SmartImage
+                            src={produto.image}
+                            alt={produto.imageAlt || produto.title}
+                            width={600}
+                            height={450}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+
+                        <div className="flex flex-col flex-1 p-5">
+                          <h4 className="font-bold text-slate-900 leading-tight mb-2">
+                            {produto.title}
+                          </h4>
+
+                          {tecnico && (
+                            <p className="text-xs text-slate-500 mb-3 leading-relaxed">{tecnico}</p>
+                          )}
+
+                          <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                            {produto.resumo}
+                          </p>
+
+                          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-600 group-hover:gap-2.5 transition-all">
+                            Ver ficha técnica <ArrowRight size={15} />
+                          </span>
+                        </div>
+                      </Link>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -145,7 +145,8 @@ async function run() {
 
   const [segmentos, projetos, fotos, categorias, artigos,
          servicoCategorias, servicos, servicoSegmentos, projetoServicos,
-         servicoFotos, redirecionamentos] = await Promise.all([
+         servicoFotos, redirecionamentos,
+         produtoCategorias, produtos, produtoFotos, projetoProdutos] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -169,6 +170,13 @@ async function run() {
     consultar('projeto_servicos?select=projeto_id,servico_id,ordem&order=ordem', 'obras dos servicos'),
     consultar('servico_fotos?select=servico_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos servicos'),
     consultar('redirecionamentos?select=de,para', 'redirecionamentos'),
+    consultar('produto_categorias?select=id,slug,nome,ordem&order=ordem', 'categorias de produto'),
+    consultar(
+      'produtos?select=id,slug,categoria_id,nome,resumo,imagem,imagem_alt,aplicacao,ficha,configuracoes,servico_id,faq,seo_titulo,seo_descricao,og_imagem,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
+      'produtos'
+    ),
+    consultar('produto_fotos?select=produto_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos produtos'),
+    consultar('projeto_produtos?select=projeto_id,produto_id,ordem&order=ordem', 'obras dos produtos'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -395,6 +403,67 @@ async function run() {
     );
   }
 
+  // ---------- PRODUTOS ----------
+  const catProdutoPorId = new Map(produtoCategorias.map((c) => [c.id, c]));
+  const servicoPorId = new Map(servicos.map((sv) => [sv.id, sv]));
+
+  const fotosPorProduto = new Map();
+  for (const f of produtoFotos) {
+    if (!fotosPorProduto.has(f.produto_id)) fotosPorProduto.set(f.produto_id, []);
+    fotosPorProduto.get(f.produto_id).push(f);
+  }
+  const obrasPorProduto = new Map();
+  for (const v of projetoProdutos) {
+    if (!obrasPorProduto.has(v.produto_id)) obrasPorProduto.set(v.produto_id, []);
+    obrasPorProduto.get(v.produto_id).push(v);
+  }
+
+  const produtosSaida = [];
+  for (const pr of produtos.filter((x) => x.publicado)) {
+    const cat = catProdutoPorId.get(pr.categoria_id);
+
+    const galeria = [];
+    for (const f of (fotosPorProduto.get(pr.id) ?? []).sort((a, b) => a.ordem - b.ordem)) {
+      const src = await resolverImagem(f.caminho, baixados);
+      if (!src) continue;
+      galeria.push({ src, alt: f.alt, ...(f.legenda ? { caption: f.legenda } : {}) });
+    }
+
+    // Servico so entra se estiver publicado: link para pagina que nao existe
+    // e pior que nao ter link nenhum.
+    const sv = pr.servico_id ? servicoPorId.get(pr.servico_id) : null;
+    const catSv = sv ? catServicoPorId.get(sv.categoria_id) : null;
+    const servicoOk = sv && sv.publicado && catSv && slugsCategoria.has(catSv.slug);
+
+    const obras = (obrasPorProduto.get(pr.id) ?? [])
+      .sort((a, b) => a.ordem - b.ordem)
+      .map((v) => projetoPorIdTodos.get(v.projeto_id)?.slug)
+      .filter((slug) => slug && slugsPublicados.has(slug));
+
+    produtosSaida.push({
+      id: pr.id,
+      slug: pr.slug,
+      title: pr.nome,
+      resumo: pr.resumo,
+      category: cat?.nome ?? undefined,
+      categorySlug: cat?.slug ?? undefined,
+      image: (await resolverImagem(pr.imagem, baixados)) ?? galeria[0]?.src ?? '',
+      imageAlt: pr.imagem_alt ?? undefined,
+      photos: galeria,
+      aplicacao: pr.aplicacao ?? [],
+      ficha: pr.ficha ?? [],
+      configuracoes: pr.configuracoes ?? [],
+      servico: servicoOk
+        ? { slug: sv.slug, categorySlug: catSv.slug, title: sv.titulo }
+        : undefined,
+      relatedProjectSlugs: obras.length ? obras : undefined,
+      faq: pr.faq ?? [],
+      seoTitle: pr.seo_titulo ?? undefined,
+      seoDescription: pr.seo_descricao ?? undefined,
+      ogImage: pr.og_imagem ? await resolverImagem(pr.og_imagem, baixados) : undefined,
+    });
+  }
+
   // ---------- ENDERECOS DESPUBLICADOS ----------
   // Item que sai do ar nao pode virar erro 404: a URL ja pode estar indexada.
   const despublicados = [
@@ -404,6 +473,7 @@ async function run() {
       .filter((sv) => !sv.publicado && catServicoPorId.has(sv.categoria_id))
       .map((sv) => ({ url: `/servicos/${catServicoPorId.get(sv.categoria_id).slug}/${sv.slug}`, ...sv })),
     ...servicoCategorias.filter((c) => !c.publicado).map((c) => ({ url: `/servicos/${c.slug}`, ...c })),
+    ...produtos.filter((pr) => !pr.publicado).map((pr) => ({ url: `/produtos/${pr.slug}`, ...pr })),
   ].map((item) => ({
     url: item.url,
     modo: item.ao_despublicar || 'encerrado',
@@ -427,6 +497,10 @@ async function run() {
     JSON.stringify({ categorias: categoriasServicoSaida, servicos: servicosSaida }, null, 1)
   );
   fs.writeFileSync(
+    path.join(GERADOS, 'produtos.json'),
+    JSON.stringify({ categorias: produtoCategorias.map((c) => ({ slug: c.slug, nome: c.nome })), produtos: produtosSaida }, null, 1)
+  );
+  fs.writeFileSync(
     path.join(GERADOS, 'redirecionamentos.json'),
     JSON.stringify(redirecionamentos, null, 1)
   );
@@ -436,6 +510,7 @@ async function run() {
   console.log(`  ✓ ${artigosSaida.length} artigos, ${artigosSaida.reduce((n, a) => n + a.content.length, 0)} blocos`);
   if (baixados.length) console.log(`  ✓ ${baixados.length} imagens trazidas do Storage`);
   console.log(`  ✓ ${servicosSaida.length} servicos em ${categoriasServicoSaida.length} categorias`);
+  console.log(`  ✓ ${produtosSaida.length} produtos no catalogo`);
   if (despublicados.length) console.log(`  ✓ ${despublicados.length} enderecos despublicados a tratar`);
   if (redirecionamentos.length) console.log(`  ✓ ${redirecionamentos.length} endereco(s) antigo(s) redirecionado(s)`);
 }

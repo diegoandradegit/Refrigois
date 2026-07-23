@@ -1,0 +1,501 @@
+{
+ "categorias": [
+  {
+   "slug": "expositores",
+   "nome": "Expositores"
+  },
+  {
+   "slug": "vitrines",
+   "nome": "Vitrines"
+  },
+  {
+   "slug": "mobiliario-inox",
+   "nome": "Mobiliário Inox"
+  },
+  {
+   "slug": "exaustao",
+   "nome": "Exaustão"
+  }
+ ],
+ "produtos": [
+  {
+   "id": "1",
+   "slug": "balcao-refrigerado-aco-inox",
+   "title": "Balcão refrigerado ou ambiente em aço inox",
+   "resumo": "fabricado sob medida: com portas de aço ou vidro, controlador digital, degelo automático e muito mais...",
+   "category": "Expositores",
+   "categorySlug": "expositores",
+   "image": "/images/produtos/balcao-refrigerado-aco-inox.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/balcao-refrigerado-aco-inox.jpg",
+     "alt": "Balcão refrigerado ou ambiente em aço inox"
+    }
+   ],
+   "aplicacao": [
+    "O Balcão Refrigerado em aço inox foi desenvolvido para aliar o design moderno à eficiência térmica. Com vidros curvos duplos, garante a perfeita visualização dos produtos ao mesmo tempo em que reduz a troca de calor com o ambiente externo. O sistema de ar forçado mantém a temperatura uniforme em todas as prateleiras."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "2000mm (L) x 1300mm (A) x 650mm (P)"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço Inox 430/304 e vidros temperados"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "3 níveis de prateleiras (aprox. 450 litros)"
+    },
+    {
+     "rotulo": "Faixa de temperatura",
+     "valor": "+2°C a +8°C"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "120 kg"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "15 a 20 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Iluminação interna em LED (frio ou quente)",
+     "texto": ""
+    },
+    {
+     "titulo": "Controlador digital de temperatura com degelo automático",
+     "texto": ""
+    },
+    {
+     "titulo": "Portas traseiras deslizantes em vidro",
+     "texto": ""
+    },
+    {
+     "titulo": "Isolamento em poliuretano injetado",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "balcao-refrigerado",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Balcão Refrigerado"
+   },
+   "faq": []
+  },
+  {
+   "id": "2",
+   "slug": "vitrine-refrigerada-aco-inox",
+   "title": "Vitrine refrigerada, quente ou ambiente em aço inox",
+   "resumo": "modelo quadrada ou redonda, iluminação de led, prateleiras em vidro ou inox, sistema de aquecimento ar-forçado.",
+   "category": "Vitrines",
+   "categorySlug": "vitrines",
+   "image": "/images/produtos/vitrine-producao-2.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/vitrine-producao-2.jpg",
+     "alt": "Vitrine refrigerada, quente ou ambiente em aço inox"
+    },
+    {
+     "src": "/images/produtos/vitrine-producao-1.jpg",
+     "alt": "Vitrine refrigerada, quente ou ambiente em aço inox"
+    },
+    {
+     "src": "/images/produtos/vitrine-producao-3.jpg",
+     "alt": "Vitrine refrigerada, quente ou ambiente em aço inox"
+    },
+    {
+     "src": "/images/produtos/vitrine-producao-4.jpg",
+     "alt": "Vitrine refrigerada, quente ou ambiente em aço inox"
+    }
+   ],
+   "aplicacao": [
+    "Nossas vitrines proporcionam alto requinte para sua loja, destacando seus produtos através de um projeto luminotécnico em LED. Equipamento disponível em versões refrigeradas, estufas quentes ou mistas, ideal para confeitarias e padarias de alto padrão."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "1500mm (L) x 1200mm (A) x 600mm (P)"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço Inox escovado, madeirado e vidros duplos"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "3 prateleiras em vidro temperado"
+    },
+    {
+     "rotulo": "Faixa de temperatura",
+     "valor": "+3°C a +10°C (Refrigerada) ou até +65°C (Quente)"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "90 kg"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "20 a 25 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Design em linhas retas (modelo joalheiro)",
+     "texto": ""
+    },
+    {
+     "titulo": "Controle preciso de temperatura e umidade",
+     "texto": ""
+    },
+    {
+     "titulo": "Iluminação em LED independente por prateleira",
+     "texto": ""
+    },
+    {
+     "titulo": "Acabamento premium personalizável",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "balcao-refrigerado",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Balcão Refrigerado"
+   },
+   "faq": []
+  },
+  {
+   "id": "3",
+   "slug": "coifa-aco-inox-industrial",
+   "title": "Coifa em aço inox industrial ou residencial",
+   "resumo": "sob medida, encosto ou central, iluminação em Led.",
+   "category": "Exaustão",
+   "categorySlug": "exaustao",
+   "image": "/images/produtos/coifa-aco-inox-industrial.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/coifa-aco-inox-industrial.jpg",
+     "alt": "Coifa em aço inox industrial ou residencial"
+    }
+   ],
+   "aplicacao": [
+    "Sistema completo de exaustão fabricado rigorosamente dentro das normas. As coifas em aço inox garantem durabilidade, fácil higienização e excelente capacidade de captação de vapores e gorduras em cozinhas profissionais e áreas gourmet."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "Fabricação 100% sob medida"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço Inox 430 ou 304 (Chapa 22/20)"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "Variável conforme projeto"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "10 a 15 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Filtros inerciais (baffle) removíveis",
+     "texto": ""
+    },
+    {
+     "titulo": "Dutos em aço galvanizado ou inox",
+     "texto": ""
+    },
+    {
+     "titulo": "Calha periférica para coleta de gordura",
+     "texto": ""
+    },
+    {
+     "titulo": "Solda TIG com acabamento escovado",
+     "texto": ""
+    }
+   ],
+   "servico": null,
+   "faq": []
+  },
+  {
+   "id": "4",
+   "slug": "bancada-industrial-aco-inox",
+   "title": "Bancada industrial em aço inox",
+   "resumo": "multiuso, sob medida, com ou sem cuba, prateleiras.",
+   "category": "Mobiliário Inox",
+   "categorySlug": "mobiliario-inox",
+   "image": "/images/produtos/bancada-industrial-aco-inox.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/bancada-industrial-aco-inox.jpg",
+     "alt": "Bancada industrial em aço inox"
+    }
+   ],
+   "aplicacao": [
+    "Bancadas de manipulação robustas e totalmente de acordo com as exigências da Vigilância Sanitária (ANVISA). Superfície lisa que impede acúmulo de bactérias, sendo o equipamento padrão ouro para manipulação de alimentos e produtos químicos."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "Fabricação sob medida"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço Inox 304/430 com reforço inferior"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "Suporta até 300kg distribuídos"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "45 kg (média)"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "7 a 12 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Sapatas niveladoras em poliamida",
+     "texto": ""
+    },
+    {
+     "titulo": "Opção com cuba estampada ou soldada",
+     "texto": ""
+    },
+    {
+     "titulo": "Espelho traseiro (frontão) contra respingos",
+     "texto": ""
+    },
+    {
+     "titulo": "Prateleira inferior lisa ou gradeada",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "mesa-refrigerada",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Mesa Refrigerada"
+   },
+   "faq": []
+  },
+  {
+   "id": "5",
+   "slug": "balcao-vitrine-acougue-padaria-lanchonete",
+   "title": "Balcão vitrine refrigerada para açougue, padaria e lanchonete",
+   "resumo": "sob medida para expositor de carnes, salgados, bolos e doces, com vidro curvo e iluminação em LED.",
+   "category": "Vitrines",
+   "categorySlug": "vitrines",
+   "image": "/images/produtos/balcao-vitrine-acougue-padaria-lanchonete.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/balcao-vitrine-acougue-padaria-lanchonete.jpg",
+     "alt": "Balcão vitrine refrigerada para açougue, padaria e lanchonete"
+    }
+   ],
+   "aplicacao": [
+    "Balcão vitrine refrigerada fabricado sob medida para expor carnes no açougue, salgados na lanchonete ou bolos e doces na padaria e confeitaria. Estrutura monobloco em aço inox, vidro curvo resistente e sistema de refrigeração com ar forçado para manter a temperatura uniforme durante todo o dia de exposição."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "1400mm a 2500mm (L) x 1250mm (A) x 700mm (P)"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço Inox 430/304, estrutura monobloco e vidro curvo temperado"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "2 a 4 níveis de prateleiras (varia por segmento)"
+    },
+    {
+     "rotulo": "Faixa de temperatura",
+     "valor": "0°C a +8°C"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "110 a 180 kg (conforme tamanho)"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "15 a 20 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Estrutura monobloco (maior resistência do vidro)",
+     "texto": ""
+    },
+    {
+     "titulo": "Iluminação em LED para valorizar os produtos",
+     "texto": ""
+    },
+    {
+     "titulo": "Controlador digital de temperatura",
+     "texto": ""
+    },
+    {
+     "titulo": "Adaptável para açougue, padaria, confeitaria ou lanchonete",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "balcao-refrigerado",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Balcão Refrigerado"
+   },
+   "faq": []
+  },
+  {
+   "id": "6",
+   "slug": "ilha-de-congelados-e-bebidas",
+   "title": "Ilha de congelados e bebidas (freezer ilha)",
+   "resumo": "freezer tipo ilha para supermercados e lojas de conveniência, tampa de vidro deslizante, 2 a 3 metros.",
+   "category": "Expositores",
+   "categorySlug": "expositores",
+   "image": "/images/produtos/ilha-de-congelados-e-bebidas.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/ilha-de-congelados-e-bebidas.jpg",
+     "alt": "Ilha de congelados e bebidas (freezer ilha)"
+    }
+   ],
+   "aplicacao": [
+    "A ilha de congelados, também conhecida como freezer ilha, é o equipamento horizontal aberto usado em supermercados e lojas de conveniência para expor congelados e bebidas, com tampa de vidro deslizante para fácil acesso do cliente. Design que otimiza o espaço de venda e favorece a compra por impulso."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "2000mm a 3000mm (L) x 900mm (A) x 750mm (P)"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço pré-pintado com tampo em vidro temperado deslizante"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "500 a 850 litros (conforme tamanho)"
+    },
+    {
+     "rotulo": "Faixa de temperatura",
+     "valor": "-18°C ou inferior (congelados) / 0°C a 5°C (resfriados)"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "150 a 220 kg (conforme tamanho)"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "20 a 25 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Tampa de vidro deslizante ou basculante",
+     "texto": ""
+    },
+    {
+     "titulo": "Divisórias internas ajustáveis",
+     "texto": ""
+    },
+    {
+     "titulo": "Iluminação interna em LED",
+     "texto": ""
+    },
+    {
+     "titulo": "Baixo consumo de energia",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "ilha-refrigerada",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Ilha Refrigerada"
+   },
+   "faq": []
+  },
+  {
+   "id": "7",
+   "slug": "expositor-vertical-de-bebidas",
+   "title": "Expositor vertical de bebidas (1, 2 ou 3 portas)",
+   "resumo": "geladeira expositora com porta de vidro, ideal para bares, mercados, lanchonetes e conveniências.",
+   "category": "Expositores",
+   "categorySlug": "expositores",
+   "image": "/images/produtos/expositor-vertical-de-bebidas.jpg",
+   "imageAlt": null,
+   "photos": [
+    {
+     "src": "/images/produtos/expositor-vertical-de-bebidas.jpg",
+     "alt": "Expositor vertical de bebidas (1, 2 ou 3 portas)"
+    }
+   ],
+   "aplicacao": [
+    "O expositor vertical de bebidas é a geladeira expositora com porta de vidro que todo bar, mercado ou loja de conveniência precisa: visibilidade total do produto, fechamento automático da porta para economia de energia e capacidade para centenas de latas ou garrafas."
+   ],
+   "ficha": [
+    {
+     "rotulo": "Dimensões",
+     "valor": "600mm a 1900mm (L) x 2000mm (A) x 650mm (P)"
+    },
+    {
+     "rotulo": "Material",
+     "valor": "Aço pré-pintado com porta(s) de vidro duplo"
+    },
+    {
+     "rotulo": "Capacidade",
+     "valor": "230 a 800 litros (conforme número de portas)"
+    },
+    {
+     "rotulo": "Faixa de temperatura",
+     "valor": "0°C a +7°C"
+    },
+    {
+     "rotulo": "Peso",
+     "valor": "80 a 160 kg (conforme tamanho)"
+    },
+    {
+     "rotulo": "Prazo de fabricação",
+     "valor": "15 a 20 dias úteis"
+    }
+   ],
+   "configuracoes": [
+    {
+     "titulo": "Portas de vidro com fechamento automático",
+     "texto": ""
+    },
+    {
+     "titulo": "Iluminação interna em LED",
+     "texto": ""
+    },
+    {
+     "titulo": "Prateleiras reguláveis em altura",
+     "texto": ""
+    },
+    {
+     "titulo": "Disponível com 1, 2 ou 3 portas",
+     "texto": ""
+    }
+   ],
+   "servico": {
+    "slug": "expositor-refrigerado",
+    "categorySlug": "refrigeracao-comercial",
+    "title": "Expositor Refrigerado"
+   },
+   "faq": []
+  }
+ ]
+}

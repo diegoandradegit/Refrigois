@@ -174,26 +174,49 @@ export interface Project {
   local?: string;
 }
 
+/** Uma linha da ficha tecnica. Formato livre: produto diferente pede campo
+ *  diferente — coifa nao tem faixa de temperatura. */
+export interface ProdutoFicha {
+  rotulo: string;
+  valor: string;
+}
+
+/** Opcao de configuracao. O texto diz o que muda na pratica, nao so o nome. */
+export interface ProdutoConfiguracao {
+  titulo: string;
+  texto: string;
+}
+
+/**
+ * Modelo do catalogo.
+ *
+ * Diferenca em relacao a Service: servico responde a uma acao ("instalacao
+ * de..."), produto responde a um objeto, e a ficha tecnica e o que justifica
+ * a pagina existir.
+ */
 export interface Product {
   id: string;
   slug: string;
   title: string;
-  category: string;
+  /** Resumo de uma linha: aparece no card do catalogo. */
+  resumo: string;
+  category?: string;
+  categorySlug?: string;
   image: string;
-  images?: string[];
-  /** Galeria propria do servico, enviada pelo painel. */
+  imageAlt?: string;
   photos?: ProjectPhoto[];
-  shortDescription: string;
-  description: string;
-  specifications: {
-    dimensions: string;
-    material: string;
-    capacity?: string;
-    coolingRange?: string;
-    weight?: string;
-  };
-  deliveryTime: string;
-  features: string[];
+  /** "Para que serve": aplicacao concreta. */
+  aplicacao?: string[];
+  ficha?: ProdutoFicha[];
+  configuracoes?: ProdutoConfiguracao[];
+  /** Servico que fabrica ou instala este modelo. */
+  servico?: { slug: string; categorySlug: string; title: string };
+  /** Obras do portfolio que usaram este modelo. */
+  relatedProjectSlugs?: string[];
+  faq?: { q: string; a: string }[];
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImage?: string;
 }
 
 export interface QuoteFormData {

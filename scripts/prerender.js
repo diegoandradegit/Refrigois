@@ -222,50 +222,26 @@ for (const p of JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/projetos.j
   };
 }
 
-const PRODUCTS = {
-  'balcao-refrigerado-aco-inox': {
-    title: 'Balcão refrigerado ou ambiente em aço inox | Refrigóis',
-    description: 'Fabricado sob medida: com portas de aço ou vidro, controlador digital, degelo automático e muito mais.',
-    image: '/og/produtos-balcao-refrigerado-aco-inox.jpg',
+// Catalogo vindo de generated/produtos.json, escrito pelo sync-conteudo a
+// partir do banco. Fonte unica: o que aparece na pagina e o que vai para o
+// <title> e para o schema sao a mesma coisa.
+const PRODUCTS = {};
+const PRODUTOS_FONTE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'generated/produtos.json'), 'utf-8')
+);
+for (const pr of PRODUTOS_FONTE.produtos) {
+  PRODUCTS[pr.slug] = {
+    title: pr.seoTitle || `${pr.title} | Refrig\u00f3is`,
+    description: pr.seoDescription || pr.resumo,
+    image: pr.ogImage || `/og/produtos-${pr.slug}.jpg`,
     type: 'product',
-  },
-  'vitrine-refrigerada-aco-inox': {
-    title: 'Vitrine refrigerada, quente ou ambiente em aço inox | Refrigóis',
-    description: 'Modelo quadrada ou redonda, iluminação de LED, prateleiras em vidro ou inox, sistema de aquecimento ar-forçado.',
-    image: '/og/produtos-vitrine-refrigerada-aco-inox.jpg',
-    type: 'product',
-  },
-  'coifa-aco-inox-industrial': {
-    title: 'Coifa em aço inox industrial ou residencial | Refrigóis',
-    description: 'Coifa em aço inox sob medida para cozinha industrial, modelo de encosto ou central, com iluminação em LED, em Maringá.',
-    image: '/og/produtos-coifa-aco-inox-industrial.jpg',
-    type: 'product',
-  },
-  'bancada-industrial-aco-inox': {
-    title: 'Bancada industrial em aço inox | Refrigóis',
-    description: 'Bancada industrial em aço inox sob medida, multiuso, com ou sem cuba e prateleiras, para cozinhas profissionais em Maringá.',
-    image: '/og/produtos-bancada-industrial-aco-inox.jpg',
-    type: 'product',
-  },
-  'balcao-vitrine-acougue-padaria-lanchonete': {
-    title: 'Balcão vitrine refrigerada para açougue, padaria e lanchonete | Refrigóis',
-    description: 'Sob medida para expositor de carnes, salgados, bolos e doces, com vidro curvo e iluminação em LED.',
-    image: '/og/produtos-balcao-vitrine-acougue-padaria-lanchonete.jpg',
-    type: 'product',
-  },
-  'ilha-de-congelados-e-bebidas': {
-    title: 'Ilha de congelados e bebidas (freezer ilha) | Refrigóis',
-    description: 'Freezer tipo ilha para supermercados e lojas de conveniência, tampa de vidro deslizante, 2 a 3 metros.',
-    image: '/og/produtos-ilha-de-congelados-e-bebidas.jpg',
-    type: 'product',
-  },
-  'expositor-vertical-de-bebidas': {
-    title: 'Expositor vertical de bebidas (1, 2 ou 3 portas) | Refrigóis',
-    description: 'Geladeira expositora com porta de vidro, ideal para bares, mercados, lanchonetes e conveniências.',
-    image: '/og/produtos-expositor-vertical-de-bebidas.jpg',
-    type: 'product',
-  },
-};
+    productTitle: pr.title,
+    // A ficha tecnica vira propriedade no schema: e o que distingue este
+    // registro do de um servico.
+    ficha: pr.ficha || [],
+    faq: pr.faq || [],
+  };
+}
 
 function escapeHtml(s) {
   return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -322,6 +298,17 @@ function buildProductSchema(meta, url) {
     brand: { '@type': 'Brand', name: 'Refrigóis' },
     manufacturer: { '@type': 'Organization', name: 'Refrigóis' },
     category: 'Refrigeração Comercial',
+    // Ficha tecnica como propriedades. Sem preco e sem oferta: o equipamento
+    // e sob medida, entao declarar valor seria informacao falsa.
+    ...(meta.ficha && meta.ficha.length
+      ? {
+          additionalProperty: meta.ficha.map((f) => ({
+            '@type': 'PropertyValue',
+            name: f.rotulo,
+            value: f.valor,
+          })),
+        }
+      : {}),
   };
 }
 
