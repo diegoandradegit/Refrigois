@@ -145,7 +145,7 @@ async function run() {
 
   const [segmentos, projetos, fotos, categorias, artigos,
          servicoCategorias, servicos, servicoSegmentos, projetoServicos,
-         servicoFotos] = await Promise.all([
+         servicoFotos, redirecionamentos] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -168,6 +168,7 @@ async function run() {
     consultar('servico_segmentos?select=servico_id,segmento_id,observacao,ordem&order=ordem', 'segmentos dos servicos'),
     consultar('projeto_servicos?select=projeto_id,servico_id,ordem&order=ordem', 'obras dos servicos'),
     consultar('servico_fotos?select=servico_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos servicos'),
+    consultar('redirecionamentos?select=de,para', 'redirecionamentos'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -425,6 +426,10 @@ async function run() {
     path.join(GERADOS, 'servicos.json'),
     JSON.stringify({ categorias: categoriasServicoSaida, servicos: servicosSaida }, null, 1)
   );
+  fs.writeFileSync(
+    path.join(GERADOS, 'redirecionamentos.json'),
+    JSON.stringify(redirecionamentos, null, 1)
+  );
   fs.writeFileSync(path.join(GERADOS, 'despublicados.json'), JSON.stringify(despublicados, null, 1));
 
   console.log(`  ✓ ${projetosSaida.length} projetos, ${projetosSaida.reduce((n, p) => n + p.photos.length, 0)} fotos`);
@@ -432,6 +437,7 @@ async function run() {
   if (baixados.length) console.log(`  ✓ ${baixados.length} imagens trazidas do Storage`);
   console.log(`  ✓ ${servicosSaida.length} servicos em ${categoriasServicoSaida.length} categorias`);
   if (despublicados.length) console.log(`  ✓ ${despublicados.length} enderecos despublicados a tratar`);
+  if (redirecionamentos.length) console.log(`  ✓ ${redirecionamentos.length} endereco(s) antigo(s) redirecionado(s)`);
 }
 
 await run();

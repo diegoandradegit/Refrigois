@@ -33,8 +33,20 @@ const despublicados = new Set(
     .map((d) => `https://refrigois.com.br${d.url}`)
 );
 
+// Enderecos que mudaram e ganharam redirecionamento. Nao sumiram: quem chega
+// pela URL antiga e levado para a nova, e o Google transfere o historico.
+const arquivoRedir = path.join(ROOT, 'generated/redirecionamentos.json');
+const redirecionados = new Set(
+  (fs.existsSync(arquivoRedir)
+    ? JSON.parse(fs.readFileSync(arquivoRedir, 'utf-8'))
+    : []
+  ).map((r) => `https://refrigois.com.br${r.de}`)
+);
+
 if (anteriores) {
-  const sumiram = [...anteriores].filter((u) => !atuais.has(u) && !despublicados.has(u));
+  const sumiram = [...anteriores].filter(
+    (u) => !atuais.has(u) && !despublicados.has(u) && !redirecionados.has(u)
+  );
 
   if (sumiram.length) {
     console.error('\n──────────────────────────────────────────────');

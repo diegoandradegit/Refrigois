@@ -18,16 +18,26 @@ const despublicados = JSON.parse(
 const arquivo = path.join(ROOT, 'dist', '_redirects');
 const existente = fs.existsSync(arquivo) ? fs.readFileSync(arquivo, 'utf-8') : '';
 
-const linhas = despublicados.map((d) =>
+const arquivoRedir = path.join(ROOT, 'generated/redirecionamentos.json');
+const redirecionamentos = fs.existsSync(arquivoRedir)
+  ? JSON.parse(fs.readFileSync(arquivoRedir, 'utf-8'))
+  : [];
+
+const linhas = redirecionamentos.map((r) => `${r.de}  ${r.para}  301!`);
+
+linhas.push(...despublicados.map((d) =>
   d.modo === 'redirect' && d.destino
     ? `${d.url}  ${d.destino}  301!`
     : `${d.url}  /404.html  410!`
-);
+));
 
 if (linhas.length) {
   fs.writeFileSync(
     arquivo,
     `${linhas.join('\n')}\n\n# regras originais do site\n${existente}`
   );
-  console.log(`  ✓ ${linhas.length} endereco(s) despublicado(s) tratado(s) sem gerar 404`);
+  console.log(
+    `  ✓ ${linhas.length} endereco(s) antigo(s) tratado(s) sem gerar 404` +
+    ` (${redirecionamentos.length} redirecionado(s), ${despublicados.length} encerrado(s))`
+  );
 }
