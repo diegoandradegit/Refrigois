@@ -35,6 +35,17 @@ export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
     productsData.some((p) => p.categorySlug === c.slug)
   );
 
+  // Modelo sem categoria aparece num grupo proprio no fim. Sem isso ele
+  // sumiria da listagem em silencio, por nao pertencer a nenhum grupo —
+  // conteudo publicado nunca deve desaparecer sem aviso.
+  const semCategoria = productsData.filter(
+    (p) => !categorias.some((c) => c.slug === p.categorySlug)
+  );
+  const grupos = [
+    ...categorias.map((c) => ({ nome: c.nome, slug: c.slug, itens: productsData.filter((p) => p.categorySlug === c.slug) })),
+    ...(semCategoria.length ? [{ nome: 'Outros equipamentos', slug: 'outros', itens: semCategoria }] : []),
+  ];
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,8 +60,8 @@ export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
           </div>
         )}
 
-        {categorias.map((cat) => {
-          const doGrupo = productsData.filter((p) => p.categorySlug === cat.slug);
+        {grupos.map((cat) => {
+          const doGrupo = cat.itens;
           return (
             <div key={cat.slug} className="mb-14 last:mb-0">
               <h3 className="text-sm font-bold uppercase tracking-wider text-brand-600 mb-5 pb-2 border-b border-slate-200">
