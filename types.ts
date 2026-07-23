@@ -110,6 +110,8 @@ export interface Service {
   warranty?: string;
   deliveryArea?: string;
   images?: string[];
+  /** Galeria propria do servico, enviada pelo painel. */
+  photos?: ProjectPhoto[];
 
   // --- Estrutura de conteudo por secao ---
 
@@ -179,6 +181,8 @@ export interface Product {
   category: string;
   image: string;
   images?: string[];
+  /** Galeria propria do servico, enviada pelo painel. */
+  photos?: ProjectPhoto[];
   shortDescription: string;
   description: string;
   specifications: {

@@ -144,7 +144,8 @@ async function run() {
   console.log('Buscando conteudo publicado no banco...');
 
   const [segmentos, projetos, fotos, categorias, artigos,
-         servicoCategorias, servicos, servicoSegmentos, projetoServicos] = await Promise.all([
+         servicoCategorias, servicos, servicoSegmentos, projetoServicos,
+         servicoFotos] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -166,6 +167,7 @@ async function run() {
     ),
     consultar('servico_segmentos?select=servico_id,segmento_id,observacao,ordem&order=ordem', 'segmentos dos servicos'),
     consultar('projeto_servicos?select=projeto_id,servico_id,ordem&order=ordem', 'obras dos servicos'),
+    consultar('servico_fotos?select=servico_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos servicos'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -285,6 +287,12 @@ async function run() {
     if (!segsPorServico.has(v.servico_id)) segsPorServico.set(v.servico_id, []);
     segsPorServico.get(v.servico_id).push(v);
   }
+  const fotosPorServico = new Map();
+  for (const f of servicoFotos) {
+    if (!fotosPorServico.has(f.servico_id)) fotosPorServico.set(f.servico_id, []);
+    fotosPorServico.get(f.servico_id).push(f);
+  }
+
   const obrasPorServico = new Map();
   for (const v of projetoServicos) {
     if (!obrasPorServico.has(v.servico_id)) obrasPorServico.set(v.servico_id, []);
@@ -341,8 +349,18 @@ async function run() {
       .map((v) => projetoPorIdTodos.get(v.projeto_id)?.slug)
       .filter((slug) => slug && slugsPublicados.has(slug));
 
+    // Galeria propria do servico. Sem fotos, a pagina simplesmente nao mostra
+    // a faixa — antes ela repetia a foto principal duas vezes lado a lado.
+    const galeria = [];
+    for (const f of (fotosPorServico.get(sv.id) ?? []).sort((a, b) => a.ordem - b.ordem)) {
+      const src = await resolverImagem(f.caminho, baixados);
+      if (!src) continue;
+      galeria.push({ src, alt: f.alt, ...(f.legenda ? { caption: f.legenda } : {}) });
+    }
+
     servicosSaida.push({
       id: sv.id,
+      photos: galeria,
       slug: sv.slug,
       categorySlug: cat.slug,
       title: sv.titulo,

@@ -17,6 +17,8 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
 
   const service = servicesData.find(s => s.slug === slug && s.categorySlug === categorySlug);
 
+  const galeria = service?.photos ?? [];
+
   // Obras do portfolio que comprovam este servico
   const obras = (service?.relatedProjectSlugs ?? [])
     .map((slug) => projectsData.find((p) => p.slug === slug))
@@ -79,31 +81,38 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
         </div>
       </section>
 
-      {/* Galeria de fotos — reaproveita a imagem principal até termos fotos reais do serviço */}
-      <section className="py-12 md:py-16 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            <div className="rounded-sm overflow-hidden aspect-[4/3]">
-              <img
-                src={service.image}
-                alt={`${service.title} em Maringá — Refrigóis`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="rounded-sm overflow-hidden aspect-[4/3]">
-              <img
-                src={service.image}
-                alt={`${service.title} — detalhe do serviço realizado pela Refrigóis`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-              />
+      {/* Galeria de fotos do servico. Sem fotos cadastradas, a faixa nao
+          aparece — antes esta secao repetia a foto principal duas vezes lado
+          a lado, como se fossem imagens diferentes. */}
+      {galeria.length > 0 && (
+        <section className="py-12 md:py-16 bg-slate-50 border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              className={`grid gap-4 md:gap-6 ${
+                galeria.length === 1 ? 'grid-cols-1 max-w-3xl mx-auto' : 'grid-cols-1 sm:grid-cols-2'
+              }`}
+            >
+              {galeria.map((foto, i) => (
+                <figure key={foto.src} className="m-0">
+                  <div className="rounded-sm overflow-hidden aspect-[4/3] bg-slate-100">
+                    <img
+                      src={foto.src}
+                      alt={foto.alt}
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover"
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                    />
+                  </div>
+                  {foto.caption && (
+                    <figcaption className="text-sm text-slate-500 mt-2">{foto.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Content Section */}
       <section className="py-16 md:py-24 bg-white">
