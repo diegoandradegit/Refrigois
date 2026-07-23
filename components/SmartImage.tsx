@@ -11,6 +11,10 @@ import React from 'react';
  * não suportado. Depender do build para gerar essas variantes já quebrou a
  * galeria uma vez. Arquivo versionado é arquivo que existe.
  *
+ * Fotos enviadas pelo painel já chegam em .webp otimizado e NÃO têm variantes.
+ * Para elas o <picture> é desligado automaticamente — sem isso, o srcSet
+ * apontaria para "foto.webp-1280.webp", que não existe, e a imagem quebrava.
+ *
  * width/height são obrigatórios: sem eles o navegador não reserva o espaço da
  * imagem e a página "pula" enquanto carrega (CLS, uma das métricas de Core
  * Web Vitals).
@@ -59,7 +63,10 @@ export const SmartImage: React.FC<SmartImageProps> = ({
     />
   );
 
-  if (noWebp) return img;
+  // Imagem que já é .webp não tem variantes: usar <picture> aqui apontaria
+  // para um arquivo inexistente e a imagem não carregaria.
+  const jaEhWebp = /\.webp(\?|$)/i.test(src);
+  if (noWebp || jaEhWebp) return img;
 
   return (
     <picture>
