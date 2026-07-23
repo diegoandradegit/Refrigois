@@ -61,6 +61,9 @@ async function gerar(origem, saida) {
 
 const projetos = JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/projetos.json'), 'utf-8'));
 const artigos = JSON.parse(fs.readFileSync(path.join(ROOT, 'generated/artigos.json'), 'utf-8'));
+const { categorias, servicos } = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'generated/servicos.json'), 'utf-8')
+);
 
 const mapa = {};
 let feitos = 0;
@@ -87,6 +90,33 @@ for (const a of artigos) {
       mapa[`blog/${a.slug}`] = `/og/${nome}`;
       feitos++;
     } else falhas++;
+  } catch {
+    falhas++;
+  }
+}
+
+// Servicos e categorias criados pelo painel nao tem cartao versionado no
+// repositorio, entao sao gerados aqui a partir da propria foto. Os que ja
+// tem arquivo em public/og/ sao mantidos como estao.
+for (const c of categorias) {
+  if (c.ogImage || !c.image) continue;
+  const nome = `servicos-${c.slug}.jpg`;
+  if (fs.existsSync(path.join(DIST, 'og', nome))) continue;
+  try {
+    if (await gerar(c.image, nome)) feitos++;
+    else falhas++;
+  } catch {
+    falhas++;
+  }
+}
+
+for (const sv of servicos) {
+  if (sv.ogImage || !sv.image) continue;
+  const nome = `servicos-${sv.categorySlug}-${sv.slug}.jpg`;
+  if (fs.existsSync(path.join(DIST, 'og', nome))) continue;
+  try {
+    if (await gerar(sv.image, nome)) feitos++;
+    else falhas++;
   } catch {
     falhas++;
   }

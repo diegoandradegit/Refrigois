@@ -65,18 +65,10 @@ const STATIC_PAGES = {
 };
 
 // Categorias (páginas-hub)
-const CATEGORIES = {
-  'camara-fria': {
-    title: 'Câmara Fria | Refrigóis',
-    description: 'Instalação, fabricação, manutenção, reforma e higienização de câmara fria e câmara frigorífica em Maringá e região.',
-    image: '/og/servicos-camara-fria.jpg',
-  },
-  'refrigeracao-comercial': {
-    title: 'Refrigeração Comercial | Refrigóis',
-    description: 'Venda, instalação e manutenção de freezer, geladeira, balcão refrigerado, expositores e ilhas para o seu negócio em Maringá.',
-    image: '/og/servicos-refrigeracao-comercial.jpg',
-  },
-};
+// Categorias de servico, tambem vindas do banco. Criar uma categoria nova no
+// painel passa a gerar a pagina, a entrada no sitemap, o card em /servicos e
+// os links no menu e no rodape — sem mexer em codigo.
+const CATEGORIES = {};
 
 // Sub-serviços: chave = `${categorySlug}/${slug}`
 // Servicos vindos de generated/servicos.json, escrito pelo
@@ -86,13 +78,21 @@ const SERVICES = {};
 const SERVICOS_FONTE = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'generated/servicos.json'), 'utf-8')
 );
+for (const c of SERVICOS_FONTE.categorias) {
+  CATEGORIES[c.slug] = {
+    title: c.seoTitle || `${c.title} | Refrig\u00f3is`,
+    description: c.seoDescription || c.description,
+    image: c.ogImage || `/og/servicos-${c.slug}.jpg`,
+  };
+}
+
 for (const s of SERVICOS_FONTE.servicos) {
-  SERVICES[s.key] = {
-    title: s.title,
-    description: s.description,
-    image: s.image,
-    serviceTitle: s.serviceTitle,
-    faq: s.faq,
+  SERVICES[`${s.categorySlug}/${s.slug}`] = {
+    title: s.seoTitle || `${s.title} | Refrig\u00f3is`,
+    description: s.seoDescription || s.description,
+    image: s.ogImage || `/og/servicos-${s.categorySlug}-${s.slug}.jpg`,
+    serviceTitle: s.title,
+    faq: s.faq || [],
   };
 }
 

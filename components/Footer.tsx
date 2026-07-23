@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, Facebook, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { serviceCategoriesData } from '../data';
 
 // TODO: trocar os href="#" pelos links reais assim que o Andrade enviar
 const SOCIAL_LINKS = {
@@ -95,10 +96,15 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold uppercase tracking-wider mb-6">Serviços</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/servicos/camara-fria/fabricacao" className="hover:text-brand-400 transition-colors">Fabricação de Câmara Fria</Link></li>
-              <li><Link to="/servicos/camara-fria/instalacao" className="hover:text-brand-400 transition-colors">Instalação de Câmara Fria</Link></li>
-              <li><Link to="/servicos/camara-fria/manutencao" className="hover:text-brand-400 transition-colors">Manutenção de Câmara Fria</Link></li>
-              <li><Link to="/servicos/refrigeracao-comercial" className="hover:text-brand-400 transition-colors">Refrigeração Comercial</Link></li>
+              {/* Categorias vindas do banco: criar uma nova no painel faz ela
+                  aparecer aqui e no menu, sem alterar codigo. */}
+              {serviceCategoriesData.map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/servicos/${c.slug}`} className="hover:text-brand-400 transition-colors">
+                    {c.title}
+                  </Link>
+                </li>
+              ))}
               <li><Link to="/solucoes" className="hover:text-brand-400 transition-colors">Soluções por Segmento</Link></li>
             </ul>
           </div>

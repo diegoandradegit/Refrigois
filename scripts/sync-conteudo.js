@@ -143,7 +143,8 @@ function converterBlocos(blocos, mapaImagens) {
 async function run() {
   console.log('Buscando conteudo publicado no banco...');
 
-  const [segmentos, projetos, fotos, categorias, artigos] = await Promise.all([
+  const [segmentos, projetos, fotos, categorias, artigos,
+         servicoCategorias, servicos, servicoSegmentos, projetoServicos] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -155,6 +156,16 @@ async function run() {
       'artigos?select=id,slug,titulo,categoria_id,resumo,conteudo,destaques,faq,capa,capa_alt,seo_titulo,seo_descricao,og_imagem,minutos_leitura,projeto_relacionado_id,publicado,publicado_em,atualizado_em,ao_despublicar,redirect_destino&order=publicado_em.desc',
       'artigos'
     ),
+    consultar(
+      'servico_categorias?select=id,slug,nome,descricao,imagem,imagem_alt,seo_titulo,seo_descricao,og_imagem,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
+      'categorias de servico'
+    ),
+    consultar(
+      'servicos?select=id,slug,categoria_id,titulo,descricao,promessa,imagem,imagem_alt,problema_titulo,problema_paragrafos,descricao_longa,features,como_funciona,info_tecnica,garantia,area_atendimento,faq,seo_titulo,seo_descricao,og_imagem,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
+      'servicos'
+    ),
+    consultar('servico_segmentos?select=servico_id,segmento_id,observacao,ordem&order=ordem', 'segmentos dos servicos'),
+    consultar('projeto_servicos?select=projeto_id,servico_id,ordem&order=ordem', 'obras dos servicos'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -264,11 +275,116 @@ async function run() {
     });
   }
 
+  // ---------- SERVICOS ----------
+  const catServicoPorId = new Map(servicoCategorias.map((c) => [c.id, c]));
+  const projetoPorIdTodos = new Map(projetos.map((p) => [p.id, p]));
+
+  // Segmentos e obras de cada servico, agrupados uma vez so
+  const segsPorServico = new Map();
+  for (const v of servicoSegmentos) {
+    if (!segsPorServico.has(v.servico_id)) segsPorServico.set(v.servico_id, []);
+    segsPorServico.get(v.servico_id).push(v);
+  }
+  const obrasPorServico = new Map();
+  for (const v of projetoServicos) {
+    if (!obrasPorServico.has(v.servico_id)) obrasPorServico.set(v.servico_id, []);
+    obrasPorServico.get(v.servico_id).push(v);
+  }
+
+  const slugsPublicados = new Set(projetosSaida.map((p) => p.slug));
+
+  const catsPublicadas = servicoCategorias.filter((c) => c.publicado);
+  const servicosPublicados = servicos.filter(
+    (sv) => sv.publicado && catsPublicadas.some((c) => c.id === sv.categoria_id)
+  );
+
+  const categoriasServicoSaida = [];
+  for (const c of catsPublicadas) {
+    // Categoria sem nenhum servico publicado geraria uma pagina vazia, que e
+    // exatamente o tipo de pagina que prejudica o site em vez de ajudar.
+    const quantos = servicosPublicados.filter((sv) => sv.categoria_id === c.id).length;
+    if (quantos === 0) {
+      console.warn(`  ⚠ categoria "${c.nome}" nao tem servico publicado — sera ignorada`);
+      continue;
+    }
+    categoriasServicoSaida.push({
+      slug: c.slug,
+      title: c.nome,
+      description: c.descricao ?? '',
+      image: (await resolverImagem(c.imagem, baixados)) ?? '',
+      imageAlt: c.imagem_alt ?? undefined,
+      seoTitle: c.seo_titulo ?? undefined,
+      seoDescription: c.seo_descricao ?? undefined,
+      ogImage: c.og_imagem ? await resolverImagem(c.og_imagem, baixados) : undefined,
+    });
+  }
+
+  const slugsCategoria = new Set(categoriasServicoSaida.map((c) => c.slug));
+
+  const servicosSaida = [];
+  for (const sv of servicosPublicados) {
+    const cat = catServicoPorId.get(sv.categoria_id);
+    if (!cat || !slugsCategoria.has(cat.slug)) continue;
+
+    const aplicacoes = (segsPorServico.get(sv.id) ?? [])
+      .sort((a, b) => a.ordem - b.ordem)
+      .map((v) => {
+        const seg = segPorId.get(v.segmento_id);
+        return seg ? { segmentSlug: seg.slug, label: seg.nome, note: v.observacao ?? undefined } : null;
+      })
+      .filter(Boolean);
+
+    // So entram obras publicadas: link para projeto despublicado viraria
+    // uma promessa de prova que nao existe mais.
+    const obras = (obrasPorServico.get(sv.id) ?? [])
+      .sort((a, b) => a.ordem - b.ordem)
+      .map((v) => projetoPorIdTodos.get(v.projeto_id)?.slug)
+      .filter((slug) => slug && slugsPublicados.has(slug));
+
+    servicosSaida.push({
+      id: sv.id,
+      slug: sv.slug,
+      categorySlug: cat.slug,
+      title: sv.titulo,
+      description: sv.descricao,
+      promise: sv.promessa ?? undefined,
+      image: (await resolverImagem(sv.imagem, baixados)) ?? '',
+      imageAlt: sv.imagem_alt ?? undefined,
+      problem: sv.problema_paragrafos?.length
+        ? { heading: sv.problema_titulo ?? undefined, paragraphs: sv.problema_paragrafos }
+        : undefined,
+      longDescription: sv.descricao_longa ?? undefined,
+      features: sv.features ?? [],
+      appliesTo: aplicacoes.length ? aplicacoes : undefined,
+      relatedProjectSlugs: obras.length ? obras : undefined,
+      howItWorks: (sv.como_funciona ?? []).map((p) => ({ title: p.titulo, text: p.texto })),
+      technicalInfo: sv.info_tecnica ?? undefined,
+      warranty: sv.garantia ?? undefined,
+      deliveryArea: sv.area_atendimento ?? undefined,
+      faq: sv.faq ?? [],
+      seoTitle: sv.seo_titulo ?? undefined,
+      seoDescription: sv.seo_descricao ?? undefined,
+      ogImage: sv.og_imagem ? await resolverImagem(sv.og_imagem, baixados) : undefined,
+    });
+  }
+
+  if (servicosSaida.length === 0) {
+    pare(
+      'nenhum servico publicado foi encontrado',
+      'Sem servicos, o menu e a pagina /servicos ficariam vazios.',
+      'Verifique no painel se os servicos estao com "Publicado no site" marcado.'
+    );
+  }
+
   // ---------- ENDERECOS DESPUBLICADOS ----------
   // Item que sai do ar nao pode virar erro 404: a URL ja pode estar indexada.
   const despublicados = [
     ...projetos.filter((p) => !p.publicado).map((p) => ({ url: `/projetos/${p.slug}`, ...p })),
     ...artigos.filter((a) => !a.publicado).map((a) => ({ url: `/blog/${a.slug}`, ...a })),
+    ...servicos
+      .filter((sv) => !sv.publicado && catServicoPorId.has(sv.categoria_id))
+      .map((sv) => ({ url: `/servicos/${catServicoPorId.get(sv.categoria_id).slug}/${sv.slug}`, ...sv })),
+    ...servicoCategorias.filter((c) => !c.publicado).map((c) => ({ url: `/servicos/${c.slug}`, ...c })),
   ].map((item) => ({
     url: item.url,
     modo: item.ao_despublicar || 'encerrado',
@@ -287,11 +403,16 @@ async function run() {
       1
     )
   );
+  fs.writeFileSync(
+    path.join(GERADOS, 'servicos.json'),
+    JSON.stringify({ categorias: categoriasServicoSaida, servicos: servicosSaida }, null, 1)
+  );
   fs.writeFileSync(path.join(GERADOS, 'despublicados.json'), JSON.stringify(despublicados, null, 1));
 
   console.log(`  ✓ ${projetosSaida.length} projetos, ${projetosSaida.reduce((n, p) => n + p.photos.length, 0)} fotos`);
   console.log(`  ✓ ${artigosSaida.length} artigos, ${artigosSaida.reduce((n, a) => n + a.content.length, 0)} blocos`);
   if (baixados.length) console.log(`  ✓ ${baixados.length} imagens trazidas do Storage`);
+  console.log(`  ✓ ${servicosSaida.length} servicos em ${categoriasServicoSaida.length} categorias`);
   if (despublicados.length) console.log(`  ✓ ${despublicados.length} enderecos despublicados a tratar`);
 }
 
