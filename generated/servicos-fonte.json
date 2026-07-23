@@ -1,0 +1,1383 @@
+{
+ "categorias": [
+  {
+   "slug": "camara-fria",
+   "title": "Câmara Fria",
+   "description": "Instalação, fabricação, manutenção, reforma e higienização de câmara fria e câmara frigorífica em Maringá e região.",
+   "image": "/images/servicos/categorias/camara-fria.jpg"
+  },
+  {
+   "slug": "refrigeracao-comercial",
+   "title": "Refrigeração Comercial",
+   "description": "Venda, instalação e manutenção de freezer comercial, geladeira comercial, balcão refrigerado, expositores, ilhas, chopeiras e mais equipamentos para o seu negócio em Maringá.",
+   "image": "/images/servicos/categorias/refrigeracao-comercial.jpg"
+  }
+ ],
+ "servicos": [
+  {
+   "id": "1",
+   "slug": "instalacao",
+   "categorySlug": "camara-fria",
+   "title": "Instalação de Câmara Fria",
+   "description": "Instalação de câmara fria e câmara frigorífica para açougue, supermercado, restaurante e distribuidora, com projeto sob medida em Maringá.",
+   "promise": "Projeto dimensionado para o seu produto, o seu movimento e o espaço que você tem.",
+   "image": "/images/servicos/instalacao.jpg",
+   "imageAlt": "Técnico da Refrigóis instalando sistema de refrigeração de câmara fria em estabelecimento comercial",
+   "problem": {
+    "heading": "Câmara mal instalada cobra a conta todo mês",
+    "paragraphs": [
+     "Uma câmara fria instalada sem dimensionamento correto não avisa no primeiro dia. Ela funciona, gela, e o problema só aparece depois: a temperatura que não segura em dia de calor, o compressor que liga mais do que deveria, a conta de energia que sobe sem explicação e a mercadoria que começa a durar menos do que durava.",
+     "Os erros que mais aparecem quando somos chamados para corrigir instalação de terceiros são sempre os mesmos: capacidade calculada pelo tamanho da câmara em vez da carga térmica real, painel fino demais para a temperatura de trabalho, condensadora colocada em local sem ventilação e infraestrutura elétrica improvisada. Nenhum deles é visível no dia da entrega, e todos custam caro depois."
+    ]
+   },
+   "longDescription": "A instalação de câmara fria começa antes do equipamento: no levantamento do que será armazenado, em que temperatura, com que frequência a porta abre e onde existe espaço ventilado para a unidade condensadora. É esse levantamento que define a capacidade do sistema, a espessura do painel isotérmico e o tipo de degelo. Executamos o processo completo, do projeto à entrega, incluindo câmaras com porta de vidro para bares e distribuidoras de bebidas.",
+   "features": [
+    "Levantamento em campo e cálculo de carga térmica",
+    "Montagem de painéis isotérmicos EPS ou PUR",
+    "Instalação de unidade condensadora e evaporadora",
+    "Tubulação frigorífica, dreno e infraestrutura elétrica",
+    "Câmara com porta de vidro (walk-in cooler / beer cave)",
+    "Partida assistida e ajuste dos parâmetros de operação"
+   ],
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Resfriados com temperatura estável e acesso frequente"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Estoque de alto giro, resfriados e congelados"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Espaço reduzido e entrada de produto ainda quente"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Câmara com porta de vidro para exposição e autosserviço"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Porta abrindo dezenas de vezes por dia"
+    },
+    {
+     "segmentSlug": "farmacias",
+     "label": "Farmácias",
+     "note": "Controle rigoroso e registro de temperatura"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "camara-frigorifica-industrial",
+    "refrigeracao-para-acougue",
+    "refrigeracao-para-farmacia"
+   ],
+   "howItWorks": [
+    {
+     "title": "Levantamento",
+     "text": "Conversamos sobre o que será armazenado, em que temperatura e com que movimento. Avaliamos o espaço disponível, o local para a condensadora e a capacidade elétrica existente."
+    },
+    {
+     "title": "Projeto e proposta",
+     "text": "Com os dados em mãos, definimos capacidade do sistema, espessura do painel, tipo de porta e sistema de degelo. Você recebe a especificação do que será instalado, item por item."
+    },
+    {
+     "title": "Execução",
+     "text": "Montagem dos painéis, instalação das unidades, tubulação frigorífica, dreno e ligação elétrica. O acompanhamento é feito por quem executou o projeto, não por terceiros."
+    },
+    {
+     "title": "Partida e entrega",
+     "text": "Colocamos o sistema em operação, ajustamos os parâmetros, conferimos a temperatura em regime e explicamos a rotina de uso e os cuidados que evitam chamado desnecessário."
+    }
+   ],
+   "technicalInfo": "Instalação para câmaras resfriadas (0°C a 5°C) e congeladas (-18°C a -25°C), de pequeno a grande porte, com painéis EPS ou PUR e degelo elétrico ou a gás quente.",
+   "warranty": "12 meses para a instalação completa.",
+   "deliveryArea": "Maringá e região, com atendimento em todo o Paraná para projetos agendados.",
+   "faq": [
+    {
+     "q": "O que vocês precisam saber para dimensionar a câmara?",
+     "a": "Quatro informações resolvem a maior parte do cálculo: o que será armazenado, em que temperatura, quantas vezes a porta abre por dia e se o produto entra frio ou ainda quente. Com isso, mais o espaço disponível e o ponto de instalação da condensadora, o dimensionamento sai de base técnica em vez de estimativa."
+    },
+    {
+     "q": "Dá para instalar câmara fria em espaço pequeno?",
+     "a": "Dá, e é situação comum em restaurantes e padarias. O que limita não costuma ser o espaço interno, e sim encontrar um local ventilado para a unidade condensadora dissipar calor. Esse ponto é avaliado no levantamento, antes de qualquer definição."
+    },
+    {
+     "q": "A câmara pode ser ampliada depois?",
+     "a": "Em muitos casos sim, por ser construída em painéis modulares. Mas a ampliação precisa considerar se o sistema comporta a nova carga térmica. Aumentar o volume sem reavaliar a capacidade resulta em câmara que não alcança a temperatura desejada."
+    },
+    {
+     "q": "Vocês instalam câmara com porta de vidro?",
+     "a": "Sim. É a configuração conhecida como walk-in cooler ou beer cave, usada em distribuidoras de bebidas, bares e lojas de conveniência. Permite exposição e autosserviço sem abrir a câmara inteira a cada retirada."
+    }
+   ],
+   "seoTitle": "Instalação de Câmara Fria em Maringá | Refrigóis",
+   "seoDescription": "Instalação de câmara fria com levantamento em campo e cálculo de carga térmica, para açougue, supermercado, restaurante e distribuidora. Veja como funciona."
+  },
+  {
+   "id": "2",
+   "slug": "fabricacao",
+   "categorySlug": "camara-fria",
+   "title": "Fabricação de Câmara Fria",
+   "description": "Fabricação de câmara fria sob medida para supermercados, açougues, padarias, restaurantes e distribuidoras em Maringá.",
+   "longDescription": "Construção completa de câmaras frias para resfriados (0°C a 5°C) ou congelados (-18°C a -25°C), incluindo modelos com porta de vidro (walk-in cooler / beer cave). Usamos painéis isotérmicos EPS ou PUR com portas de alto desempenho, além de sistemas de frio dimensionados para suportar o fluxo intenso de mercadorias do seu negócio.",
+   "image": "/images/servicos/fabricacao.jpg",
+   "features": [
+    "Isolamento térmico com painéis modulares",
+    "Unidades condensadoras com baixo ruído",
+    "Portas seccionais, de correr ou de vidro",
+    "Quadros de comando com telemetria"
+   ],
+   "technicalInfo": "Fluidos refrigerantes HFC e HFO. Opções de degelo elétrico ou gás quente.",
+   "warranty": "12 meses para projeto completo.",
+   "deliveryArea": "Sul e Centro-Oeste do Brasil.",
+   "promise": "Câmara construída para o seu espaço, e não o seu espaço adaptado à câmara.",
+   "imageAlt": "Montagem de câmara fria em painéis isotérmicos sob medida pela Refrigóis",
+   "problem": {
+    "heading": "Nem todo espaço aceita câmara de catálogo",
+    "paragraphs": [
+     "A maior parte dos estabelecimentos não tem uma área retangular limpa esperando por uma câmara. Tem um canto com pilar no meio, um pé-direito baixo, uma passagem que não pode ser fechada ou uma porta de entrada que limita o tamanho do que consegue entrar montado.",
+     "Quando se força uma câmara pronta nesse espaço, o resultado é perda de área útil, corredor apertado para a movimentação e, com frequência, uma câmara maior do que o necessário consumindo energia à toa. A fabricação sob medida inverte a lógica: o equipamento se ajusta ao lugar que existe."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Câmara integrada à área de manipulação"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Espaço reduzido e alto giro de produto"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Aproveitamento de cantos e desníveis"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Câmaras geminadas de resfriados e congelados"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Câmara com porta de vidro para autosserviço"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "camara-frigorifica-industrial",
+    "bancada-refrigerada-cozinha-profissional",
+    "balcoes-e-ilhas-sob-medida"
+   ],
+   "howItWorks": [
+    {
+     "title": "Medição no local",
+     "text": "Vamos até o espaço, medimos e identificamos o que limita: pilar, pé-direito, largura da porta de entrada, ponto de energia e local possível para a condensadora."
+    },
+    {
+     "title": "Projeto sob medida",
+     "text": "Definimos as dimensões reais da câmara, o posicionamento da porta, o tipo de painel e como o equipamento entra e é montado dentro do estabelecimento."
+    },
+    {
+     "title": "Fabricação",
+     "text": "Os painéis são preparados nas medidas do projeto, junto com portas, batentes e acabamentos."
+    },
+    {
+     "title": "Montagem e partida",
+     "text": "Montagem no local, instalação do sistema, ajuste dos parâmetros e conferência da temperatura em regime de operação."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Câmara sob medida demora mais que uma pronta?",
+     "a": "A fabricação exige o tempo do projeto e da preparação dos painéis, o que uma câmara de catálogo não tem. Em compensação, evita adaptação de obra no local, que é onde os imprevistos aparecem. O prazo é definido caso a caso, depois da medição."
+    },
+    {
+     "q": "Dá para fabricar câmara em espaço com pilar no meio?",
+     "a": "Dá, e é uma das situações em que a fabricação sob medida mais compensa. O painel é projetado contornando o obstáculo, aproveitando a área que uma câmara retangular pronta desperdiçaria."
+    },
+    {
+     "q": "A câmara passa pela porta do estabelecimento?",
+     "a": "É uma das primeiras coisas que verificamos na medição. Como a câmara é montada em painéis modulares no próprio local, o que precisa passar pela porta são as peças, não a câmara inteira."
+    },
+    {
+     "q": "Vocês fabricam câmara com porta de vidro?",
+     "a": "Sim. É a configuração usada em distribuidoras de bebidas, bares e conveniências, em que o cliente enxerga e retira o produto sem abrir a câmara toda."
+    }
+   ],
+   "seoTitle": "Fabricação de Câmara Fria sob Medida | Refrigóis",
+   "seoDescription": "Fabricação de câmara fria sob medida em painéis isotérmicos, projetada para o espaço que você tem: pilar, pé-direito baixo ou área irregular. Veja como funciona."
+  },
+  {
+   "id": "3",
+   "slug": "manutencao",
+   "categorySlug": "camara-fria",
+   "title": "Manutenção e Conserto de Câmara Fria",
+   "description": "Manutenção preventiva e conserto de câmara fria para supermercados, restaurantes, açougues e centros de distribuição, com atendimento rápido em Maringá e região.",
+   "longDescription": "A manutenção e o conserto de câmara fria são essenciais para evitar perda de mercadoria, quebra de temperatura e paradas inesperadas que geram prejuízo. Nossa equipe técnica realiza diagnóstico completo do sistema, troca de componentes desgastados, verificação de vedação das portas e ajuste do controle de temperatura. Também oferecemos contratos de manutenção preventiva periódica, com visitas programadas que evitam quebras inesperadas.",
+   "image": "/images/servicos/manutencao.jpg",
+   "features": [
+    "Diagnóstico completo do sistema de refrigeração",
+    "Conserto e reparo de vazamentos de gás",
+    "Verificação e substituição de borrachas de vedação",
+    "Contratos de manutenção preventiva periódica"
+   ],
+   "technicalInfo": "Atendimento a câmaras frias resfriadas (0°C a 5°C) e congeladas (-18°C a -25°C), com unidades condensadoras de qualquer porte.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Diagnóstico do que realmente está errado, não troca de peça por tentativa.",
+   "imageAlt": "Técnico da Refrigóis realizando manutenção em sistema de refrigeração de câmara fria",
+   "problem": {
+    "heading": "A parada quase nunca é surpresa",
+    "paragraphs": [
+     "Câmara fria costuma avisar antes de parar. A temperatura que passa a oscilar, o compressor que liga com mais frequência, o gelo que aparece onde não aparecia e a conta de energia que sobe sem mudança de rotina são todos sinais de um sistema trabalhando em esforço.",
+     "O problema é que esses avisos são discretos e a operação continua funcionando, então são naturalmente ignorados — até o dia em que a falha se completa, quase sempre em dia de calor ou de movimento alto, com a câmara cheia. É nesse momento que o prejuízo deixa de ser o reparo e passa a ser a mercadoria."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Resfriados não toleram oscilação"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Vários equipamentos, parada em cadeia"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Atendimento fora do horário de operação"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Condensador exposto a gordura e farinha"
+    },
+    {
+     "segmentSlug": "farmacias",
+     "label": "Farmácias",
+     "note": "Registro e conformidade sanitária"
+    },
+    {
+     "segmentSlug": "sorveterias",
+     "label": "Sorveterias",
+     "note": "Faixa negativa e pico sazonal"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "camara-frigorifica-industrial",
+    "refrigeracao-de-supermercado",
+    "refrigeracao-para-restaurante"
+   ],
+   "howItWorks": [
+    {
+     "title": "Contato e triagem",
+     "text": "Você descreve o sintoma: parou, gela pouco, faz barulho novo, vaza água. Algumas perguntas já indicam se é caso de emergência ou de visita programada."
+    },
+    {
+     "title": "Diagnóstico no local",
+     "text": "Medição de pressões e corrente, avaliação do comando elétrico, verificação de vedação, degelo e condensador. O objetivo é achar a causa, não trocar peça por tentativa."
+    },
+    {
+     "title": "Reparo",
+     "text": "Executamos o serviço explicando o que foi encontrado e por quê. Quando há vazamento de gás, localizamos e reparamos antes de recarregar — completar sem reparar só adia o problema."
+    },
+    {
+     "title": "Orientação",
+     "text": "Ao final, apontamos o que provocou a falha e o que muda na rotina para não repetir: limpeza do condensador, vedação, cortina, organização interna."
+    }
+   ],
+   "faq": [
+    {
+     "q": "A câmara está gelando pouco. É urgente?",
+     "a": "Gelar menos significa que o sistema já está trabalhando no limite, e é nessa condição que a parada total acontece em dia de calor. Antes de acionar, verifique vedação da porta, excesso de gelo no evaporador e limpeza da condensadora. Se estiverem em ordem, é caso de avaliação técnica."
+    },
+    {
+     "q": "Vocês atendem emergência?",
+     "a": "Sim. Cheiro de queimado, ruído metálico no compressor, disjuntor desarmando repetidamente ou câmara cheia parada são situações que priorizamos, porque cada hora fora da faixa custa mercadoria."
+    },
+    {
+     "q": "Só completar o gás resolve?",
+     "a": "Não. Gás refrigerante não se consome com o uso: se o nível caiu, existe vazamento. Completar sem localizar e reparar faz o gás ir embora de novo e o compressor trabalhar sem a refrigeração interna que o próprio gás fornece."
+    },
+    {
+     "q": "Vale a pena contrato de manutenção preventiva?",
+     "a": "Depende da criticidade da operação. Onde a parada significa perder mercadoria ou fechar o atendimento, a preventiva deixa de ser gasto e vira seguro. Ela também reduz consumo, porque restaura as condições de projeto do equipamento."
+    }
+   ],
+   "seoTitle": "Manutenção e Conserto de Câmara Fria em Maringá | Refrigóis",
+   "seoDescription": "Manutenção e conserto de câmara fria com diagnóstico da causa real: pressões, comando elétrico, degelo e vedação. Atendimento de emergência e preventiva."
+  },
+  {
+   "id": "4",
+   "slug": "reforma",
+   "categorySlug": "camara-fria",
+   "title": "Reforma de Câmara Fria",
+   "description": "Reforma e modernização de câmara fria: troca de isolamento, painéis, portas e atualização do sistema de refrigeração em Maringá.",
+   "longDescription": "A reforma de câmara fria atualiza o sistema de refrigeração, isolamento e componentes estruturais de uma câmara já existente, estendendo sua vida útil e reduzindo o consumo de energia. Fazemos análise técnica completa antes de propor a reforma, incluindo troca de painéis, portas, evaporadores e unidades condensadoras.",
+   "image": "/images/servicos/reforma.jpg",
+   "features": [
+    "Análise técnica e diagnóstico completo",
+    "Troca de painéis isotérmicos e portas",
+    "Atualização de evaporadores e unidades condensadoras",
+    "Modernização do sistema de controle"
+   ],
+   "technicalInfo": "Reformas parciais (isolamento, portas) ou completas (retrofit total do sistema de refrigeração).",
+   "warranty": "12 meses para os componentes reformados.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Câmara antiga recuperada custa menos e consome menos que conviver com ela do jeito que está.",
+   "imageAlt": "Reforma de câmara fria com substituição de painéis e vedações",
+   "problem": {
+    "heading": "Câmara velha não avisa que está cara",
+    "paragraphs": [
+     "Uma câmara com anos de uso raramente para de funcionar de vez. Ela vai perdendo eficiência aos poucos: borracha ressecada que deixa entrar ar quente o tempo todo, painel com infiltração que perdeu poder de isolamento, porta desalinhada, piso comprometido e um sistema que compensa tudo isso funcionando mais horas por dia.",
+     "Como a temperatura ainda é alcançada, o problema passa despercebido — e aparece na conta de energia, no compressor que trabalha sem descanso e na mercadoria que dura um pouco menos. Reformar costuma custar bem menos que substituir, e devolve a condição de projeto."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Recuperação de piso e vedação"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Modernização sem parar a operação inteira"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Câmara herdada do ponto anterior"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Troca de porta e cortina de alto uso"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "camara-frigorifica-industrial",
+    "refrigeracao-de-supermercado"
+   ],
+   "howItWorks": [
+    {
+     "title": "Avaliação do estado",
+     "text": "Verificamos isolamento, integridade dos painéis, vedações, porta, dreno, piso e o desempenho do sistema. O resultado é uma lista do que compensa recuperar e do que já não compensa."
+    },
+    {
+     "title": "Escopo definido",
+     "text": "Você recebe o que será feito, item por item, com o que muda em consumo e em conservação. Também dizemos quando substituir sai melhor do que reformar."
+    },
+    {
+     "title": "Execução",
+     "text": "Substituição de painéis comprometidos, vedações, porta e componentes do sistema, com o cuidado de reduzir o tempo com a câmara fora de operação."
+    },
+    {
+     "title": "Conferência",
+     "text": "Sistema em operação, temperatura conferida em regime e ajuste dos parâmetros de acordo com o uso real do estabelecimento."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Como sei se vale reformar ou trocar?",
+     "a": "A avaliação olha isolamento, gabinete, idade dos componentes e qual gás o sistema usa. Estrutura sã com sistema desgastado normalmente compensa reformar. Painel encharcado, estrutura comprometida ou gás em desuso empurram para a substituição — e nós dizemos isso quando é o caso."
+    },
+    {
+     "q": "A câmara precisa ficar parada durante a reforma?",
+     "a": "Depende do escopo. Troca de vedação e ajustes pontuais são rápidos. Substituição de painéis exige a câmara vazia. Isso é combinado antes, para você planejar o estoque e o atendimento."
+    },
+    {
+     "q": "Reforma reduz a conta de energia?",
+     "a": "Reduz, e costuma ser o retorno mais visível. Vedação recuperada, isolamento íntegro e condensador limpo fazem o sistema parar de compensar perda contínua de frio."
+    },
+    {
+     "q": "Dá para aumentar a câmara na reforma?",
+     "a": "Em muitos casos sim, por ser construída em painéis modulares. Mas ampliar exige reavaliar a capacidade do sistema: aumentar o volume sem isso resulta em câmara que não alcança a temperatura."
+    }
+   ],
+   "seoTitle": "Reforma de Câmara Fria em Maringá | Refrigóis",
+   "seoDescription": "Reforma de câmara fria: painéis, vedação, porta e sistema recuperados para devolver temperatura estável e reduzir consumo. Avaliação do que compensa reformar."
+  },
+  {
+   "id": "5",
+   "slug": "higienizacao",
+   "categorySlug": "camara-fria",
+   "title": "Higienização de Câmara Fria",
+   "description": "Higienização e limpeza especializada de câmara fria para garantir segurança sanitária e desempenho, em Maringá e região.",
+   "longDescription": "A higienização de câmara fria remove o acúmulo de gelo, mofo e resíduos que comprometem a segurança sanitária e a eficiência do equipamento. Realizamos limpeza especializada interna e externa, incluindo evaporadores e drenos, mantendo sua câmara fria dentro das exigências da vigilância sanitária.",
+   "image": "/images/servicos/higienizacao.jpg",
+   "features": [
+    "Limpeza interna e externa especializada",
+    "Higienização de evaporadores e drenos",
+    "Remoção de gelo acumulado e mofo",
+    "Adequação às normas da vigilância sanitária"
+   ],
+   "technicalInfo": "Higienização recomendada a cada 6 meses, ou conforme exigência do seu segmento (alimentício, farmacêutico).",
+   "warranty": "Relatório de serviço para fins de auditoria sanitária.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Limpeza técnica que atende à vigilância sanitária e devolve eficiência ao equipamento.",
+   "imageAlt": "Higienização técnica de câmara fria em estabelecimento de alimentos",
+   "problem": {
+    "heading": "Sujeira em câmara fria não é só aparência",
+    "paragraphs": [
+     "Câmara de alimentos acumula resíduo, gordura e umidade mesmo com limpeza diária de rotina. Com o tempo, isso vira odor que passa para o produto, risco de contaminação cruzada e não conformidade na fiscalização sanitária.",
+     "Existe ainda o efeito que quase ninguém associa: sujeira nas aletas do evaporador e do condensador altera a troca de calor. O equipamento passa a trabalhar mais tempo para produzir o mesmo frio, e a limpeza técnica devolve eficiência junto com a higiene."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Contato direto com produto in natura"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Cozinha com gordura em suspensão"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Farinha e gordura no ar"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Rotina periódica em vários equipamentos"
+    },
+    {
+     "segmentSlug": "farmacias",
+     "label": "Farmácias",
+     "note": "Exigência de registro e conformidade"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "refrigeracao-para-acougue",
+    "refrigeracao-para-restaurante"
+   ],
+   "howItWorks": [
+    {
+     "title": "Programação",
+     "text": "Combinamos horário que não atrapalhe o atendimento e orientamos como esvaziar ou realocar o produto durante o serviço."
+    },
+    {
+     "title": "Limpeza técnica",
+     "text": "Higienização de paredes, piso, teto, prateleiras, porta e vedações, com produtos adequados a ambiente de alimentos."
+    },
+    {
+     "title": "Componentes do sistema",
+     "text": "Limpeza do evaporador, do condensador e do dreno — a parte que a limpeza de rotina não alcança e que mais afeta consumo."
+    },
+    {
+     "title": "Entrega e orientação",
+     "text": "Câmara liberada para operação, com orientação sobre a frequência adequada ao seu ambiente e o que a equipe pode manter no dia a dia."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Com que frequência higienizar a câmara?",
+     "a": "Depende do produto e do ambiente. Açougue e cozinha com gordura no ar exigem intervalo menor que uma câmara de estoque de embalados. A inspeção define a frequência adequada ao seu caso."
+    },
+    {
+     "q": "A higienização ajuda na fiscalização sanitária?",
+     "a": "Ajuda, principalmente quando existe registro do serviço. Higienização periódica documentada é evidência de controle, no mesmo espírito da planilha de temperatura."
+    },
+    {
+     "q": "Preciso esvaziar a câmara?",
+     "a": "Para a limpeza completa, sim — inclusive para alcançar prateleiras, cantos e o evaporador. Por isso combinamos horário e orientamos a realocação do produto antes."
+    },
+    {
+     "q": "Limpeza comum da equipe não basta?",
+     "a": "A limpeza diária é essencial e deve continuar. O que ela não alcança é o evaporador, o condensador e o dreno, que exigem procedimento técnico e são justamente os pontos que afetam o consumo."
+    }
+   ],
+   "seoTitle": "Higienização de Câmara Fria em Maringá | Refrigóis",
+   "seoDescription": "Higienização técnica de câmara fria: paredes, prateleiras, vedações, evaporador, condensador e dreno. Conformidade sanitária e recuperação de eficiência."
+  },
+  {
+   "id": "6",
+   "slug": "freezer-comercial",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Freezer Comercial",
+   "description": "Venda, instalação e manutenção de freezer comercial para supermercados, açougues, padarias e distribuidoras em Maringá.",
+   "longDescription": "Fabricamos, instalamos e damos manutenção em freezers comerciais horizontais e verticais para armazenamento e exposição de congelados. Se o seu freezer comercial parou ou perdeu eficiência, atendemos com agilidade para não deixar mercadoria em risco.",
+   "image": "/images/servicos/freezer-comercial.jpg",
+   "features": [
+    "Fabricação e venda sob medida",
+    "Instalação técnica completa",
+    "Manutenção preventiva e conserto",
+    "Diagnóstico de falhas em compressor e gás"
+   ],
+   "technicalInfo": "Atendimento a freezers comerciais horizontais e verticais de qualquer marca e porte.",
+   "warranty": "90 dias em serviços, 12 meses em fabricação própria.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Congelamento estável, sem oscilação que estraga produto por dentro.",
+   "imageAlt": "Freezer comercial em operação em estabelecimento de alimentos",
+   "problem": {
+    "heading": "Congelado não perdoa oscilação",
+    "paragraphs": [
+     "Produto congelado suporta bem temperatura baixa e constante. O que ele não suporta é variação. Cada subida e descida forma cristais de gelo dentro do alimento, e o resultado aparece na textura, na cor e na perda de peso depois do descongelamento — mesmo que o freezer pareça estar gelando.",
+     "É por isso que freezer doméstico adaptado ao uso comercial dá problema: ele foi projetado para abrir poucas vezes por dia. Em balcão de loja, com dezenas de aberturas, ele nunca recupera a temperatura por completo e trabalha em ciclo permanente."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Alto giro e reposição constante"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Estoque de insumo em cozinha"
+    },
+    {
+     "segmentSlug": "sorveterias",
+     "label": "Sorveterias",
+     "note": "Faixa mais baixa, entre -18 °C e -25 °C"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Massa congelada e pré-assados"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "ilhas-de-congelados",
+    "expositores-comerciais"
+   ],
+   "howItWorks": [
+    {
+     "title": "Definição do uso",
+     "text": "O que será congelado, em que faixa e com que frequência de acesso. É isso que separa um freezer de estoque de um de exposição."
+    },
+    {
+     "title": "Especificação",
+     "text": "Indicamos capacidade, tipo de porta, circulação de ar e sistema de degelo adequados, com fabricação sob medida quando o espaço exige."
+    },
+    {
+     "title": "Instalação",
+     "text": "Posicionamento com ventilação adequada, ligação elétrica e ajuste do controlador para a faixa de trabalho definida."
+    },
+    {
+     "title": "Acompanhamento",
+     "text": "Orientação de uso e rotina de conservação, além de manutenção preventiva quando o equipamento é crítico para a operação."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Freezer comercial pode operar como geladeira?",
+     "a": "Alguns modelos permitem faixa dupla, mas a maioria é projetada para uma faixa. Operar fora dela gera formação de gelo, ciclos irregulares e desgaste do compressor."
+    },
+    {
+     "q": "Por que meu freezer forma muito gelo?",
+     "a": "Camada fina entre degelos é normal. Bloco espesso indica falha no sistema de degelo, vedação comprometida ou entrada excessiva de ar úmido pela abertura frequente da porta."
+    },
+    {
+     "q": "Freezer doméstico serve para o comércio?",
+     "a": "Não é adequado. Ele foi dimensionado para poucas aberturas diárias e não recupera temperatura no ritmo de uma loja, o que compromete a conservação e encurta a vida do equipamento."
+    },
+    {
+     "q": "Vocês fabricam freezer sob medida?",
+     "a": "Sim. Em espaços apertados ou com layout irregular, o equipamento de linha desperdiça área útil. A fabricação ajusta o gabinete ao espaço disponível."
+    }
+   ],
+   "seoTitle": "Freezer Comercial em Maringá: Venda e Assistência | Refrigóis",
+   "seoDescription": "Freezer comercial dimensionado para o seu uso: faixa de congelamento, tipo de porta, degelo e circulação de ar. Fabricação sob medida e assistência técnica."
+  },
+  {
+   "id": "7",
+   "slug": "geladeira-comercial",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Geladeira Comercial",
+   "description": "Venda, instalação e manutenção de geladeira comercial para bares, restaurantes, lanchonetes e mercados em Maringá.",
+   "longDescription": "A geladeira comercial precisa aguentar rotina pesada de abre e fecha, dia após dia. Fazemos manutenção preventiva e corretiva, além de fabricação sob medida para necessidades específicas do seu negócio, sempre priorizando o funcionamento contínuo e a economia de energia.",
+   "image": "/images/servicos/geladeira-comercial.jpg",
+   "features": [
+    "Diagnóstico de falhas em compressor e gás refrigerante",
+    "Troca de termostato e controlador digital",
+    "Recarga de gás refrigerante",
+    "Substituição de borrachas de vedação"
+   ],
+   "technicalInfo": "Atendimento a geladeiras comerciais de qualquer marca e porte.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Temperatura uniforme em todas as prateleiras, não só perto do evaporador.",
+   "imageAlt": "Geladeira comercial de porta cega instalada em área de produção",
+   "problem": {
+    "heading": "Nem toda prateleira gela igual",
+    "paragraphs": [
+     "Em refrigeração comercial, a queixa mais comum não é o equipamento que não gela — é o que gela de forma desigual. Produto na prateleira de baixo em temperatura correta e o de cima fora da faixa, ou o contrário, dependendo de como o ar circula dentro do gabinete.",
+     "Isso tem causa: sistemas sem circulação forçada distribuem o frio por convecção natural, e a diferença entre partes do gabinete pode ser grande. Onde o acesso é frequente e o produto é sensível, isso se traduz em perda que ninguém contabiliza."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Insumo em uso constante na cozinha"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Recheios, laticínios e massa refrigerada"
+    },
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Resfriados que não toleram variação"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Retaguarda e reposição"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "bancada-refrigerada-cozinha-profissional",
+    "refrigeracao-para-restaurante"
+   ],
+   "howItWorks": [
+    {
+     "title": "Levantamento",
+     "text": "Que produto será conservado, em que faixa e com que frequência de acesso. Também avaliamos onde o equipamento vai ficar e o que há em volta."
+    },
+    {
+     "title": "Especificação",
+     "text": "Definimos capacidade, tipo de porta, circulação de ar e prateleiras, considerando se a função é conservar ou expor."
+    },
+    {
+     "title": "Instalação",
+     "text": "Posicionamento com espaço livre para a troca de calor, ligação elétrica e ajuste do controlador."
+    },
+    {
+     "title": "Orientação",
+     "text": "Como organizar o interior sem bloquear o fluxo de ar — que é o que faz a temperatura ficar desigual."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Qual a diferença entre ar forçado e refrigeração estática?",
+     "a": "Na estática o frio se distribui por convecção natural, o que costuma gerar diferença entre prateleiras. No ar forçado, ventiladores movimentam o ar, dando uniformidade e recuperação mais rápida depois da abertura da porta."
+    },
+    {
+     "q": "Porta de vidro consome muito mais?",
+     "a": "Consome mais que uma porta cega equivalente, porque o vidro tem troca térmica maior. Vale quando a função é expor produto; para conservação na retaguarda, a porta cega é mais eficiente."
+    },
+    {
+     "q": "Por que a geladeira gela demais em alguns pontos?",
+     "a": "Normalmente é produto encostado no evaporador ou empilhado de forma a bloquear a circulação. Também pode ser controlador descalibrado ou sensor mal posicionado."
+    },
+    {
+     "q": "Geladeira doméstica atende um comércio pequeno?",
+     "a": "Atende mal. Ela é projetada para poucas aberturas por dia, e em uso comercial trabalha em ciclo constante, com conservação irregular e vida útil reduzida."
+    }
+   ],
+   "seoTitle": "Geladeira Comercial em Maringá: Venda e Assistência | Refrigóis",
+   "seoDescription": "Geladeira comercial com temperatura uniforme: circulação de ar, tipo de porta e capacidade definidos pelo seu uso. Fabricação sob medida e assistência técnica."
+  },
+  {
+   "id": "8",
+   "slug": "balcao-refrigerado",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Balcão Refrigerado",
+   "description": "Fabricação, instalação e manutenção de balcão refrigerado e vitrine refrigerada para açougue, padaria e lanchonete em Maringá.",
+   "longDescription": "Balcão refrigerado e vitrine refrigerada exigem atenção constante à vedação, ao motor e ao sistema de ar forçado para manter a exposição dos produtos sempre na temperatura certa. Fabricamos sob medida em aço inox e também fazemos manutenção preventiva e corretiva, evitando embaçamento de vidros e perda de produtos expostos.",
+   "image": "/images/servicos/balcao-refrigerado.jpg",
+   "features": [
+    "Fabricação sob medida em aço inox",
+    "Troca de motor e compressor",
+    "Reparo e troca de vidros",
+    "Ajuste do sistema de ar forçado"
+   ],
+   "technicalInfo": "Atendimento a balcões e vitrines refrigeradas de açougue, padaria, confeitaria e lanchonete.",
+   "warranty": "90 dias em serviços, 12 meses em fabricação própria.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "O equipamento que fica entre você e o cliente — e por isso precisa vender também.",
+   "imageAlt": "Balcão refrigerado em aço inox com vidro curvo no atendimento de estabelecimento comercial",
+   "problem": {
+    "heading": "O balcão é o ponto de venda, não só um equipamento",
+    "paragraphs": [
+     "O balcão refrigerado ocupa o lugar mais valioso da loja: a linha de atendimento. É por ele que o cliente decide o que leva, e é nele que a aparência do produto pesa tanto quanto a conservação.",
+     "Quando o balcão é escolhido só pela medida, sem pensar em iluminação, altura de exposição e integração com o restante do atendimento, o produto fica bem conservado e mal apresentado. E balcão de linha em loja de layout irregular costuma sobrar espaço em um canto e faltar no outro."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Vitrine curva para cortes resfriados"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Doces, salgados e frios no atendimento"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Frios, laticínios e rotisseria"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Exposição em serviço de balcão"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "acougue-casa-de-carnes-sao-jose",
+    "confeitaria-vitrines-premium",
+    "padaria-com-charcutaria"
+   ],
+   "howItWorks": [
+    {
+     "title": "Medição e layout",
+     "text": "Medimos o espaço de atendimento e entendemos o fluxo: por onde o cliente chega, onde a equipe trabalha e o que precisa ficar à vista."
+    },
+    {
+     "title": "Projeto",
+     "text": "Definimos formato, acabamento, tipo de vidro, iluminação e como o balcão conversa com a marcenaria e o restante da loja."
+    },
+    {
+     "title": "Fabricação",
+     "text": "Produção sob medida em aço inox e vidro, com o acabamento escolhido para a identidade da loja."
+    },
+    {
+     "title": "Instalação e partida",
+     "text": "Montagem no local, ligação, ajuste de temperatura e conferência da exposição com o produto real dentro."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Balcão sob medida compensa em relação ao de linha?",
+     "a": "Compensa quando o espaço é irregular, quando há necessidade de integrar com marcenaria ou quando o formato de linha desperdiça área de atendimento. Em espaço padrão e layout simples, o de linha resolve."
+    },
+    {
+     "q": "Vidro curvo ou vidro reto?",
+     "a": "O curvo tem apelo visual maior e é tradicional em açougues e confeitarias. O reto costuma facilitar a limpeza e o aproveitamento em linhas modulares longas. A escolha é estética e de operação, não de conservação."
+    },
+    {
+     "q": "Dá para integrar o balcão à marcenaria da loja?",
+     "a": "Sim, e é o que fazemos com frequência. O equipamento é projetado para acoplar ao balcão de madeira ou ao mobiliário planejado, mantendo a estética sem comprometer a refrigeração."
+    },
+    {
+     "q": "Que iluminação valoriza o produto?",
+     "a": "Iluminação em LED posicionada para incidir sobre o produto, não sobre o vidro. Além do apelo visual, gera pouco calor dentro do gabinete, o que ajuda o sistema em vez de atrapalhar."
+    }
+   ],
+   "seoTitle": "Balcão Refrigerado sob Medida em Maringá | Refrigóis",
+   "seoDescription": "Balcão refrigerado em aço inox sob medida, com vidro curvo ou reto e iluminação em LED, integrado à marcenaria da loja. Veja obras executadas."
+  },
+  {
+   "id": "9",
+   "slug": "expositor-refrigerado",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Expositor Refrigerado",
+   "description": "Venda, instalação e manutenção de expositor vertical refrigerado (1, 2 ou 3 portas) para bares, mercados e conveniências em Maringá.",
+   "longDescription": "O expositor vertical refrigerado é a geladeira expositora com porta de vidro que todo bar, mercado ou loja de conveniência precisa: visibilidade total do produto e fechamento automático da porta para economia de energia. Fazemos manutenção preventiva e corretiva, corrigindo problemas de vedação, embaçamento de vidro e falhas no compressor.",
+   "image": "/images/servicos/expositor-refrigerado.jpg",
+   "features": [
+    "Disponível com 1, 2 ou 3 portas",
+    "Reparo e ajuste de portas de vidro",
+    "Troca de borrachas de vedação",
+    "Manutenção de motor e compressor"
+   ],
+   "technicalInfo": "Atendimento a expositores verticais de qualquer marca e número de portas.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Produto à vista, gelado e ao alcance — sem o cliente precisar pedir.",
+   "imageAlt": "Expositor refrigerado vertical com portas de vidro abastecido de bebidas",
+   "problem": {
+    "heading": "Produto que não é visto não é comprado",
+    "paragraphs": [
+     "Bebida e itens de consumo imediato dependem de impulso. Guardados na retaguarda, saem quando o cliente pede; expostos e gelados, saem porque ele viu. É uma diferença que aparece direto no ticket.",
+     "O erro comum é tratar o expositor como um armário gelado qualquer. Ele é sensível ao ambiente: instalado perto de porta de entrada, sob saída de ar-condicionado ou sem espaço para dissipar calor, perde temperatura justamente no dia de mais movimento."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Autosserviço de bebidas e porções"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Alto volume e reposição constante"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Corredor de bebidas e laticínios"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Exposição no salão"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "panificadora-duda-mel",
+    "expositores-comerciais"
+   ],
+   "howItWorks": [
+    {
+     "title": "Definição do uso",
+     "text": "Que produto será exposto, em que temperatura e com que giro. Isso define portas, prateleiras e capacidade."
+    },
+    {
+     "title": "Posicionamento",
+     "text": "Avaliamos onde o equipamento vai ficar: corrente de ar, proximidade de fonte de calor e espaço livre para a troca térmica."
+    },
+    {
+     "title": "Fornecimento ou fabricação",
+     "text": "Equipamento de linha quando atende, sob medida quando o espaço ou a identidade visual da loja pedem."
+    },
+    {
+     "title": "Instalação e ajuste",
+     "text": "Montagem, ligação, ajuste de temperatura e orientação de abastecimento para não bloquear a circulação de ar."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Expositor com porta ou sem porta?",
+     "a": "Com porta consome menos e mantém temperatura mais estável. Sem porta facilita a retirada e favorece o impulso, mas é bem mais sensível ao ambiente da loja. A escolha depende do fluxo e do tipo de produto."
+    },
+    {
+     "q": "Posso aplicar a identidade visual da minha loja?",
+     "a": "Sim. Adesivagem e acabamento personalizado são comuns, e transformam o equipamento em ponto de marca dentro da loja."
+    },
+    {
+     "q": "Por que o expositor perde temperatura em dia cheio?",
+     "a": "Abertura frequente, produto acima da linha de carga, corrente de ar incidindo no equipamento ou condensador sem espaço para dissipar calor. Em dia de movimento, esses fatores se somam."
+    },
+    {
+     "q": "Prateleira cheia ajuda ou atrapalha?",
+     "a": "Produto bem distribuído ajuda, porque funciona como massa térmica. O que atrapalha é empilhar acima do limite indicado, o que bloqueia a circulação e deixa os itens do topo fora da faixa."
+    }
+   ],
+   "seoTitle": "Expositor Refrigerado para Loja em Maringá | Refrigóis",
+   "seoDescription": "Expositor refrigerado vertical para bebidas e produtos de consumo imediato, com ou sem porta, de linha ou sob medida, com identidade visual da loja aplicada."
+  },
+  {
+   "id": "10",
+   "slug": "ilha-refrigerada",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Ilha Refrigerada",
+   "description": "Venda, instalação e manutenção de ilha refrigerada (ilha de congelados / freezer ilha) para supermercados e lojas de conveniência em Maringá.",
+   "longDescription": "A ilha refrigerada, também conhecida como ilha de congelados ou freezer ilha, é o equipamento horizontal aberto usado em supermercados e conveniências para expor congelados e bebidas, com tampa de vidro deslizante. Fazemos manutenção preventiva e corretiva, corrigindo falhas de compressor, vedação da tampa e sistema de degelo.",
+   "image": "/images/servicos/ilha-refrigerada.jpg",
+   "features": [
+    "Diagnóstico de falhas no compressor",
+    "Ajuste e troca de vedação da tampa de vidro",
+    "Manutenção do sistema de degelo",
+    "Calibração do controlador de temperatura"
+   ],
+   "technicalInfo": "Atendimento a ilhas refrigeradas de 2 a 3 metros, de qualquer marca.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Congelado exposto no meio do salão, sem bloquear a visão da loja.",
+   "imageAlt": "Ilha refrigerada de congelados instalada no salão de loja",
+   "problem": {
+    "heading": "Ocupar o centro da loja sem fechar o salão",
+    "paragraphs": [
+     "A ilha refrigerada resolve um problema específico: expor produto no meio da área de circulação sem criar uma parede. Por ser baixa, o cliente enxerga a loja inteira por cima dela, o que ajuda na orientação e mantém as outras seções à vista.",
+     "Em compensação, ela é o formato mais sensível do salão. Trabalha mantendo uma cortina de ar frio no topo, que se rompe com corrente de ar, com ar-condicionado apontado na direção errada e com produto empilhado acima da linha de carga — justamente os itens que o cliente pega primeiro."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Congelados e promoções no centro do salão"
+    },
+    {
+     "segmentSlug": "sorveterias",
+     "label": "Sorveterias",
+     "note": "Exposição em faixa negativa"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Volume alto com reposição rápida"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "ilhas-de-congelados",
+    "balcoes-e-ilhas-sob-medida"
+   ],
+   "howItWorks": [
+    {
+     "title": "Estudo do salão",
+     "text": "Avaliamos circulação, fluxo de ar e onde a ilha rende mais sem atrapalhar a passagem."
+    },
+    {
+     "title": "Definição do formato",
+     "text": "Reta, em linha ou em formato especial, conforme o espaço e o comportamento de compra que se quer favorecer."
+    },
+    {
+     "title": "Instalação",
+     "text": "Posicionamento longe de corrente de ar direta, ligação e ajuste da temperatura de trabalho."
+    },
+    {
+     "title": "Orientação de operação",
+     "text": "Como abastecer respeitando a linha de carga e qual rotina de limpeza o formato exige."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Ilha ou expositor vertical?",
+     "a": "Vertical ocupa pouca área de piso e expõe na altura dos olhos, favorecendo compra planejada. Ilha ocupa área mas preserva a visão do salão e favorece impulso. Na prática, o layout costuma decidir antes de qualquer outro critério."
+    },
+    {
+     "q": "Por que os produtos de cima ficam menos gelados?",
+     "a": "Porque a cortina de ar frio se forma no topo do gabinete. Produto empilhado acima da linha de carga rompe essa cortina e fica fora da faixa, mesmo com o equipamento funcionando bem."
+    },
+    {
+     "q": "Posso instalar a ilha perto da entrada?",
+     "a": "Pode, e é boa posição para impulso, desde que não fique na corrente de ar direta da porta. Ar externo quente e úmido rompendo a cortina prejudica a temperatura e aumenta a formação de gelo."
+    },
+    {
+     "q": "Ilha aberta consome muito?",
+     "a": "Consome mais que um equivalente fechado, porque a perda é contínua e não apenas na abertura. A contrapartida é o acesso livre, que favorece a venda por impulso."
+    }
+   ],
+   "seoTitle": "Ilha Refrigerada para Supermercado em Maringá | Refrigóis",
+   "seoDescription": "Ilha refrigerada para congelados e promoções: expõe no centro do salão sem bloquear a visão da loja. Formatos de linha e sob medida. Veja obras executadas."
+  },
+  {
+   "id": "11",
+   "slug": "mesa-refrigerada",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Mesa Refrigerada",
+   "description": "Fabricação, instalação e manutenção de mesa refrigerada para pizzarias, lanchonetes e cozinhas industriais em Maringá.",
+   "longDescription": "A mesa refrigerada (também chamada de pista fria ou bancada refrigerada) é essencial em pizzarias, lanchonetes e cozinhas industriais para manter ingredientes na temperatura correta durante o preparo. Fabricamos sob medida em aço inox e fazemos manutenção preventiva e corretiva para garantir refrigeração uniforme.",
+   "image": "/images/servicos/mesa-refrigerada.jpg",
+   "features": [
+    "Fabricação sob medida em aço inox",
+    "Cuba fria (pista fria) para ingredientes",
+    "Manutenção de compressor e gás refrigerante",
+    "Ajuste de sistema de ar forçado"
+   ],
+   "technicalInfo": "Atendimento a mesas/bancadas refrigeradas de qualquer marca e porte.",
+   "warranty": "90 dias em serviços, 12 meses em fabricação própria.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Insumo gelado ao alcance da mão, sem a equipe abrir a câmara a cada pedido.",
+   "imageAlt": "Mesa refrigerada em aço inox instalada na linha de produção de cozinha profissional",
+   "problem": {
+    "heading": "Cada ida à câmara custa tempo e temperatura",
+    "paragraphs": [
+     "Em cozinha de movimento, a equipe abre a câmara dezenas de vezes por turno para buscar o mesmo insumo. Cada abertura tira o cozinheiro da linha e joga ar quente dentro da câmara, que passa o dia recuperando temperatura.",
+     "A mesa refrigerada resolve os dois de uma vez: mantém o que está em uso na própria bancada, refrigerado e ao alcance, e serve de superfície de trabalho. A câmara volta a ser estoque, que é a função dela."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Linha de montagem e pista fria"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Recheios e produção de confeitaria"
+    },
+    {
+     "segmentSlug": "acougues",
+     "label": "Açougues",
+     "note": "Área de manipulação e porcionamento"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "bancada-refrigerada-cozinha-profissional",
+    "refrigeracao-para-restaurante"
+   ],
+   "howItWorks": [
+    {
+     "title": "Estudo da bancada",
+     "text": "Vemos como a linha trabalha: o que fica ao alcance, onde há chapa, forno e coifa, e qual altura de trabalho a equipe usa."
+    },
+    {
+     "title": "Projeto sob medida",
+     "text": "Dimensões, número de portas ou gavetas, tipo de tampo e se haverá cuba de insumos na parte superior."
+    },
+    {
+     "title": "Fabricação em inox",
+     "text": "Produção em aço inox adequado a ambiente de alimentos, com acabamento que facilita a limpeza diária."
+    },
+    {
+     "title": "Instalação",
+     "text": "Montagem na posição definida, com ventilação garantida mesmo em bancada encaixada, ligação e ajuste de temperatura."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Mesa refrigerada pode ficar ao lado da chapa?",
+     "a": "Pode, e é a posição natural na linha de produção, desde que o projeto garanta ventilação para o condensador e isolamento do calor vizinho. Sem esse cuidado, o equipamento trabalha em desvantagem permanente."
+    },
+    {
+     "q": "Portas ou gavetas?",
+     "a": "Gavetas dão acesso mais rápido e perdem menos frio por abertura, o que ajuda em ritmo alto. Portas acomodam volumes maiores e caixas. É comum combinar os dois no mesmo equipamento."
+    },
+    {
+     "q": "Serve como bancada de trabalho?",
+     "a": "Sim, o tampo em inox é dimensionado para uso. O que não se recomenda é apoiar equipamento quente diretamente sobre ele, o que joga calor para dentro do gabinete."
+    },
+    {
+     "q": "Dá para fazer sob medida para bancada existente?",
+     "a": "Sim, e é o caso mais comum. O equipamento é fabricado para encaixar na altura e no vão que já existem, sem obrigar reforma da cozinha."
+    }
+   ],
+   "seoTitle": "Mesa Refrigerada para Cozinha Profissional | Refrigóis",
+   "seoDescription": "Mesa refrigerada em aço inox sob medida, com portas ou gavetas, para manter insumo gelado na linha de produção. Fabricação para a bancada que você já tem."
+  },
+  {
+   "id": "12",
+   "slug": "resfriador-de-bebidas",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Resfriador de Bebidas",
+   "description": "Venda, instalação e manutenção de resfriador de bebidas para bares, distribuidoras e lojas de conveniência em Maringá.",
+   "longDescription": "O resfriador de bebidas mantém cervejas, refrigerantes e outras bebidas na temperatura ideal de consumo. Trabalhamos com diferentes modelos, incluindo câmaras com porta de vidro (walk-in cooler / beer cave), e realizamos manutenção preventiva e corretiva para o seu negócio nunca ficar sem bebida gelada.",
+   "image": "/images/servicos/resfriador-de-bebidas.jpg",
+   "features": [
+    "Modelos verticais, ilha ou walk-in cooler",
+    "Instalação técnica completa",
+    "Manutenção preventiva e corretiva",
+    "Ajuste de temperatura por tipo de bebida"
+   ],
+   "technicalInfo": "Temperatura ajustável conforme o produto: cervejas, vinhos, destilados ou bebidas em geral.",
+   "warranty": "90 dias em serviços, 12 meses em fabricação própria.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Bebida gelada na hora do movimento, não meia hora depois.",
+   "imageAlt": "Resfriador de bebidas em operação em bar comercial",
+   "problem": {
+    "heading": "Bebida quente em dia cheio é venda perdida",
+    "paragraphs": [
+     "Bar, conveniência e distribuidora vivem de pico. É no dia de calor e no fim de semana que o consumo dispara — e é exatamente quando o equipamento subdimensionado não dá conta de resfriar na velocidade da reposição.",
+     "O cliente não espera. Se a bebida sai sem estar gelada, ele troca de produto ou troca de lugar. Dimensionar pelo consumo médio do mês, em vez do pico, é o erro que mais aparece nesse tipo de equipamento."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Alto volume e reposição contínua"
+    },
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes",
+     "note": "Serviço de salão e balcão"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Consumo imediato próximo ao caixa"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "panificadora-duda-mel",
+    "balcoes-e-ilhas-sob-medida"
+   ],
+   "howItWorks": [
+    {
+     "title": "Levantamento do pico",
+     "text": "Quantidade e ritmo de consumo no dia mais cheio, não na média. É o pico que define a capacidade necessária."
+    },
+    {
+     "title": "Especificação",
+     "text": "Definimos o tipo de resfriamento, a capacidade e a configuração adequada ao ponto de venda."
+    },
+    {
+     "title": "Instalação",
+     "text": "Posicionamento com ventilação, ligação e ajuste, considerando o calor do ambiente onde o equipamento fica."
+    },
+    {
+     "title": "Orientação",
+     "text": "Rotina de reposição e limpeza que mantém o rendimento nos dias de maior movimento."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Como saber a capacidade que preciso?",
+     "a": "Pelo consumo do dia de pico e pela velocidade de reposição. Equipamento dimensionado pela média funciona bem no mês inteiro e falha justamente no dia que mais importa."
+    },
+    {
+     "q": "Posso instalar em área externa?",
+     "a": "Depende da proteção contra sol e chuva. Equipamento exposto ao sol direto trabalha com a temperatura ambiente muito acima do previsto e perde rendimento."
+    },
+    {
+     "q": "Por que a bebida demora a gelar quando abastece muito de uma vez?",
+     "a": "Porque a carga entra quente e o sistema precisa remover todo esse calor. Repor em lotes menores e com antecedência mantém a temperatura estável no pico."
+    },
+    {
+     "q": "Vocês fazem manutenção nesse tipo de equipamento?",
+     "a": "Sim, incluindo limpeza de condensador, verificação de vedação e ajuste do controlador — os pontos que mais derrubam rendimento em equipamento de bebidas."
+    }
+   ],
+   "seoTitle": "Resfriador de Bebidas para Bar e Distribuidora | Refrigóis",
+   "seoDescription": "Resfriador de bebidas dimensionado pelo consumo de pico, não pela média. Especificação, instalação e manutenção para bar, conveniência e distribuidora."
+  },
+  {
+   "id": "13",
+   "slug": "chopeira",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Chopeira",
+   "description": "Manutenção e instalação de chopeira e cervejeira para bares, restaurantes e distribuidoras em Maringá.",
+   "longDescription": "Chopeira parada é chope choco e cliente insatisfeito. Fazemos instalação e manutenção preventiva e corretiva de chopeiras e cervejeiras, incluindo limpeza de linhas, troca de componentes de refrigeração e ajuste de pressão de CO2.",
+   "image": "/images/servicos/chopeira.jpg",
+   "features": [
+    "Instalação técnica completa",
+    "Limpeza de linhas de chopeira",
+    "Manutenção do sistema de refrigeração",
+    "Ajuste de pressão de CO2"
+   ],
+   "technicalInfo": "Atendimento a chopeiras e cervejeiras de contrapressão e convencionais, de qualquer marca.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Chope no ponto desde o primeiro copo da noite.",
+   "imageAlt": "Chopeira comercial instalada em balcão de bar",
+   "problem": {
+    "heading": "O chope denuncia a refrigeração na frente do cliente",
+    "paragraphs": [
+     "Chope quente ou com espuma demais não é um detalhe técnico: é uma reclamação na mesa, no meio do serviço. E quase sempre a causa é a mesma — a chopeira foi ligada na hora de abrir, sem tempo para formar o banco de gelo em volta da serpentina.",
+     "Somam-se a isso barril armazenado em ambiente quente, pressão de gás fora do ponto e linha sem higienização, que altera sabor, espuma e vazão ao mesmo tempo. São fatores simples, mas que aparecem justamente no dia de mais movimento."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes e bares",
+     "note": "Serviço de balcão e salão"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Venda de chope e locação de equipamento"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "balcoes-e-ilhas-sob-medida"
+   ],
+   "howItWorks": [
+    {
+     "title": "Avaliação do ponto",
+     "text": "Onde a chopeira vai ficar, como o barril é armazenado e por onde passa a linha até a torneira. Trecho quente no percurso já compromete o resultado."
+    },
+    {
+     "title": "Instalação",
+     "text": "Posicionamento com ventilação adequada, montagem da linha e ajuste da pressão de gás para o ponto correto."
+    },
+    {
+     "title": "Ajuste e teste",
+     "text": "Formação do banco de gelo, tiragem de teste e correção de pressão e temperatura até o chope sair como deve."
+    },
+    {
+     "title": "Rotina e manutenção",
+     "text": "Orientação de antecedência para ligar, rotina de higienização da linha e manutenção periódica do equipamento."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Quanto tempo antes ligar a chopeira?",
+     "a": "O suficiente para o banco de gelo se formar por completo em volta da serpentina, o que varia com o modelo e a temperatura do ambiente. Na prática: ligue bem antes do serviço e confira o gelo antes do primeiro copo."
+    },
+    {
+     "q": "O chope está gelado mas sai só espuma. O que é?",
+     "a": "A pressão do gás é a primeira suspeita, seguida de restrição ou sujeira na linha. Vale verificar também se algum trecho da tubulação passa por região quente, o que libera gás antes da torneira."
+    },
+    {
+     "q": "Com que frequência higienizar a linha?",
+     "a": "Em frequência fixa, definida pelo volume de uso — não só quando o cliente reclama. Resíduo acumulado afeta sabor, espuma e vazão ao mesmo tempo."
+    },
+    {
+     "q": "A chopeira pode ficar embutida no balcão?",
+     "a": "Pode, desde que o nicho tenha ventilação e espaço livre para dissipar calor. Equipamento embutido em espaço fechado perde capacidade de forma permanente."
+    }
+   ],
+   "seoTitle": "Chopeira: Instalação e Manutenção em Maringá | Refrigóis",
+   "seoDescription": "Instalação, ajuste e manutenção de chopeira: banco de gelo, pressão de gás, percurso da linha e higienização. Chope no ponto desde o primeiro copo."
+  },
+  {
+   "id": "14",
+   "slug": "maquina-de-gelo",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Máquina de Gelo",
+   "description": "Manutenção e instalação de máquina de gelo comercial para bares, restaurantes e distribuidoras em Maringá.",
+   "longDescription": "A máquina de gelo comercial precisa de manutenção regular para manter a produção e evitar contaminação. Fazemos instalação, limpeza especializada e manutenção preventiva e corretiva, garantindo produção constante de gelo para o seu negócio.",
+   "image": "/images/servicos/maquina-de-gelo.jpg",
+   "features": [
+    "Instalação técnica completa",
+    "Limpeza e higienização especializada",
+    "Manutenção de compressor e sistema de produção",
+    "Diagnóstico de queda de produção de gelo"
+   ],
+   "technicalInfo": "Atendimento a máquinas de gelo em cubo, escama ou nugget, de qualquer marca.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Produção dimensionada para o seu pico, com gelo em condição de servir.",
+   "imageAlt": "Máquina de gelo comercial instalada em área de apoio de estabelecimento",
+   "problem": {
+    "heading": "Faltar gelo no sábado é o que importa",
+    "paragraphs": [
+     "Máquina de gelo é dimensionada pela produção em 24 horas, e é aí que mora a armadilha: o consumo não é distribuído ao longo do dia. Ele se concentra em poucas horas, quase sempre à noite e no fim de semana.",
+     "Uma máquina que produz o suficiente no total do dia pode não dar conta do pico se o reservatório for pequeno. E há o fator que costuma passar despercebido: a produção cai quando a temperatura ambiente e a da água de entrada sobem — exatamente no verão."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Restaurantes e bares",
+     "note": "Consumo concentrado no serviço"
+    },
+    {
+     "segmentSlug": "distribuidoras-de-bebidas",
+     "label": "Distribuidoras",
+     "note": "Venda de gelo e apoio ao consumo"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Peixaria, hortifruti e venda de gelo"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "refrigeracao-para-restaurante",
+    "refrigeracao-de-supermercado"
+   ],
+   "howItWorks": [
+    {
+     "title": "Cálculo do consumo",
+     "text": "Levantamos o consumo no pico e a capacidade de reservatório necessária, além do tipo de gelo que o seu serviço exige."
+    },
+    {
+     "title": "Verificação de água e local",
+     "text": "Qualidade e ponto de água, dreno disponível, ventilação e temperatura do ambiente onde a máquina vai operar."
+    },
+    {
+     "title": "Instalação",
+     "text": "Ligação de água, dreno e energia, com filtragem quando necessário, e ajuste da produção."
+    },
+    {
+     "title": "Rotina de higiene",
+     "text": "Orientação de limpeza e periodicidade — gelo é alimento, e a máquina precisa de rotina como qualquer equipamento de contato direto."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Como calcular a capacidade da máquina?",
+     "a": "Pelo consumo no horário de pico e não pelo total do dia, considerando também o reservatório. Máquina com produção suficiente e reservatório pequeno falha justamente na hora cheia."
+    },
+    {
+     "q": "A produção cai no verão?",
+     "a": "Cai. A produção nominal é medida em condições de referência; com ambiente quente e água de entrada mais quente, o equipamento produz menos. Por isso o dimensionamento precisa considerar o pior cenário, não o melhor."
+    },
+    {
+     "q": "Precisa de filtro de água?",
+     "a": "Depende da qualidade da água local. Filtragem adequada melhora o gelo e reduz incrustação nos componentes, que é a causa mais comum de queda de produção ao longo do tempo."
+    },
+    {
+     "q": "Com que frequência limpar?",
+     "a": "Em rotina definida, porque gelo é alimento e a máquina tem contato direto. A frequência depende do uso e da qualidade da água, e é orientada na entrega."
+    }
+   ],
+   "seoTitle": "Máquina de Gelo Comercial em Maringá | Refrigóis",
+   "seoDescription": "Máquina de gelo dimensionada pelo consumo de pico e pelo reservatório, com atenção à água e à ventilação. Instalação, higienização e manutenção."
+  },
+  {
+   "id": "15",
+   "slug": "bebedouro-industrial",
+   "categorySlug": "refrigeracao-comercial",
+   "title": "Bebedouro Industrial",
+   "description": "Manutenção e instalação de bebedouro industrial para indústrias, escritórios e cozinhas industriais em Maringá.",
+   "longDescription": "O bebedouro industrial atende alta demanda de consumo e precisa de manutenção regular para garantir água gelada e higienizada. Fazemos instalação, manutenção preventiva e corretiva, incluindo limpeza de reservatório e troca de filtros.",
+   "image": "/images/servicos/bebedouro-industrial.jpg",
+   "features": [
+    "Instalação técnica completa",
+    "Limpeza de reservatório e troca de filtros",
+    "Manutenção do sistema de refrigeração",
+    "Diagnóstico de baixa produção de água gelada"
+   ],
+   "technicalInfo": "Atendimento a bebedouros industriais de coluna, pressão ou compressor, de qualquer marca.",
+   "warranty": "90 dias para serviços prestados, além da garantia de peças trocadas.",
+   "deliveryArea": "Maringá e região (raio de 150km).",
+   "promise": "Água gelada para a equipe inteira, no ritmo da troca de turno.",
+   "imageAlt": "Bebedouro industrial em aço inox instalado em área de produção",
+   "problem": {
+    "heading": "Bebedouro comum não aguenta troca de turno",
+    "paragraphs": [
+     "Em indústria, obra e cozinha de produção, o consumo de água não é distribuído: ele se concentra na saída do turno e nos intervalos, quando dezenas de pessoas bebem em poucos minutos.",
+     "Bebedouro doméstico ou de escritório não recupera nessa velocidade. Depois das primeiras pessoas, a água sai na temperatura ambiente — e o equipamento trabalha em esforço contínuo, o que encurta a vida útil."
+    ]
+   },
+   "appliesTo": [
+    {
+     "segmentSlug": "restaurantes",
+     "label": "Cozinhas de produção",
+     "note": "Equipe numerosa e ambiente quente"
+    },
+    {
+     "segmentSlug": "supermercados",
+     "label": "Supermercados",
+     "note": "Área de funcionários e depósito"
+    },
+    {
+     "segmentSlug": "padarias",
+     "label": "Padarias",
+     "note": "Produção com forno e calor constante"
+    }
+   ],
+   "relatedProjectSlugs": [
+    "sistema-de-exaustao",
+    "bancada-refrigerada-cozinha-profissional"
+   ],
+   "howItWorks": [
+    {
+     "title": "Levantamento de consumo",
+     "text": "Número de pessoas, horários de concentração e ambiente onde o bebedouro vai ficar."
+    },
+    {
+     "title": "Especificação",
+     "text": "Capacidade de refrigeração por hora, número de torneiras e material adequado ao ambiente."
+    },
+    {
+     "title": "Instalação",
+     "text": "Ligação de água e energia, dreno e posicionamento com ventilação, evitando proximidade de fonte de calor."
+    },
+    {
+     "title": "Manutenção",
+     "text": "Rotina de limpeza e troca de elemento filtrante, que mantém a qualidade da água e o rendimento."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Qual capacidade escolher?",
+     "a": "Pela quantidade de pessoas e, principalmente, pela concentração do consumo. Vinte pessoas bebendo ao longo do dia exigem menos que vinte pessoas bebendo na mesma saída de turno."
+    },
+    {
+     "q": "Bebedouro de escritório serve na produção?",
+     "a": "Não em ambiente com equipe numerosa e calor. Ele não recupera temperatura no ritmo necessário e passa a operar em esforço permanente."
+    },
+    {
+     "q": "Precisa de filtro?",
+     "a": "É recomendado, tanto pela qualidade da água quanto pela proteção do equipamento. A troca do elemento filtrante entra na rotina de manutenção."
+    },
+    {
+     "q": "Inox é necessário?",
+     "a": "Em ambiente de produção de alimentos e áreas de lavagem, o inox facilita a higienização e resiste melhor ao uso pesado do que outros acabamentos."
+    }
+   ],
+   "seoTitle": "Bebedouro Industrial em Maringá | Refrigóis",
+   "seoDescription": "Bebedouro industrial dimensionado pela concentração de consumo na troca de turno, com filtragem e instalação adequada. Venda, instalação e manutenção."
+  }
+ ]
+}
