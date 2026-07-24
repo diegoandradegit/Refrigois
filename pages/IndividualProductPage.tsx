@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, Wrench, Images, CheckCircle2 } from 'lucide-react';
 import { productsData, projectsData } from '../data';
@@ -10,6 +10,67 @@ import { useSEO } from '../hooks/useSEO';
 
 interface Props {
   onOpenQuote: () => void;
+}
+
+/**
+ * Galeria do modelo: clicar na miniatura troca a foto grande.
+ *
+ * Antes as miniaturas eram imagens estaticas — clicar nelas nao fazia nada,
+ * o que quebra a expectativa de qualquer catalogo.
+ */
+function Galeria({
+  fotos,
+}: {
+  fotos: { src: string; alt: string; caption?: string }[];
+}) {
+  const [ativa, setAtiva] = useState(0);
+  const atual = fotos[ativa];
+  if (!atual) return null;
+
+  return (
+    <div>
+      <figure className="m-0 mb-4">
+        <div className="aspect-[4/3] rounded-sm overflow-hidden bg-slate-100">
+          <SmartImage
+            src={atual.src}
+            alt={atual.alt}
+            width={900}
+            height={675}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {atual.caption && (
+          <figcaption className="text-sm text-slate-500 mt-2">{atual.caption}</figcaption>
+        )}
+      </figure>
+
+      {fotos.length > 1 && (
+        <div className="grid grid-cols-4 gap-3">
+          {fotos.map((f, i) => (
+            <button
+              key={f.src}
+              type="button"
+              onClick={() => setAtiva(i)}
+              aria-label={`Ver foto ${i + 1} de ${fotos.length}`}
+              aria-current={i === ativa}
+              className={`aspect-[4/3] rounded-sm overflow-hidden bg-slate-100 border-2 transition-colors ${
+                i === ativa ? 'border-brand-500' : 'border-transparent hover:border-slate-300'
+              }`}
+            >
+              <SmartImage
+                src={f.src}
+                alt={f.alt}
+                width={300}
+                height={225}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export const IndividualProductPage: React.FC<Props> = ({ onOpenQuote }) => {
@@ -34,6 +95,12 @@ export const IndividualProductPage: React.FC<Props> = ({ onOpenQuote }) => {
   if (!produto) return <Navigate to="/produtos" replace />;
 
   const galeria = produto.photos ?? [];
+
+  // Foto principal e galeria numa lista so, sem repetir a mesma imagem.
+  const todasAsFotos = [
+    ...(produto.image ? [{ src: produto.image, alt: produto.imageAlt || produto.title, caption: undefined }] : []),
+    ...galeria.filter((f) => f.src !== produto.image),
+  ];
   const ficha = produto.ficha ?? [];
   const configuracoes = produto.configuracoes ?? [];
 
@@ -70,31 +137,7 @@ export const IndividualProductPage: React.FC<Props> = ({ onOpenQuote }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
             {/* Fotos */}
             <div>
-              <div className="aspect-[4/3] rounded-sm overflow-hidden bg-slate-100 mb-4">
-                <SmartImage
-                  src={produto.image}
-                  alt={produto.imageAlt || produto.title}
-                  width={900}
-                  height={675}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {galeria.length > 1 && (
-                <div className="grid grid-cols-3 gap-3">
-                  {galeria.slice(1, 4).map((f) => (
-                    <div key={f.src} className="aspect-[4/3] rounded-sm overflow-hidden bg-slate-100">
-                      <SmartImage
-                        src={f.src}
-                        alt={f.alt}
-                        width={300}
-                        height={225}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
+              <Galeria fotos={todasAsFotos} />
             </div>
 
             {/* 3. Ficha tecnica — a secao que justifica a pagina existir */}
