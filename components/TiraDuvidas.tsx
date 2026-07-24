@@ -69,6 +69,13 @@ const INTENCOES: { termos: RegExp; pergunta: string }[] = [
   { termos: /\b(custa|custo|preco|precos|valor|valores|quanto|orcament|barato)/, pergunta: 'Quanto custa' },
   { termos: /\b(prazo|demora|tempo de entrega|entrega em)/, pergunta: 'Qual o prazo de entrega' },
   { termos: /\b(garantia|garante)/, pergunta: 'garantia' },
+  // "Atende em <cidade>": o nome da cidade nao existe nas respostas, entao
+  // sobra so o verbo — que casa igual com "atendem emergencia". A regra olha a
+  // construcao (verbo + preposicao de lugar) em vez de tentar listar cidades.
+  {
+    termos: /\b(atende|atendem|atendimento|cobre|cobrem|vao|vem|chega|chegam|instalam?|entregam?)\s+(em|ate|na|no|nas|nos|para|pra)\b/,
+    pergunta: 'Vocês atendem em qual região',
+  },
   // Intencao de compra: quem diz "preciso de uma camara" nao quer FAQ de
   // manutencao, quer falar com alguem.
   { termos: /\b(preciso de|quero (um|uma|comprar)|gostaria de (um|uma)|comprar|adquirir|fazer um orcament)/, pergunta: 'Como peço um orçamento' },
