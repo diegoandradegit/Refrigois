@@ -94,8 +94,11 @@ export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
                           </h4>
 
                           {tecnico && (
-                            <p className="text-xs text-slate-500 mb-3 leading-relaxed">{tecnico}</p>
+                            <p className="text-xs text-slate-500 mb-2 leading-relaxed">{tecnico}</p>
                           )}
+                          <span className="inline-block self-start text-[10px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-100 px-2 py-0.5 rounded mb-3">
+                            Sob medida
+                          </span>
 
                           <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
                             {produto.resumo}

@@ -153,7 +153,12 @@ export const IndividualProductPage: React.FC<Props> = ({ onOpenQuote }) => {
 
               {ficha.length > 0 && (
                 <>
-                  <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Ficha técnica</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-1">Ficha técnica</h2>
+                  {/* Todo equipamento e fabricado sob medida. Sem esta linha, a
+                      medida na tabela parece a de um modelo de prateleira. */}
+                  <p className="text-sm text-slate-500 mb-4">
+                    Medidas de referência — o equipamento é fabricado na medida do seu espaço.
+                  </p>
                   <dl className="border border-slate-200 rounded-sm overflow-hidden">
                     {ficha.map((linha, i) => (
                       <div
