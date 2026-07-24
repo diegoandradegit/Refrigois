@@ -1,15 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, Send, Phone } from 'lucide-react';
-import perguntas from '../generated/perguntas.json';
 import config from '../generated/configuracoes.json';
 import { trackWhatsAppClick } from '../utils/analytics';
-
-interface Pergunta {
-  q: string;
-  a: string;
-  origem: string;
-  url: string;
-}
 
 interface Mensagem {
   de: 'pessoa' | 'assistente';
@@ -19,7 +11,6 @@ interface Mensagem {
   convite?: boolean;
 }
 
-const BASE = perguntas as Pergunta[];
 const WHATS = '5544999368420';
 const ASSISTENTE = 'https://mpdlwheqvggbfxkhbtqg.supabase.co/functions/v1/assistente';
 
@@ -40,82 +31,6 @@ function sessaoAtual() {
   } catch {
     return crypto.randomUUID();
   }
-}
-
-function normalizar(t: string) {
-  return t
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-const VAZIAS = new Set([
-  'a','o','as','os','de','da','do','das','dos','e','em','no','na','nos','nas',
-  'um','uma','para','por','com','que','qual','quais','como','meu','minha','se',
-  'ou','ao','aos','muito','mais','ja','tem','ter','pode','posso','preciso',
-  'voces','eu','isso','esse','essa','sobre',
-]);
-
-function palavras(t: string) {
-  return normalizar(t).split(' ').filter((p) => p.length > 2 && !VAZIAS.has(p));
-}
-
-function combina(termo: string, texto: string) {
-  const raiz = termo.slice(0, Math.max(4, termo.length - 2));
-  return texto.split(' ').some((p) => {
-    if (p.startsWith(raiz)) return true;
-    if (p.length < 5) return false;
-    return termo.startsWith(p.slice(0, Math.max(4, p.length - 2)));
-  });
-}
-
-const INTENCOES: { termos: RegExp; pergunta: string }[] = [
-  { termos: /\b(custa|custo|preco|precos|valor|valores|quanto|orcament|barato)/, pergunta: 'Quanto custa' },
-  { termos: /\b(prazo|demora|tempo de entrega)/, pergunta: 'Qual o prazo de entrega' },
-  { termos: /\b(garantia|garante)/, pergunta: 'garantia' },
-  {
-    termos: /\b(atende|atendem|atendimento|cobre|cobrem|vao|vem|chega|chegam|instalam?|entregam?)\s+(em|ate|na|no|nas|nos|para|pra)\b/,
-    pergunta: 'Vocês atendem em qual região',
-  },
-  { termos: /\b(preciso de|quero (um|uma|comprar)|gostaria de (um|uma)|comprar|adquirir|fazer um orcament)/, pergunta: 'Como peço um orçamento' },
-];
-
-/** Busca usada apenas quando o assistente esta fora do ar. */
-function buscar(texto: string): Pergunta | null {
-  const termos = palavras(texto);
-  if (!termos.length) return null;
-
-  const normalizado = normalizar(texto);
-  for (const intencao of INTENCOES) {
-    if (intencao.termos.test(normalizado)) {
-      const direta = BASE.find((i) => normalizar(i.q).includes(normalizar(intencao.pergunta)));
-      if (direta) return direta;
-    }
-  }
-
-  const pontuadas = BASE.map((item) => {
-    const naPergunta = normalizar(item.q);
-    const naResposta = normalizar(item.a);
-    const naOrigem = normalizar(item.origem);
-    let pontos = 0;
-    let acertos = 0;
-    for (const t of termos) {
-      if (combina(t, naPergunta)) { pontos += 3; acertos++; }
-      else if (combina(t, naOrigem)) { pontos += 2; acertos++; }
-      else if (combina(t, naResposta)) { pontos += 1; acertos++; }
-    }
-    return { item, pontos, acertos };
-  });
-
-  const minimo = termos.length <= 2 ? 1 : Math.ceil(termos.length / 2);
-  const melhor = pontuadas
-    .filter((x) => x.acertos >= minimo)
-    .sort((a, b) => b.pontos - a.pontos || b.acertos - a.acertos)[0];
-
-  return melhor?.item ?? null;
 }
 
 function linkWhatsApp(historico: Mensagem[]) {
@@ -175,17 +90,17 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
         },
       ]);
     } catch {
-      const achada = buscar(pergunta);
+      // Sem assistente, encaminha para a equipe. Responder por conta propria
+      // com texto de FAQ so entregaria uma imitacao ruim de conversa.
       setMensagens((m) => [
         ...m,
-        achada
-          ? { de: 'assistente', texto: achada.a, hora: agora() }
-          : {
-              de: 'assistente',
-              texto: 'Essa eu não sei responder de cabeça. Quer falar com alguém da equipe?',
-              hora: agora(),
-              convite: true,
-            },
+        {
+          de: 'assistente',
+          texto:
+            'Não consegui responder agora. Chama a equipe no WhatsApp que alguém te atende direto.',
+          hora: agora(),
+          convite: true,
+        },
       ]);
     } finally {
       setPensando(false);
