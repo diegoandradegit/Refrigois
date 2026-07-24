@@ -146,7 +146,8 @@ async function run() {
   const [segmentos, projetos, fotos, categorias, artigos,
          servicoCategorias, servicos, servicoSegmentos, projetoServicos,
          servicoFotos, redirecionamentos,
-         produtoCategorias, produtos, produtoFotos, projetoProdutos] = await Promise.all([
+         produtoCategorias, produtos, produtoFotos, projetoProdutos,
+         configuracoes] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -177,6 +178,7 @@ async function run() {
     ),
     consultar('produto_fotos?select=produto_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos produtos'),
     consultar('projeto_produtos?select=projeto_id,produto_id,ordem&order=ordem', 'obras dos produtos'),
+    consultar('configuracoes?select=chave,valor', 'configuracoes do site'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -495,6 +497,10 @@ async function run() {
   fs.writeFileSync(
     path.join(GERADOS, 'servicos.json'),
     JSON.stringify({ categorias: categoriasServicoSaida, servicos: servicosSaida }, null, 1)
+  );
+  fs.writeFileSync(
+    path.join(GERADOS, 'configuracoes.json'),
+    JSON.stringify(Object.fromEntries(configuracoes.map((c) => [c.chave, c.valor])), null, 1)
   );
   fs.writeFileSync(
     path.join(GERADOS, 'produtos.json'),

@@ -1,0 +1,704 @@
+[
+ {
+  "q": "O que vocês precisam saber para dimensionar a câmara?",
+  "a": "Quatro informações resolvem a maior parte do cálculo: o que será armazenado, em que temperatura, quantas vezes a porta abre por dia e se o produto entra frio ou ainda quente. Com isso, mais o espaço disponível e o ponto de instalação da condensadora, o dimensionamento sai de base técnica em vez de estimativa.",
+  "origem": "Instalação de Câmara Fria",
+  "url": "/servicos/camara-fria/instalacao"
+ },
+ {
+  "q": "Dá para instalar câmara fria em espaço pequeno?",
+  "a": "Dá, e é situação comum em restaurantes e padarias. O que limita não costuma ser o espaço interno, e sim encontrar um local ventilado para a unidade condensadora dissipar calor. Esse ponto é avaliado no levantamento, antes de qualquer definição.",
+  "origem": "Instalação de Câmara Fria",
+  "url": "/servicos/camara-fria/instalacao"
+ },
+ {
+  "q": "A câmara pode ser ampliada depois?",
+  "a": "Em muitos casos sim, por ser construída em painéis modulares. Mas a ampliação precisa considerar se o sistema comporta a nova carga térmica. Aumentar o volume sem reavaliar a capacidade resulta em câmara que não alcança a temperatura desejada.",
+  "origem": "Instalação de Câmara Fria",
+  "url": "/servicos/camara-fria/instalacao"
+ },
+ {
+  "q": "Vocês instalam câmara com porta de vidro?",
+  "a": "Sim. É a configuração conhecida como walk-in cooler ou beer cave, usada em distribuidoras de bebidas, bares e lojas de conveniência. Permite exposição e autosserviço sem abrir a câmara inteira a cada retirada.",
+  "origem": "Instalação de Câmara Fria",
+  "url": "/servicos/camara-fria/instalacao"
+ },
+ {
+  "q": "Câmara sob medida demora mais que uma pronta?",
+  "a": "A fabricação exige o tempo do projeto e da preparação dos painéis, o que uma câmara de catálogo não tem. Em compensação, evita adaptação de obra no local, que é onde os imprevistos aparecem. O prazo é definido caso a caso, depois da medição.",
+  "origem": "Fabricação de Câmara Fria",
+  "url": "/servicos/camara-fria/fabricacao"
+ },
+ {
+  "q": "Dá para fabricar câmara em espaço com pilar no meio?",
+  "a": "Dá, e é uma das situações em que a fabricação sob medida mais compensa. O painel é projetado contornando o obstáculo, aproveitando a área que uma câmara retangular pronta desperdiçaria.",
+  "origem": "Fabricação de Câmara Fria",
+  "url": "/servicos/camara-fria/fabricacao"
+ },
+ {
+  "q": "A câmara passa pela porta do estabelecimento?",
+  "a": "É uma das primeiras coisas que verificamos na medição. Como a câmara é montada em painéis modulares no próprio local, o que precisa passar pela porta são as peças, não a câmara inteira.",
+  "origem": "Fabricação de Câmara Fria",
+  "url": "/servicos/camara-fria/fabricacao"
+ },
+ {
+  "q": "Vocês fabricam câmara com porta de vidro?",
+  "a": "Sim. É a configuração usada em distribuidoras de bebidas, bares e conveniências, em que o cliente enxerga e retira o produto sem abrir a câmara toda.",
+  "origem": "Fabricação de Câmara Fria",
+  "url": "/servicos/camara-fria/fabricacao"
+ },
+ {
+  "q": "A câmara está gelando pouco. É urgente?",
+  "a": "Gelar menos significa que o sistema já está trabalhando no limite, e é nessa condição que a parada total acontece em dia de calor. Antes de acionar, verifique vedação da porta, excesso de gelo no evaporador e limpeza da condensadora. Se estiverem em ordem, é caso de avaliação técnica.",
+  "origem": "Manutenção e Conserto de Câmara Fria",
+  "url": "/servicos/camara-fria/manutencao"
+ },
+ {
+  "q": "Vocês atendem emergência?",
+  "a": "Sim. Cheiro de queimado, ruído metálico no compressor, disjuntor desarmando repetidamente ou câmara cheia parada são situações que priorizamos, porque cada hora fora da faixa custa mercadoria.",
+  "origem": "Manutenção e Conserto de Câmara Fria",
+  "url": "/servicos/camara-fria/manutencao"
+ },
+ {
+  "q": "Só completar o gás resolve?",
+  "a": "Não. Gás refrigerante não se consome com o uso: se o nível caiu, existe vazamento. Completar sem localizar e reparar faz o gás ir embora de novo e o compressor trabalhar sem a refrigeração interna que o próprio gás fornece.",
+  "origem": "Manutenção e Conserto de Câmara Fria",
+  "url": "/servicos/camara-fria/manutencao"
+ },
+ {
+  "q": "Vale a pena contrato de manutenção preventiva?",
+  "a": "Depende da criticidade da operação. Onde a parada significa perder mercadoria ou fechar o atendimento, a preventiva deixa de ser gasto e vira seguro. Ela também reduz consumo, porque restaura as condições de projeto do equipamento.",
+  "origem": "Manutenção e Conserto de Câmara Fria",
+  "url": "/servicos/camara-fria/manutencao"
+ },
+ {
+  "q": "Como sei se vale reformar ou trocar?",
+  "a": "A avaliação olha isolamento, gabinete, idade dos componentes e qual gás o sistema usa. Estrutura sã com sistema desgastado normalmente compensa reformar. Painel encharcado, estrutura comprometida ou gás em desuso empurram para a substituição — e nós dizemos isso quando é o caso.",
+  "origem": "Reforma de Câmara Fria",
+  "url": "/servicos/camara-fria/reforma"
+ },
+ {
+  "q": "A câmara precisa ficar parada durante a reforma?",
+  "a": "Depende do escopo. Troca de vedação e ajustes pontuais são rápidos. Substituição de painéis exige a câmara vazia. Isso é combinado antes, para você planejar o estoque e o atendimento.",
+  "origem": "Reforma de Câmara Fria",
+  "url": "/servicos/camara-fria/reforma"
+ },
+ {
+  "q": "Reforma reduz a conta de energia?",
+  "a": "Reduz, e costuma ser o retorno mais visível. Vedação recuperada, isolamento íntegro e condensador limpo fazem o sistema parar de compensar perda contínua de frio.",
+  "origem": "Reforma de Câmara Fria",
+  "url": "/servicos/camara-fria/reforma"
+ },
+ {
+  "q": "Dá para aumentar a câmara na reforma?",
+  "a": "Em muitos casos sim, por ser construída em painéis modulares. Mas ampliar exige reavaliar a capacidade do sistema: aumentar o volume sem isso resulta em câmara que não alcança a temperatura.",
+  "origem": "Reforma de Câmara Fria",
+  "url": "/servicos/camara-fria/reforma"
+ },
+ {
+  "q": "Com que frequência higienizar a câmara?",
+  "a": "Depende do produto e do ambiente. Açougue e cozinha com gordura no ar exigem intervalo menor que uma câmara de estoque de embalados. A inspeção define a frequência adequada ao seu caso.",
+  "origem": "Higienização de Câmara Fria",
+  "url": "/servicos/camara-fria/higienizacao"
+ },
+ {
+  "q": "A higienização ajuda na fiscalização sanitária?",
+  "a": "Ajuda, principalmente quando existe registro do serviço. Higienização periódica documentada é evidência de controle, no mesmo espírito da planilha de temperatura.",
+  "origem": "Higienização de Câmara Fria",
+  "url": "/servicos/camara-fria/higienizacao"
+ },
+ {
+  "q": "Preciso esvaziar a câmara?",
+  "a": "Para a limpeza completa, sim — inclusive para alcançar prateleiras, cantos e o evaporador. Por isso combinamos horário e orientamos a realocação do produto antes.",
+  "origem": "Higienização de Câmara Fria",
+  "url": "/servicos/camara-fria/higienizacao"
+ },
+ {
+  "q": "Limpeza comum da equipe não basta?",
+  "a": "A limpeza diária é essencial e deve continuar. O que ela não alcança é o evaporador, o condensador e o dreno, que exigem procedimento técnico e são justamente os pontos que afetam o consumo.",
+  "origem": "Higienização de Câmara Fria",
+  "url": "/servicos/camara-fria/higienizacao"
+ },
+ {
+  "q": "Freezer comercial pode operar como geladeira?",
+  "a": "Alguns modelos permitem faixa dupla, mas a maioria é projetada para uma faixa. Operar fora dela gera formação de gelo, ciclos irregulares e desgaste do compressor.",
+  "origem": "Freezer Comercial",
+  "url": "/servicos/refrigeracao-comercial/freezer-comercial"
+ },
+ {
+  "q": "Por que meu freezer forma muito gelo?",
+  "a": "Camada fina entre degelos é normal. Bloco espesso indica falha no sistema de degelo, vedação comprometida ou entrada excessiva de ar úmido pela abertura frequente da porta.",
+  "origem": "Freezer Comercial",
+  "url": "/servicos/refrigeracao-comercial/freezer-comercial"
+ },
+ {
+  "q": "Freezer doméstico serve para o comércio?",
+  "a": "Não é adequado. Ele foi dimensionado para poucas aberturas diárias e não recupera temperatura no ritmo de uma loja, o que compromete a conservação e encurta a vida do equipamento.",
+  "origem": "Freezer Comercial",
+  "url": "/servicos/refrigeracao-comercial/freezer-comercial"
+ },
+ {
+  "q": "Vocês fabricam freezer sob medida?",
+  "a": "Sim. Em espaços apertados ou com layout irregular, o equipamento de linha desperdiça área útil. A fabricação ajusta o gabinete ao espaço disponível.",
+  "origem": "Freezer Comercial",
+  "url": "/servicos/refrigeracao-comercial/freezer-comercial"
+ },
+ {
+  "q": "Qual a diferença entre ar forçado e refrigeração estática?",
+  "a": "Na estática o frio se distribui por convecção natural, o que costuma gerar diferença entre prateleiras. No ar forçado, ventiladores movimentam o ar, dando uniformidade e recuperação mais rápida depois da abertura da porta.",
+  "origem": "Geladeira Comercial",
+  "url": "/servicos/refrigeracao-comercial/geladeira-comercial"
+ },
+ {
+  "q": "Porta de vidro consome muito mais?",
+  "a": "Consome mais que uma porta cega equivalente, porque o vidro tem troca térmica maior. Vale quando a função é expor produto; para conservação na retaguarda, a porta cega é mais eficiente.",
+  "origem": "Geladeira Comercial",
+  "url": "/servicos/refrigeracao-comercial/geladeira-comercial"
+ },
+ {
+  "q": "Por que a geladeira gela demais em alguns pontos?",
+  "a": "Normalmente é produto encostado no evaporador ou empilhado de forma a bloquear a circulação. Também pode ser controlador descalibrado ou sensor mal posicionado.",
+  "origem": "Geladeira Comercial",
+  "url": "/servicos/refrigeracao-comercial/geladeira-comercial"
+ },
+ {
+  "q": "Geladeira doméstica atende um comércio pequeno?",
+  "a": "Atende mal. Ela é projetada para poucas aberturas por dia, e em uso comercial trabalha em ciclo constante, com conservação irregular e vida útil reduzida.",
+  "origem": "Geladeira Comercial",
+  "url": "/servicos/refrigeracao-comercial/geladeira-comercial"
+ },
+ {
+  "q": "Balcão sob medida compensa em relação ao de linha?",
+  "a": "Compensa quando o espaço é irregular, quando há necessidade de integrar com marcenaria ou quando o formato de linha desperdiça área de atendimento. Em espaço padrão e layout simples, o de linha resolve.",
+  "origem": "Balcão Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/balcao-refrigerado"
+ },
+ {
+  "q": "Vidro curvo ou vidro reto?",
+  "a": "O curvo tem apelo visual maior e é tradicional em açougues e confeitarias. O reto costuma facilitar a limpeza e o aproveitamento em linhas modulares longas. A escolha é estética e de operação, não de conservação.",
+  "origem": "Balcão Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/balcao-refrigerado"
+ },
+ {
+  "q": "Dá para integrar o balcão à marcenaria da loja?",
+  "a": "Sim, e é o que fazemos com frequência. O equipamento é projetado para acoplar ao balcão de madeira ou ao mobiliário planejado, mantendo a estética sem comprometer a refrigeração.",
+  "origem": "Balcão Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/balcao-refrigerado"
+ },
+ {
+  "q": "Que iluminação valoriza o produto?",
+  "a": "Iluminação em LED posicionada para incidir sobre o produto, não sobre o vidro. Além do apelo visual, gera pouco calor dentro do gabinete, o que ajuda o sistema em vez de atrapalhar.",
+  "origem": "Balcão Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/balcao-refrigerado"
+ },
+ {
+  "q": "Expositor com porta ou sem porta?",
+  "a": "Com porta consome menos e mantém temperatura mais estável. Sem porta facilita a retirada e favorece o impulso, mas é bem mais sensível ao ambiente da loja. A escolha depende do fluxo e do tipo de produto.",
+  "origem": "Expositor Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/expositor-refrigerado"
+ },
+ {
+  "q": "Posso aplicar a identidade visual da minha loja?",
+  "a": "Sim. Adesivagem e acabamento personalizado são comuns, e transformam o equipamento em ponto de marca dentro da loja.",
+  "origem": "Expositor Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/expositor-refrigerado"
+ },
+ {
+  "q": "Por que o expositor perde temperatura em dia cheio?",
+  "a": "Abertura frequente, produto acima da linha de carga, corrente de ar incidindo no equipamento ou condensador sem espaço para dissipar calor. Em dia de movimento, esses fatores se somam.",
+  "origem": "Expositor Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/expositor-refrigerado"
+ },
+ {
+  "q": "Prateleira cheia ajuda ou atrapalha?",
+  "a": "Produto bem distribuído ajuda, porque funciona como massa térmica. O que atrapalha é empilhar acima do limite indicado, o que bloqueia a circulação e deixa os itens do topo fora da faixa.",
+  "origem": "Expositor Refrigerado",
+  "url": "/servicos/refrigeracao-comercial/expositor-refrigerado"
+ },
+ {
+  "q": "Ilha ou expositor vertical?",
+  "a": "Vertical ocupa pouca área de piso e expõe na altura dos olhos, favorecendo compra planejada. Ilha ocupa área mas preserva a visão do salão e favorece impulso. Na prática, o layout costuma decidir antes de qualquer outro critério.",
+  "origem": "Ilha Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/ilha-refrigerada"
+ },
+ {
+  "q": "Por que os produtos de cima ficam menos gelados?",
+  "a": "Porque a cortina de ar frio se forma no topo do gabinete. Produto empilhado acima da linha de carga rompe essa cortina e fica fora da faixa, mesmo com o equipamento funcionando bem.",
+  "origem": "Ilha Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/ilha-refrigerada"
+ },
+ {
+  "q": "Posso instalar a ilha perto da entrada?",
+  "a": "Pode, e é boa posição para impulso, desde que não fique na corrente de ar direta da porta. Ar externo quente e úmido rompendo a cortina prejudica a temperatura e aumenta a formação de gelo.",
+  "origem": "Ilha Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/ilha-refrigerada"
+ },
+ {
+  "q": "Ilha aberta consome muito?",
+  "a": "Consome mais que um equivalente fechado, porque a perda é contínua e não apenas na abertura. A contrapartida é o acesso livre, que favorece a venda por impulso.",
+  "origem": "Ilha Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/ilha-refrigerada"
+ },
+ {
+  "q": "Mesa refrigerada pode ficar ao lado da chapa?",
+  "a": "Pode, e é a posição natural na linha de produção, desde que o projeto garanta ventilação para o condensador e isolamento do calor vizinho. Sem esse cuidado, o equipamento trabalha em desvantagem permanente.",
+  "origem": "Mesa Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/mesa-refrigerada"
+ },
+ {
+  "q": "Portas ou gavetas?",
+  "a": "Gavetas dão acesso mais rápido e perdem menos frio por abertura, o que ajuda em ritmo alto. Portas acomodam volumes maiores e caixas. É comum combinar os dois no mesmo equipamento.",
+  "origem": "Mesa Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/mesa-refrigerada"
+ },
+ {
+  "q": "Serve como bancada de trabalho?",
+  "a": "Sim, o tampo em inox é dimensionado para uso. O que não se recomenda é apoiar equipamento quente diretamente sobre ele, o que joga calor para dentro do gabinete.",
+  "origem": "Mesa Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/mesa-refrigerada"
+ },
+ {
+  "q": "Dá para fazer sob medida para bancada existente?",
+  "a": "Sim, e é o caso mais comum. O equipamento é fabricado para encaixar na altura e no vão que já existem, sem obrigar reforma da cozinha.",
+  "origem": "Mesa Refrigerada",
+  "url": "/servicos/refrigeracao-comercial/mesa-refrigerada"
+ },
+ {
+  "q": "Como saber a capacidade que preciso?",
+  "a": "Pelo consumo do dia de pico e pela velocidade de reposição. Equipamento dimensionado pela média funciona bem no mês inteiro e falha justamente no dia que mais importa.",
+  "origem": "Resfriador de Bebidas",
+  "url": "/servicos/refrigeracao-comercial/resfriador-de-bebidas"
+ },
+ {
+  "q": "Posso instalar em área externa?",
+  "a": "Depende da proteção contra sol e chuva. Equipamento exposto ao sol direto trabalha com a temperatura ambiente muito acima do previsto e perde rendimento.",
+  "origem": "Resfriador de Bebidas",
+  "url": "/servicos/refrigeracao-comercial/resfriador-de-bebidas"
+ },
+ {
+  "q": "Por que a bebida demora a gelar quando abastece muito de uma vez?",
+  "a": "Porque a carga entra quente e o sistema precisa remover todo esse calor. Repor em lotes menores e com antecedência mantém a temperatura estável no pico.",
+  "origem": "Resfriador de Bebidas",
+  "url": "/servicos/refrigeracao-comercial/resfriador-de-bebidas"
+ },
+ {
+  "q": "Vocês fazem manutenção nesse tipo de equipamento?",
+  "a": "Sim, incluindo limpeza de condensador, verificação de vedação e ajuste do controlador — os pontos que mais derrubam rendimento em equipamento de bebidas.",
+  "origem": "Resfriador de Bebidas",
+  "url": "/servicos/refrigeracao-comercial/resfriador-de-bebidas"
+ },
+ {
+  "q": "Quanto tempo antes ligar a chopeira?",
+  "a": "O suficiente para o banco de gelo se formar por completo em volta da serpentina, o que varia com o modelo e a temperatura do ambiente. Na prática: ligue bem antes do serviço e confira o gelo antes do primeiro copo.",
+  "origem": "Chopeira",
+  "url": "/servicos/refrigeracao-comercial/chopeira"
+ },
+ {
+  "q": "O chope está gelado mas sai só espuma. O que é?",
+  "a": "A pressão do gás é a primeira suspeita, seguida de restrição ou sujeira na linha. Vale verificar também se algum trecho da tubulação passa por região quente, o que libera gás antes da torneira.",
+  "origem": "Chopeira",
+  "url": "/servicos/refrigeracao-comercial/chopeira"
+ },
+ {
+  "q": "Com que frequência higienizar a linha?",
+  "a": "Em frequência fixa, definida pelo volume de uso — não só quando o cliente reclama. Resíduo acumulado afeta sabor, espuma e vazão ao mesmo tempo.",
+  "origem": "Chopeira",
+  "url": "/servicos/refrigeracao-comercial/chopeira"
+ },
+ {
+  "q": "A chopeira pode ficar embutida no balcão?",
+  "a": "Pode, desde que o nicho tenha ventilação e espaço livre para dissipar calor. Equipamento embutido em espaço fechado perde capacidade de forma permanente.",
+  "origem": "Chopeira",
+  "url": "/servicos/refrigeracao-comercial/chopeira"
+ },
+ {
+  "q": "Como calcular a capacidade da máquina?",
+  "a": "Pelo consumo no horário de pico e não pelo total do dia, considerando também o reservatório. Máquina com produção suficiente e reservatório pequeno falha justamente na hora cheia.",
+  "origem": "Máquina de Gelo",
+  "url": "/servicos/refrigeracao-comercial/maquina-de-gelo"
+ },
+ {
+  "q": "A produção cai no verão?",
+  "a": "Cai. A produção nominal é medida em condições de referência; com ambiente quente e água de entrada mais quente, o equipamento produz menos. Por isso o dimensionamento precisa considerar o pior cenário, não o melhor.",
+  "origem": "Máquina de Gelo",
+  "url": "/servicos/refrigeracao-comercial/maquina-de-gelo"
+ },
+ {
+  "q": "Precisa de filtro de água?",
+  "a": "Depende da qualidade da água local. Filtragem adequada melhora o gelo e reduz incrustação nos componentes, que é a causa mais comum de queda de produção ao longo do tempo.",
+  "origem": "Máquina de Gelo",
+  "url": "/servicos/refrigeracao-comercial/maquina-de-gelo"
+ },
+ {
+  "q": "Com que frequência limpar?",
+  "a": "Em rotina definida, porque gelo é alimento e a máquina tem contato direto. A frequência depende do uso e da qualidade da água, e é orientada na entrega.",
+  "origem": "Máquina de Gelo",
+  "url": "/servicos/refrigeracao-comercial/maquina-de-gelo"
+ },
+ {
+  "q": "Qual capacidade escolher?",
+  "a": "Pela quantidade de pessoas e, principalmente, pela concentração do consumo. Vinte pessoas bebendo ao longo do dia exigem menos que vinte pessoas bebendo na mesma saída de turno.",
+  "origem": "Bebedouro Industrial",
+  "url": "/servicos/refrigeracao-comercial/bebedouro-industrial"
+ },
+ {
+  "q": "Bebedouro de escritório serve na produção?",
+  "a": "Não em ambiente com equipe numerosa e calor. Ele não recupera temperatura no ritmo necessário e passa a operar em esforço permanente.",
+  "origem": "Bebedouro Industrial",
+  "url": "/servicos/refrigeracao-comercial/bebedouro-industrial"
+ },
+ {
+  "q": "Precisa de filtro?",
+  "a": "É recomendado, tanto pela qualidade da água quanto pela proteção do equipamento. A troca do elemento filtrante entra na rotina de manutenção.",
+  "origem": "Bebedouro Industrial",
+  "url": "/servicos/refrigeracao-comercial/bebedouro-industrial"
+ },
+ {
+  "q": "Inox é necessário?",
+  "a": "Em ambiente de produção de alimentos e áreas de lavagem, o inox facilita a higienização e resiste melhor ao uso pesado do que outros acabamentos.",
+  "origem": "Bebedouro Industrial",
+  "url": "/servicos/refrigeracao-comercial/bebedouro-industrial"
+ },
+ {
+  "q": "A câmara fria está gelando pouco, mas ainda gela. Posso esperar?",
+  "a": "Pode operar, mas não deve ignorar. Gelar menos significa que o sistema já está trabalhando no limite, e é justamente nessa condição que a parada total acontece em dia de calor ou de movimento alto. Verifique vedação, gelo no evaporador e limpeza da condensadora, e agende avaliação técnica.",
+  "origem": "Câmara Fria Não Está Gelando: O Que Fazer e Quando Chamar Assistência Técnica",
+  "url": "/blog/camara-fria-nao-esta-gelando-o-que-fazer"
+ },
+ {
+  "q": "Quanto tempo a mercadoria aguenta com a câmara desligada?",
+  "a": "Depende do volume armazenado, da temperatura de trabalho e do isolamento. Câmara cheia mantém o frio por mais tempo que câmara vazia, porque o próprio produto funciona como massa térmica. Como regra prática, mantenha a porta fechada, evite conferências desnecessárias e priorize transferir o que for mais sensível.",
+  "origem": "Câmara Fria Não Está Gelando: O Que Fazer e Quando Chamar Assistência Técnica",
+  "url": "/blog/camara-fria-nao-esta-gelando-o-que-fazer"
+ },
+ {
+  "q": "Excesso de gelo no evaporador é normal?",
+  "a": "Camada fina entre ciclos de degelo é normal. Bloco espesso que cobre a serpentina não é: indica falha no sistema de degelo, entrada excessiva de umidade pela porta ou problema no ciclo. Raspar o gelo resolve na hora, mas ele volta se a causa não for corrigida.",
+  "origem": "Câmara Fria Não Está Gelando: O Que Fazer e Quando Chamar Assistência Técnica",
+  "url": "/blog/camara-fria-nao-esta-gelando-o-que-fazer"
+ },
+ {
+  "q": "Posso completar o gás da câmara fria por conta própria?",
+  "a": "Não. Além da exigência técnica e de segurança, gás refrigerante não se consome com o uso: se o nível caiu, existe vazamento. Completar sem reparar apenas adia o problema e faz o compressor trabalhar em condição prejudicial.",
+  "origem": "Câmara Fria Não Está Gelando: O Que Fazer e Quando Chamar Assistência Técnica",
+  "url": "/blog/camara-fria-nao-esta-gelando-o-que-fazer"
+ },
+ {
+  "q": "Câmara fria vazando água significa vazamento de gás?",
+  "a": "Não. Gás refrigerante evapora ao escapar e não forma poça. Água no piso vem da condensação e do degelo, e quase sempre indica dreno obstruído, mangueira mal posicionada ou entrada excessiva de ar úmido pela porta.",
+  "origem": "Câmara Fria Fazendo Barulho ou Vazando Água: Causas e O Que Fazer",
+  "url": "/blog/camara-fria-fazendo-barulho-ou-vazando"
+ },
+ {
+  "q": "É normal a câmara fria fazer barulho no degelo?",
+  "a": "Sim. Estalos espaçados durante e após o degelo são resultado da dilatação de painéis e tubulação com a variação de temperatura. O que não é normal é batida metálica, zumbido alto sem partida ou ruído contínuo de raspagem.",
+  "origem": "Câmara Fria Fazendo Barulho ou Vazando Água: Causas e O Que Fazer",
+  "url": "/blog/camara-fria-fazendo-barulho-ou-vazando"
+ },
+ {
+  "q": "O compressor está muito barulhento. Posso continuar usando?",
+  "a": "Ruído metálico ou zumbido alto sem que o compressor parta indicam esforço mecânico ou elétrico anormal. Continuar operando nessas condições costuma levar à queima. O procedimento seguro é desligar e solicitar avaliação.",
+  "origem": "Câmara Fria Fazendo Barulho ou Vazando Água: Causas e O Que Fazer",
+  "url": "/blog/camara-fria-fazendo-barulho-ou-vazando"
+ },
+ {
+  "q": "De onde vem a água que se forma na porta da câmara?",
+  "a": "De condensação: ar quente e úmido encontrando superfície fria. Aparece quando a vedação perdeu compressão, quando falta cortina de PVC ou quando a porta fica aberta por períodos longos durante o carregamento.",
+  "origem": "Câmara Fria Fazendo Barulho ou Vazando Água: Causas e O Que Fazer",
+  "url": "/blog/camara-fria-fazendo-barulho-ou-vazando"
+ },
+ {
+  "q": "O tamanho da câmara define a capacidade do sistema?",
+  "a": "Não sozinho. O que define a capacidade é a carga térmica: além do volume, entram a temperatura de trabalho, a frequência de abertura da porta, a temperatura do produto na entrada, a iluminação e o calor dos motores.",
+  "origem": "O Que Define o Investimento em uma Câmara Fria",
+  "url": "/blog/quanto-custa-instalar-camara-fria"
+ },
+ {
+  "q": "Vale a pena escolher painel mais espesso?",
+  "a": "Em câmaras de congelados, praticamente sempre. Em resfriados, depende do uso. O painel mais espesso aumenta o investimento inicial e reduz o consumo de forma permanente, então a decisão considera a temperatura de trabalho e as horas de operação diárias.",
+  "origem": "O Que Define o Investimento em uma Câmara Fria",
+  "url": "/blog/quanto-custa-instalar-camara-fria"
+ },
+ {
+  "q": "Posso usar uma câmara de resfriados para congelar produtos?",
+  "a": "Não é recomendado. O sistema, o isolamento e o degelo são dimensionados para a faixa de temperatura prevista. Forçar operação abaixo da faixa gera formação excessiva de gelo, consumo elevado e desgaste do compressor.",
+  "origem": "O Que Define o Investimento em uma Câmara Fria",
+  "url": "/blog/quanto-custa-instalar-camara-fria"
+ },
+ {
+  "q": "A câmara pode ser instalada em qualquer lugar do estabelecimento?",
+  "a": "O ambiente interno tem boa flexibilidade, mas a unidade condensadora precisa de local ventilado, com espaço livre para dissipar calor e acesso para manutenção. Esse ponto costuma ser o que limita as opções de layout.",
+  "origem": "O Que Define o Investimento em uma Câmara Fria",
+  "url": "/blog/quanto-custa-instalar-camara-fria"
+ },
+ {
+  "q": "Posso usar freezer como geladeira ajustando o termostato?",
+  "a": "Alguns equipamentos permitem operação em faixa dupla, mas a maioria é projetada para uma faixa específica. Operar fora dela gera formação de gelo, ciclos irregulares e desgaste. Verifique sempre a especificação do fabricante antes.",
+  "origem": "Freezer ou Geladeira Comercial: Como Escolher para o Seu Negócio",
+  "url": "/blog/como-escolher-freezer-ou-geladeira-comercial"
+ },
+ {
+  "q": "Expositor de porta de vidro consome muito mais?",
+  "a": "Consome mais que um equipamento equivalente de porta cega, porque o vidro tem troca térmica maior. Em compensação, cumpre a função de exposição. A conta é comparar o consumo adicional com o retorno em vendas por impulso.",
+  "origem": "Freezer ou Geladeira Comercial: Como Escolher para o Seu Negócio",
+  "url": "/blog/como-escolher-freezer-ou-geladeira-comercial"
+ },
+ {
+  "q": "Vale a pena comprar equipamento usado?",
+  "a": "Exige avaliação técnica antes. Os pontos críticos são estado do compressor, integridade do isolamento, condição das vedações e qual gás refrigerante o sistema utiliza — equipamentos antigos podem usar gases já em desuso, o que complica manutenção futura.",
+  "origem": "Freezer ou Geladeira Comercial: Como Escolher para o Seu Negócio",
+  "url": "/blog/como-escolher-freezer-ou-geladeira-comercial"
+ },
+ {
+  "q": "Qual a diferença entre refrigeração estática e ar forçado?",
+  "a": "Na estática, o frio se distribui por convecção natural, o que costuma gerar diferença de temperatura entre as prateleiras. No ar forçado, ventiladores movimentam o ar, o que dá uniformidade e recuperação mais rápida após abertura de porta.",
+  "origem": "Freezer ou Geladeira Comercial: Como Escolher para o Seu Negócio",
+  "url": "/blog/como-escolher-freezer-ou-geladeira-comercial"
+ },
+ {
+  "q": "Qual dos dois consome menos energia?",
+  "a": "Depende mais de ser aberto ou fechado do que do formato. Um vertical com porta de vidro tende a consumir menos que uma ilha aberta de capacidade equivalente, porque a perda por abertura é pontual em vez de contínua.",
+  "origem": "Expositor Vertical ou Ilha Refrigerada: Qual Escolher",
+  "url": "/blog/expositor-vertical-ou-ilha-refrigerada-qual-escolher"
+ },
+ {
+  "q": "Ilha refrigerada serve para bebidas?",
+  "a": "Serve, especialmente para promoções e volume alto de reposição. Mas para bebidas de consumo imediato o vertical costuma render mais, porque expõe o produto na altura dos olhos e facilita a retirada de unidades.",
+  "origem": "Expositor Vertical ou Ilha Refrigerada: Qual Escolher",
+  "url": "/blog/expositor-vertical-ou-ilha-refrigerada-qual-escolher"
+ },
+ {
+  "q": "Posso instalar ilha refrigerada perto da entrada da loja?",
+  "a": "Pode, e essa posição é boa para impulso, desde que não fique exposta a corrente de ar direta da porta. Ar externo quente e úmido rompendo a cortina de ar prejudica a temperatura e aumenta a formação de gelo.",
+  "origem": "Expositor Vertical ou Ilha Refrigerada: Qual Escolher",
+  "url": "/blog/expositor-vertical-ou-ilha-refrigerada-qual-escolher"
+ },
+ {
+  "q": "Dá para fabricar esses equipamentos sob medida?",
+  "a": "Sim. Em lojas com layout irregular, balcão em formato específico ou necessidade de integração com marcenaria, a fabricação sob medida aproveita melhor o espaço do que equipamentos de linha.",
+  "origem": "Expositor Vertical ou Ilha Refrigerada: Qual Escolher",
+  "url": "/blog/expositor-vertical-ou-ilha-refrigerada-qual-escolher"
+ },
+ {
+  "q": "Quanto tempo antes devo ligar a chopeira?",
+  "a": "O suficiente para o banco de gelo se formar completamente em torno da serpentina, o que varia conforme o modelo e a temperatura do ambiente. Como referência prática, ligue bem antes do início do serviço e confira visualmente a formação do gelo antes de servir o primeiro copo.",
+  "origem": "Chopeira Não Está Gelando o Chope: Causas e Como Resolver",
+  "url": "/blog/chopeira-nao-esta-gelando-o-chope"
+ },
+ {
+  "q": "O chope está gelado mas sai só espuma. O que pode ser?",
+  "a": "Nesse caso a pressão do gás é a primeira suspeita, seguida de restrição ou sujeira na linha. Também vale verificar se há trecho da tubulação passando por região quente, porque a variação de temperatura no percurso libera gás antes da torneira.",
+  "origem": "Chopeira Não Está Gelando o Chope: Causas e Como Resolver",
+  "url": "/blog/chopeira-nao-esta-gelando-o-chope"
+ },
+ {
+  "q": "Preciso desligar a chopeira todo dia?",
+  "a": "Depende da rotina do estabelecimento. Desligar e religar exige nova formação de banco de gelo a cada abertura. Muitos operadores mantêm o equipamento ligado nos dias de operação contínua justamente para não perder esse tempo.",
+  "origem": "Chopeira Não Está Gelando o Chope: Causas e Como Resolver",
+  "url": "/blog/chopeira-nao-esta-gelando-o-chope"
+ },
+ {
+  "q": "A chopeira pode ficar em qualquer lugar do balcão?",
+  "a": "Precisa de ventilação adequada e espaço livre para dissipar calor. Instalada em nicho fechado, encostada na parede ou perto de fonte de calor, ela trabalha em desvantagem e apresenta falhas justamente em dia de pico.",
+  "origem": "Chopeira Não Está Gelando o Chope: Causas e Como Resolver",
+  "url": "/blog/chopeira-nao-esta-gelando-o-chope"
+ },
+ {
+  "q": "Com que frequência fazer manutenção preventiva?",
+  "a": "Depende da carga de uso, do ambiente e do tipo de equipamento. Cozinha com muita gordura no ar exige limpeza de condensador mais frequente que um estoque limpo. O intervalo adequado sai da avaliação do equipamento e da rotina do estabelecimento.",
+  "origem": "Manutenção Preventiva ou Corretiva: O Que Muda na Refrigeração Comercial",
+  "url": "/blog/manutencao-preventiva-x-corretiva-refrigeracao"
+ },
+ {
+  "q": "Manutenção preventiva reduz a conta de energia?",
+  "a": "Reduz, e esse é um efeito frequentemente subestimado. Condensador sujo, vedação ruim e serpentina com gelo fazem o sistema trabalhar mais tempo para o mesmo resultado. Restaurar essas condições devolve eficiência.",
+  "origem": "Manutenção Preventiva ou Corretiva: O Que Muda na Refrigeração Comercial",
+  "url": "/blog/manutencao-preventiva-x-corretiva-refrigeracao"
+ },
+ {
+  "q": "O equipamento é novo, preciso de preventiva?",
+  "a": "Sim. Equipamento novo não acumula desgaste ainda, mas acumula sujeira, sofre com vedação mal ajustada e pode ter parâmetros fora do ponto desde a instalação. A preventiva no início serve para confirmar que ele está operando como deveria.",
+  "origem": "Manutenção Preventiva ou Corretiva: O Que Muda na Refrigeração Comercial",
+  "url": "/blog/manutencao-preventiva-x-corretiva-refrigeracao"
+ },
+ {
+  "q": "Dá para fazer parte da manutenção internamente?",
+  "a": "Parte sim. Limpeza externa, conferência de vedação, organização interna e registro de temperatura podem ser rotina da equipe. Medição de pressão, avaliação elétrica e qualquer intervenção no circuito de refrigeração exigem técnico habilitado.",
+  "origem": "Manutenção Preventiva ou Corretiva: O Que Muda na Refrigeração Comercial",
+  "url": "/blog/manutencao-preventiva-x-corretiva-refrigeracao"
+ },
+ {
+  "q": "Preciso anotar temperatura mesmo com controlador digital?",
+  "a": "Sim. O controlador mostra o momento presente; a anotação mostra a tendência. É a comparação entre dias e semanas que revela perda gradual de eficiência antes de virar parada.",
+  "origem": "Checklist de Manutenção Mensal para Refrigeração Comercial",
+  "url": "/blog/checklist-manutencao-refrigeracao-comercial-mensal"
+ },
+ {
+  "q": "Com que frequência limpar o condensador?",
+  "a": "Depende do ambiente. Em cozinha com gordura no ar ou em local com muita poeira, o intervalo precisa ser mais curto que em área limpa. A inspeção visual mensal indica se a frequência adotada está adequada.",
+  "origem": "Checklist de Manutenção Mensal para Refrigeração Comercial",
+  "url": "/blog/checklist-manutencao-refrigeracao-comercial-mensal"
+ },
+ {
+  "q": "A equipe pode fazer a manutenção sozinha?",
+  "a": "Pode fazer a parte de limpeza, verificação visual e registro, que é justamente onde os problemas aparecem primeiro. Medição de pressão, intervenção elétrica e qualquer serviço no circuito de refrigeração exigem técnico habilitado.",
+  "origem": "Checklist de Manutenção Mensal para Refrigeração Comercial",
+  "url": "/blog/checklist-manutencao-refrigeracao-comercial-mensal"
+ },
+ {
+  "q": "O que fazer quando a temperatura registrada sai da faixa?",
+  "a": "Antes de qualquer coisa, verifique vedação da porta, excesso de gelo no evaporador e limpeza do condensador. Se os três estiverem em ordem e a temperatura seguir fora da faixa, o caso é de avaliação técnica.",
+  "origem": "Checklist de Manutenção Mensal para Refrigeração Comercial",
+  "url": "/blog/checklist-manutencao-refrigeracao-comercial-mensal"
+ },
+ {
+  "q": "Compressor queima por tempo de uso?",
+  "a": "Raramente por tempo isolado. O que determina a duração são as condições de operação: temperatura de trabalho, limpeza do condensador, carga de gás, qualidade da alimentação elétrica e frequência de partidas.",
+  "origem": "Vida Útil do Compressor: O Que Faz Durar e O Que Faz Queimar",
+  "url": "/blog/quanto-tempo-dura-compressor-refrigeracao-comercial"
+ },
+ {
+  "q": "Vale a pena trocar o compressor ou o equipamento inteiro?",
+  "a": "Depende do estado geral: condição do isolamento, do gabinete, do gás utilizado e a idade dos demais componentes. Equipamento antigo que usa gás em desuso tende a apresentar dificuldade de manutenção mesmo com compressor novo.",
+  "origem": "Vida Útil do Compressor: O Que Faz Durar e O Que Faz Queimar",
+  "url": "/blog/quanto-tempo-dura-compressor-refrigeracao-comercial"
+ },
+ {
+  "q": "Compressor quente é sinal de problema?",
+  "a": "Certo aquecimento é normal na operação. O que chama atenção é aquecimento acima do habitual para aquele equipamento, especialmente acompanhado de atuação da proteção térmica ou de partidas mais frequentes.",
+  "origem": "Vida Útil do Compressor: O Que Faz Durar e O Que Faz Queimar",
+  "url": "/blog/quanto-tempo-dura-compressor-refrigeracao-comercial"
+ },
+ {
+  "q": "Por que o compressor liga e desliga toda hora?",
+  "a": "Ciclo curto costuma indicar termostato descalibrado ou mal posicionado, carga de gás fora do ponto, sistema superdimensionado para a carga real ou falha no controle. Todas são causas corrigíveis e que, se ignoradas, terminam no compressor.",
+  "origem": "Vida Útil do Compressor: O Que Faz Durar e O Que Faz Queimar",
+  "url": "/blog/quanto-tempo-dura-compressor-refrigeracao-comercial"
+ },
+ {
+  "q": "Posso calcular a câmara pelo volume de produto apenas?",
+  "a": "Não. O volume é o ponto de partida, mas a carga térmica considera também a temperatura de trabalho, a frequência de abertura, a temperatura do produto na entrada e o calor gerado internamente. Sem isso, o cálculo fica incompleto.",
+  "origem": "Como Dimensionar uma Câmara Fria: O Que Entra na Conta",
+  "url": "/blog/como-dimensionar-uma-camara-fria"
+ },
+ {
+  "q": "É melhor sobrar capacidade no sistema?",
+  "a": "Uma margem de projeto é adequada, mas excesso gera ciclo curto: o sistema atinge a temperatura rápido, desliga e religa em intervalos curtos, o que desgasta o compressor. O dimensionamento busca o equilíbrio, não o exagero.",
+  "origem": "Como Dimensionar uma Câmara Fria: O Que Entra na Conta",
+  "url": "/blog/como-dimensionar-uma-camara-fria"
+ },
+ {
+  "q": "Preciso deixar espaço entre o produto e a parede da câmara?",
+  "a": "Sim. O ar precisa circular por todo o ambiente para manter a temperatura uniforme. Produto encostado na parede, no teto ou em frente ao evaporador cria pontos quentes e prejudica a conservação nesses locais.",
+  "origem": "Como Dimensionar uma Câmara Fria: O Que Entra na Conta",
+  "url": "/blog/como-dimensionar-uma-camara-fria"
+ },
+ {
+  "q": "Uma câmara pode ser ampliada depois?",
+  "a": "Em muitos casos sim, por ser construída em painéis modulares, mas a ampliação precisa considerar se o sistema de refrigeração comporta a nova carga térmica. Aumentar o volume sem reavaliar a capacidade resulta em câmara que não alcança a temperatura.",
+  "origem": "Como Dimensionar uma Câmara Fria: O Que Entra na Conta",
+  "url": "/blog/como-dimensionar-uma-camara-fria"
+ },
+ {
+  "q": "Câmara fria pode ser desligada à noite para economizar?",
+  "a": "Não é recomendado. O produto armazenado precisa de temperatura contínua, e religar exige puxar toda a massa de volta à faixa, o que consome mais do que manter. Além disso, a variação compromete a conservação.",
+  "origem": "Consumo de Energia da Câmara Fria: O Que Realmente Pesa",
+  "url": "/blog/quanto-camara-fria-consome-de-energia"
+ },
+ {
+  "q": "Painel mais espesso reduz o consumo?",
+  "a": "Sim, porque reduz a entrada de calor pelas paredes de forma permanente. O ganho é mais significativo em câmaras de congelados e em operações que funcionam muitas horas por dia.",
+  "origem": "Consumo de Energia da Câmara Fria: O Que Realmente Pesa",
+  "url": "/blog/quanto-camara-fria-consome-de-energia"
+ },
+ {
+  "q": "Trocar o gás refrigerante reduz consumo?",
+  "a": "A modernização de sistemas antigos pode trazer ganho de eficiência, mas a decisão envolve avaliar compressor, componentes e adequação do circuito. Não é uma troca isolada, e sim um projeto de retrofit.",
+  "origem": "Consumo de Energia da Câmara Fria: O Que Realmente Pesa",
+  "url": "/blog/quanto-camara-fria-consome-de-energia"
+ },
+ {
+  "q": "Por que o consumo aumenta no verão?",
+  "a": "Porque a diferença entre a temperatura externa e a interna aumenta, e a condensadora dissipa calor com mais dificuldade em ambiente quente. É também quando qualquer falha de vedação ou sujeira no condensador se manifesta com mais força.",
+  "origem": "Consumo de Energia da Câmara Fria: O Que Realmente Pesa",
+  "url": "/blog/quanto-camara-fria-consome-de-energia"
+ },
+ {
+  "q": "Posso congelar produtos em uma câmara de resfriados?",
+  "a": "Não é adequado. O sistema, o isolamento e o degelo foram dimensionados para faixa positiva. Forçar a operação em temperatura negativa gera formação excessiva de gelo, consumo elevado e desgaste do compressor, sem entregar a estabilidade que congelados exigem.",
+  "origem": "Câmara Fria de Resfriados ou de Congelados: Qual Escolher",
+  "url": "/blog/camara-fria-resfriados-x-congelados-qual-escolher"
+ },
+ {
+  "q": "Uma câmara de congelados pode operar como resfriados?",
+  "a": "Tecnicamente é mais viável que o contrário, já que a capacidade existe. Mas é uma solução ineficiente: o isolamento mais espesso e o sistema mais robusto foram um investimento que não está sendo aproveitado, e o consumo permanece mais alto que o necessário.",
+  "origem": "Câmara Fria de Resfriados ou de Congelados: Qual Escolher",
+  "url": "/blog/camara-fria-resfriados-x-congelados-qual-escolher"
+ },
+ {
+  "q": "O que são câmaras geminadas?",
+  "a": "São câmaras construídas lado a lado, compartilhando estrutura e área técnica, mas com sistemas e temperaturas independentes. Permitem manter resfriados e congelados no mesmo espaço físico sem comprometer nenhuma das duas faixas.",
+  "origem": "Câmara Fria de Resfriados ou de Congelados: Qual Escolher",
+  "url": "/blog/camara-fria-resfriados-x-congelados-qual-escolher"
+ },
+ {
+  "q": "A porta da câmara de congelados congela fechada. É normal?",
+  "a": "Não é normal e indica falha no sistema que impede a formação de gelo no batente. Além do incômodo, forçar a abertura danifica a vedação, o que agrava a entrada de ar quente e o consumo.",
+  "origem": "Câmara Fria de Resfriados ou de Congelados: Qual Escolher",
+  "url": "/blog/camara-fria-resfriados-x-congelados-qual-escolher"
+ },
+ {
+  "q": "Por que os equipamentos falham mais no verão?",
+  "a": "Porque a folga de operação desaparece. A condensadora dissipa calor com mais dificuldade, a carga térmica aumenta com o movimento e o estoque, e qualquer problema que já existia deixa de ser compensado.",
+  "origem": "Como Preparar a Refrigeração Comercial para o Verão",
+  "url": "/blog/como-preparar-refrigeracao-comercial-para-o-verao"
+ },
+ {
+  "q": "Quando fazer a revisão de verão?",
+  "a": "Antes da temperatura subir, para que a intervenção aconteça com a operação normal e haja tempo de substituir o que for necessário. Revisão feita durante a temporada acontece sob pressão e com mercadoria em risco.",
+  "origem": "Como Preparar a Refrigeração Comercial para o Verão",
+  "url": "/blog/como-preparar-refrigeracao-comercial-para-o-verao"
+ },
+ {
+  "q": "Ar-condicionado do salão ajuda os expositores?",
+  "a": "Ajuda ao reduzir a temperatura ambiente, mas o fluxo de ar não pode incidir diretamente sobre equipamentos abertos. Corrente de ar rompendo a cortina de ar frio de ilhas e expositores prejudica a temperatura e aumenta a formação de gelo.",
+  "origem": "Como Preparar a Refrigeração Comercial para o Verão",
+  "url": "/blog/como-preparar-refrigeracao-comercial-para-o-verao"
+ },
+ {
+  "q": "Vale a pena instalar equipamento extra só para o verão?",
+  "a": "Depende do padrão de sazonalidade do negócio. Em segmentos com pico muito concentrado, o dimensionamento precisa considerar a demanda de pico e não a média do ano, para que o sistema não trabalhe no limite justamente na alta temporada.",
+  "origem": "Como Preparar a Refrigeração Comercial para o Verão",
+  "url": "/blog/como-preparar-refrigeracao-comercial-para-o-verao"
+ },
+ {
+  "q": "Vocês atendem em qual região?",
+  "a": "Maringá e região, com atendimento em todo o Paraná para projetos agendados. Já executamos obras em Guaíra, Cascavel, Londrina e Foz do Iguaçu. Diga onde fica o estabelecimento que confirmamos o atendimento.",
+  "origem": "Área de atendimento",
+  "url": "/contato"
+ },
+ {
+  "q": "Quanto custa? Vocês têm tabela de preços?",
+  "a": "Não trabalhamos com tabela fixa porque todo equipamento é fabricado sob medida — o valor depende das medidas, do acabamento e do sistema definidos no levantamento. Descreva o que precisa que a equipe retorna com o orçamento.",
+  "origem": "Orçamento",
+  "url": "/contato"
+ },
+ {
+  "q": "Qual o prazo de entrega?",
+  "a": "O prazo varia com o tipo de equipamento, as medidas e a fila de produção no momento do pedido, por isso ele é informado junto com o orçamento, e não antes. Fale com a equipe para uma previsão do seu caso.",
+  "origem": "Prazos",
+  "url": "/contato"
+ },
+ {
+  "q": "Os equipamentos têm garantia?",
+  "a": "Sim. O prazo de garantia consta na ficha de cada serviço e equipamento — na instalação de câmara fria, por exemplo, são 12 meses para a instalação completa. A garantia do seu caso é confirmada junto com o orçamento.",
+  "origem": "Garantia",
+  "url": "/contato"
+ },
+ {
+  "q": "Como peço um orçamento?",
+  "a": "Pelo WhatsApp ou pelo formulário do site. Ajuda muito já dizer: o que será armazenado ou exposto, em que temperatura, as medidas do espaço e a cidade. Com isso a resposta sai direto com especificação, sem ida e volta.",
+  "origem": "Orçamento",
+  "url": "/contato"
+ }
+]
