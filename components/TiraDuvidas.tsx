@@ -133,6 +133,22 @@ function buscar(texto: string, limite = 3): Pergunta[] {
 }
 
 const WHATS = '5544999368420';
+const ASSISTENTE = 'https://mpdlwheqvggbfxkhbtqg.supabase.co/functions/v1/assistente';
+
+/** Identifica a conversa para o limite por sessao e para o registro. */
+function sessaoAtual() {
+  const chave = 'refrigois_chat_sessao';
+  try {
+    let s = sessionStorage.getItem(chave);
+    if (!s) {
+      s = crypto.randomUUID();
+      sessionStorage.setItem(chave, s);
+    }
+    return s;
+  } catch {
+    return crypto.randomUUID();
+  }
+}
 
 function linkWhatsApp(historico: Mensagem[]) {
   const ultimas = historico
@@ -154,6 +170,8 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
     { de: 'assistente', texto: saudacao },
   ]);
   const [texto, setTexto] = useState('');
+  const [pensando, setPensando] = useState(false);
+  const sessao = useRef(sessaoAtual());
   const fim = useRef<HTMLDivElement>(null);
 
   // Sugestoes iniciais: as perguntas mais comuns, para quem nao sabe o que perguntar
@@ -163,29 +181,56 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
     fim.current?.scrollIntoView({ behavior: 'smooth' });
   }, [mensagens]);
 
-  function responder(pergunta: string) {
+  /** Resposta pela busca local — usada quando o assistente esta indisponivel. */
+  function responderLocalmente(pergunta: string): Mensagem {
     const achadas = buscar(pergunta);
-    const novas: Mensagem[] = [{ de: 'pessoa', texto: pergunta }];
-
     if (achadas.length === 0) {
-      novas.push({
+      return {
         de: 'assistente',
         texto:
           'Não encontrei essa resposta no que já está publicado aqui. ' +
           'Para essa dúvida, o melhor caminho é falar com a equipe pelo WhatsApp — ' +
           'assim alguém que executa te responde direto.',
-      });
-    } else {
-      const [melhor, ...outras] = achadas;
-      novas.push({
-        de: 'assistente',
-        texto: melhor.a,
-        fonte: { origem: melhor.origem, url: melhor.url },
-        sugestoes: outras,
-      });
+      };
     }
-    setMensagens((m) => [...m, ...novas]);
+    const [melhor, ...outras] = achadas;
+    return {
+      de: 'assistente',
+      texto: melhor.a,
+      fonte: { origem: melhor.origem, url: melhor.url },
+      sugestoes: outras,
+    };
+  }
+
+  async function responder(pergunta: string) {
+    const historico = mensagens.slice(-6).map((m) => ({ de: m.de, texto: m.texto }));
+    setMensagens((m) => [...m, { de: 'pessoa', texto: pergunta }]);
     setTexto('');
+    setPensando(true);
+
+    try {
+      const r = await fetch(ASSISTENTE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pergunta, historico, sessao: sessao.current }),
+      });
+
+      if (!r.ok) throw new Error('assistente indisponivel');
+
+      const dados = await r.json();
+      if (!dados.resposta) throw new Error('sem resposta');
+
+      setMensagens((m) => [
+        ...m,
+        { de: 'assistente', texto: dados.resposta, fonte: dados.fonte ?? undefined },
+      ]);
+    } catch {
+      // Sem assistente, a busca nas perguntas publicadas continua respondendo.
+      // Vale bem mais que uma mensagem de erro.
+      setMensagens((m) => [...m, responderLocalmente(pergunta)]);
+    } finally {
+      setPensando(false);
+    }
   }
 
   return (
@@ -194,7 +239,7 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
         <Bot size={20} className="text-brand-400 shrink-0" />
         <div className="flex-1 min-w-0">
           <span className="block font-bold text-sm leading-tight">Assistente Refrigóis</span>
-          <span className="block text-[11px] text-slate-400">Respostas do próprio site</span>
+          <span className="block text-[11px] text-slate-400">Assistente virtual · respostas do site</span>
         </div>
         <button onClick={aoFechar} aria-label="Fechar" className="text-slate-300 hover:text-white">
           <X size={20} />
@@ -256,6 +301,14 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
           </div>
         )}
 
+        {pensando && (
+          <div className="flex gap-1 px-3.5 py-3 bg-slate-100 rounded-lg w-fit">
+            <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" />
+            <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+            <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+          </div>
+        )}
+
         <div ref={fim} />
       </div>
 
@@ -275,13 +328,13 @@ export const TiraDuvidas: React.FC<{ aoFechar: () => void }> = ({ aoFechar }) =>
         <input
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && texto.trim() && responder(texto.trim())}
+          onKeyDown={(e) => e.key === 'Enter' && !pensando && texto.trim() && responder(texto.trim())}
           placeholder="Escreva sua dúvida"
           className="flex-1 px-3 py-2.5 border border-slate-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
         />
         <button
           onClick={() => texto.trim() && responder(texto.trim())}
-          disabled={!texto.trim()}
+          disabled={!texto.trim() || pensando}
           aria-label="Enviar"
           className="bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white px-3.5 rounded-md"
         >
