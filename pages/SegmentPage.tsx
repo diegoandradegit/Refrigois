@@ -141,8 +141,8 @@ export const SegmentPage: React.FC<SegmentPageProps> = ({ onOpenQuote }) => {
                   <div className="mt-8 pt-8 border-t border-brand-100">
                     <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-4">Projetos nesse segmento</h4>
                     <div className="space-y-3">
-                      {relatedProjects.slice(0, 2).map((p) => (
-                        <Link key={p.id} to="/projetos" className="flex items-center gap-3 group">
+                      {relatedProjects.slice(0, 4).map((p) => (
+                        <Link key={p.id} to={`/projetos/${p.slug}`} className="flex items-center gap-3 group">
                           <img src={p.image} alt={p.title} className="w-14 h-14 object-cover rounded-sm shrink-0" loading="lazy" referrerPolicy="no-referrer" />
                           <span className="text-sm text-slate-700 group-hover:text-brand-600 transition-colors">{p.title}</span>
                         </Link>
