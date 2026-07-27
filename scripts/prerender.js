@@ -92,6 +92,7 @@ for (const s of SERVICOS_FONTE.servicos) {
     description: s.seoDescription || s.description,
     image: s.ogImage || `/og/servicos-${s.categorySlug}-${s.slug}.jpg`,
     serviceTitle: s.title,
+    deliveryArea: s.deliveryArea || '',
     faq: s.faq || [],
   };
 }
@@ -254,6 +255,21 @@ const PROVIDER = {
   url: SITE_URL,
 };
 
+// areaServed por servico: usa a area de atendimento propria (texto do painel)
+// quando houver, extraindo a cidade principal (primeiro trecho antes de " e ",
+// "," ou "(") + Parana. Sem area preenchida, mantem o array padrao — o
+// resultado fica byte a byte igual ao anterior para esses casos.
+function areaServedDoServico(deliveryArea) {
+  if (!deliveryArea || !deliveryArea.trim()) {
+    return AREA_SERVED.map((name) => ({ '@type': name === 'Maringá' ? 'City' : 'State', name }));
+  }
+  const cidade = deliveryArea.split(/,|\(| e /i)[0].trim();
+  const lista = [];
+  if (cidade) lista.push({ '@type': 'City', name: cidade });
+  lista.push({ '@type': 'State', name: 'Paraná' });
+  return lista;
+}
+
 function buildServiceSchema(meta, url) {
   return {
     '@context': 'https://schema.org',
@@ -262,7 +278,7 @@ function buildServiceSchema(meta, url) {
     description: meta.description,
     url,
     provider: PROVIDER,
-    areaServed: AREA_SERVED.map((name) => ({ '@type': name === 'Maringá' ? 'City' : 'State', name })),
+    areaServed: areaServedDoServico(meta.deliveryArea),
   };
 }
 
