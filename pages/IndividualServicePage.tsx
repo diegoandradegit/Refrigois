@@ -25,9 +25,17 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
   const category = serviceCategoriesData.find(c => c.slug === categorySlug);
 
+  // Outros servicos da mesma categoria. Interlinking interno entre paginas que
+  // ja existem e ja estao indexadas — nenhuma URL nova e criada.
+  const relacionados = servicesData.filter(
+    (x) => x.categorySlug === categorySlug && x.slug !== slug,
+  );
+
   useSEO({
-    title: service ? service.title : 'Serviço não encontrado',
-    description: service ? service.description : 'Serviço não encontrado.',
+    // Honra o override de SEO quando preenchido, igual as paginas de produto e
+    // projeto. Sem override, cai no titulo/descricao do servico (igual antes).
+    title: service ? (service.seoTitle || service.title) : 'Serviço não encontrado',
+    description: service ? (service.seoDescription || service.description) : 'Serviço não encontrado.',
     path: `/servicos/${categorySlug}/${slug}`,
     image: categorySlug && slug ? `https://refrigois.com.br/og/servicos-${categorySlug}-${slug}.jpg` : undefined,
   });
@@ -78,6 +86,11 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
           <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
             {service.description}
           </p>
+          {service.promise && (
+            <p className="mt-6 text-lg font-bold text-brand-200 border-l-2 border-brand-400 pl-4 max-w-3xl">
+              {service.promise}
+            </p>
+          )}
         </div>
       </section>
 
@@ -174,7 +187,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
                   pagina de servico de um texto institucional qualquer. */}
               {obras.length > 0 && (
                 <>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Obras que executamos</h3>
+                  <h3 id="obras" className="text-2xl font-bold text-slate-900 mb-2 scroll-mt-24">Obras que executamos</h3>
                   <p className="text-slate-500 mb-6">Projetos reais entregues pela Refrigóis.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
                     {obras.map((o) => (
@@ -216,12 +229,12 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
                 </>
               )}
 
-              <div className="bg-slate-50 p-8 rounded-sm border border-slate-100">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Informações Técnicas</h3>
-                <p className="text-slate-600">
-                  {service.technicalInfo || 'Entre em contato para mais detalhes técnicos sobre a aplicação deste serviço.'}
-                </p>
-              </div>
+              {service.technicalInfo && (
+                <div className="bg-slate-50 p-8 rounded-sm border border-slate-100">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Informações Técnicas</h3>
+                  <p className="text-slate-600 whitespace-pre-line">{service.technicalInfo}</p>
+                </div>
+              )}
 
               {service.faq && service.faq.length > 0 && (
                 <section className="mt-12">
@@ -248,9 +261,18 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
                   Nossa equipe técnica está pronta para avaliar sua necessidade e propor a melhor solução.
                 </p>
                 
-                <Button onClick={onOpenQuote} className="w-full bg-brand-600 hover:bg-brand-700 text-white mb-8">
+                <Button onClick={onOpenQuote} className="w-full bg-brand-600 hover:bg-brand-700 text-white mb-4">
                   Solicitar Orçamento
                 </Button>
+
+                {obras.length > 0 && (
+                  <a
+                    href="#obras"
+                    className="block text-center w-full border border-brand-200 text-brand-700 hover:bg-brand-100 font-bold rounded-sm py-2.5 mb-8 transition-colors"
+                  >
+                    Ver obras deste serviço
+                  </a>
+                )}
 
                 <div className="space-y-6">
                   {service.warranty && (
@@ -279,6 +301,28 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
           </div>
         </div>
       </section>
+
+      {relacionados.length > 0 && (
+        <section className="py-16 bg-slate-50 border-t border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-8">
+              Outros serviços de {category?.title || 'refrigeração'}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relacionados.map((r) => (
+                <Link
+                  key={r.id}
+                  to={`/servicos/${r.categorySlug}/${r.slug}`}
+                  className="group block bg-white border border-slate-100 hover:border-brand-300 rounded-sm p-6 transition-colors"
+                >
+                  <span className="block font-bold text-slate-900 mb-1 group-hover:text-brand-600">{r.title}</span>
+                  <span className="block text-sm text-slate-600 leading-relaxed">{r.description}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <ServiceArea />
       <Contact onOpenQuote={onOpenQuote} />
