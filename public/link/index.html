@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- Google Analytics 4 (mesma propriedade do site) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ME19B7BEPB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ME19B7BEPB');
+</script>
 <title>Refrigóis — Refrigeração Comercial em Maringá</title>
 <meta name="description" content="Montagem e manutenção de refrigeração comercial em Maringá e região: câmaras frias, expositores refrigerados e manutenção preventiva. Fale agora no WhatsApp.">
 <meta name="keywords" content="refrigeração comercial Maringá, câmara fria Maringá, manutenção de câmara fria, técnico de refrigeração Maringá">
@@ -666,5 +675,38 @@ document.getElementById('saveBtn').addEventListener('click', function(e){
 })();
 </script>
 
+<!-- Medição de cliques (GA4). Usa addEventListener, então não interfere nos
+     handlers já existentes de salvar contato e QR. Nomes de evento seguem a
+     mesma convenção do site (whatsapp_click, phone_click, cta_click). -->
+<script>
+(function () {
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+  function on(sel, handler) {
+    document.querySelectorAll(sel).forEach(function (el) { el.addEventListener('click', handler); });
+  }
+  var LOC = 'link_page';
+
+  on('.btn-whats', function () { track('whatsapp_click', { link_location: LOC }); });
+  on('.btn-call',  function () { track('phone_click',    { link_location: LOC }); });
+  on('#saveBtn',   function () { track('cta_click', { cta_label: 'salvar_contato', link_location: LOC }); });
+  on('#qrToggle',  function () { track('cta_click', { cta_label: 'mostrar_qr',     link_location: LOC }); });
+  on('.svc-more',  function () { track('cta_click', { cta_label: 'ver_servicos',   link_location: LOC }); });
+  on('.contact-row a[href^="https://www.refrigois.com.br"]', function () {
+    track('cta_click', { cta_label: 'abrir_site', link_location: LOC });
+  });
+
+  // Redes sociais do rodapé — o aria-label diz qual rede é.
+  on('.social-row a', function (e) {
+    var label = (e.currentTarget.getAttribute('aria-label') || '').toLowerCase();
+    var network = label.indexOf('instagram') > -1 ? 'instagram'
+      : label.indexOf('facebook') > -1 ? 'facebook'
+      : label.indexOf('linkedin') > -1 ? 'linkedin'
+      : label.indexOf('google') > -1 ? 'google' : 'outro';
+    track('social_click', { network: network, link_location: LOC });
+  });
+})();
+</script>
 </body>
 </html>
