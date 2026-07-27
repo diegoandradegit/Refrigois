@@ -358,6 +358,15 @@ async function run() {
     artigosPorServico.get(v.servico_id).push(v);
   }
 
+  const imgServicoRel = new Map();
+  for (const x of servicosPublicados) {
+    imgServicoRel.set(x.id, { image: (await resolverImagem(x.imagem, baixados)) ?? '', imageAlt: x.imagem_alt ?? undefined });
+  }
+  const imgArtigoRel = new Map();
+  for (const a of artigosPublicados) {
+    imgArtigoRel.set(a.id, { image: (await resolverImagem(a.capa, baixados)) ?? '', imageAlt: a.capa_alt ?? undefined });
+  }
+
   const servicosSaida = [];
   for (const sv of servicosPublicados) {
     const cat = catServicoPorId.get(sv.categoria_id);
@@ -393,9 +402,9 @@ async function run() {
       .filter(Boolean)
       .map((r) => {
         const rc = catServicoPorId.get(r.categoria_id);
-        return rc && slugsCategoria.has(rc.slug)
-          ? { title: r.titulo, description: r.descricao, categorySlug: rc.slug, slug: r.slug }
-          : null;
+        if (!rc || !slugsCategoria.has(rc.slug)) return null;
+        const img = imgServicoRel.get(r.id) ?? {};
+        return { title: r.titulo, description: r.descricao, categorySlug: rc.slug, slug: r.slug, image: img.image ?? '', imageAlt: img.imageAlt };
       })
       .filter(Boolean);
 
@@ -403,7 +412,10 @@ async function run() {
       .sort((a, b) => a.ordem - b.ordem)
       .map((v) => artPubPorId.get(v.artigo_id))
       .filter(Boolean)
-      .map((a) => ({ title: a.titulo, slug: a.slug }));
+      .map((a) => {
+        const img = imgArtigoRel.get(a.id) ?? {};
+        return { title: a.titulo, slug: a.slug, image: img.image ?? '', imageAlt: img.imageAlt };
+      });
 
     servicosSaida.push({
       id: sv.id,

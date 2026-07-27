@@ -1,16 +1,64 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { servicesData, serviceCategoriesData, projectsData } from '../data';
 import { Contact } from '../components/Contact';
 import { ServiceArea } from '../components/ServiceArea';
 import { Breadcrumbs } from '../components/Breadcrumbs';
-import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Shield, ChevronDown, FileText } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, MapPin, Shield, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
+import config from '../generated/configuracoes.json';
 
 interface IndividualServicePageProps {
   onOpenQuote: () => void;
 }
+
+/** Trilho horizontal com snap e setas (só desktop). Sem lib externa: rola no
+ *  toque/trackpad e as setas so aparecem no hover. */
+const Carrossel: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const rolar = (dir: number) => ref.current?.scrollBy({ left: dir * 300, behavior: 'smooth' });
+  return (
+    <div className="relative group/car">
+      <div
+        ref={ref}
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
+      <button
+        type="button" aria-label="Anterior" onClick={() => rolar(-1)}
+        className="hidden md:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-600 hover:text-brand-600 opacity-0 group-hover/car:opacity-100 transition-opacity"
+      >
+        <ChevronLeft size={18} />
+      </button>
+      <button
+        type="button" aria-label="Próximo" onClick={() => rolar(1)}
+        className="hidden md:flex absolute right-0 top-[38%] -translate-y-1/2 translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-md border border-slate-200 items-center justify-center text-slate-600 hover:text-brand-600 opacity-0 group-hover/car:opacity-100 transition-opacity"
+      >
+        <ChevronRight size={18} />
+      </button>
+    </div>
+  );
+};
+
+/** Card com imagem no padrão das obras — reutilizado por obras, serviços e artigos. */
+const CardMidia: React.FC<{ to: string; image?: string; imageAlt?: string; title: string; label: string }> = ({ to, image, imageAlt, title, label }) => (
+  <Link to={to} className="group snap-start shrink-0 w-60 sm:w-64 block">
+    <div className="aspect-[4/3] overflow-hidden rounded-lg bg-slate-100 mb-2">
+      {image ? (
+        <img
+          src={image} alt={imageAlt || title} width={600} height={450} loading="lazy" referrerPolicy="no-referrer"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center text-slate-300 text-xs">sem imagem</div>
+      )}
+    </div>
+    <span className="block font-bold text-slate-900 text-sm leading-tight">{title}</span>
+    <span className="text-xs text-brand-600 font-bold uppercase tracking-wider">{label}</span>
+  </Link>
+);
 
 export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ onOpenQuote }) => {
   const { categorySlug, slug } = useParams<{ categorySlug: string; slug: string }>();
@@ -29,6 +77,13 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
   // resolvidos pela esteira. Sem escolha, as secoes nao aparecem.
   const relacionados = service?.relatedServices ?? [];
   const artigosRel = service?.relatedArticles ?? [];
+
+  // Bloco de CTA editavel no painel (Configuracoes), valendo para todas as
+  // paginas. Sem valor no banco, cai no texto padrao de antes.
+  const cfg = config as unknown as Record<string, string>;
+  const ctaTitulo = cfg.cta_titulo || 'Precisa deste serviço?';
+  const ctaTexto = cfg.cta_texto || 'Nossa equipe técnica está pronta para avaliar sua necessidade e propor a melhor solução.';
+  const ctaBotao = cfg.cta_botao || 'Solicitar Orçamento';
 
   useSEO({
     // Honra o override de SEO quando preenchido, igual as paginas de produto e
@@ -188,23 +243,12 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
                 <>
                   <h3 id="obras" className="text-2xl font-bold text-slate-900 mb-2 scroll-mt-24">Obras que executamos</h3>
                   <p className="text-slate-500 mb-6">Projetos reais entregues pela Refrigóis.</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-                    {obras.map((o) => (
-                      <Link key={o.slug} to={`/projetos/${o.slug}`} className="group block">
-                        <div className="aspect-[4/3] overflow-hidden rounded-sm bg-slate-100 mb-2">
-                          <img
-                            src={o.image}
-                            alt={o.imageAlt || o.title}
-                            width={600}
-                            height={450}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <span className="block font-bold text-slate-900 text-sm leading-tight">{o.title}</span>
-                        <span className="text-xs text-brand-600 font-bold uppercase tracking-wider">Ver projeto</span>
-                      </Link>
-                    ))}
+                  <div className="mb-12">
+                    <Carrossel>
+                      {obras.map((o) => (
+                        <CardMidia key={o.slug} to={`/projetos/${o.slug}`} image={o.image} imageAlt={o.imageAlt} title={o.title} label="Ver projeto" />
+                      ))}
+                    </Carrossel>
                   </div>
                 </>
               )}
@@ -234,34 +278,15 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
                   <p className="text-slate-600 whitespace-pre-line">{service.technicalInfo}</p>
                 </div>
               )}
-
-              {service.faq && service.faq.length > 0 && (
-                <section className="mt-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Perguntas frequentes</h3>
-                  <div className="space-y-3">
-                    {service.faq.map((item, i) => (
-                      <details key={i} className="group bg-slate-50 border border-slate-200 rounded-sm">
-                        <summary className="cursor-pointer list-none px-5 py-4 font-bold text-slate-900 flex items-start justify-between gap-3">
-                          <span>{item.q}</span>
-                          <ChevronDown size={18} className="shrink-0 mt-0.5 text-slate-500 transition-transform group-open:rotate-180" />
-                        </summary>
-                        <p className="px-5 pb-4 text-slate-700 leading-relaxed">{item.a}</p>
-                      </details>
-                    ))}
-                  </div>
-                </section>
-              )}
             </div>
 
             <div className="lg:col-span-1">
               <div className="bg-brand-50 p-8 rounded-sm border border-brand-100 sticky top-24">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Precisa deste serviço?</h3>
-                <p className="text-slate-600 mb-8">
-                  Nossa equipe técnica está pronta para avaliar sua necessidade e propor a melhor solução.
-                </p>
-                
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">{ctaTitulo}</h3>
+                <p className="text-slate-600 mb-8">{ctaTexto}</p>
+
                 <Button onClick={onOpenQuote} className="w-full bg-brand-600 hover:bg-brand-700 text-white mb-4">
-                  Solicitar Orçamento
+                  {ctaBotao}
                 </Button>
 
                 {obras.length > 0 && (
@@ -303,42 +328,61 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
 
       {(relacionados.length > 0 || artigosRel.length > 0) && (
         <section className="py-14 bg-slate-50 border-t border-slate-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {relacionados.length > 0 && (
               <div>
-                <h2 className="text-xl font-bold text-slate-900 mb-5">Serviços relacionados</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">Serviços relacionados</h2>
+                <Carrossel>
                   {relacionados.map((r) => (
-                    <Link
+                    <CardMidia
                       key={`${r.categorySlug}/${r.slug}`}
                       to={`/servicos/${r.categorySlug}/${r.slug}`}
-                      className="group flex items-center justify-between gap-3 bg-white border border-slate-200 hover:border-brand-400 rounded-lg px-4 py-3 transition-colors"
-                    >
-                      <span className="font-bold text-slate-800 text-sm leading-snug group-hover:text-brand-600">{r.title}</span>
-                      <ArrowRight size={16} className="shrink-0 text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all" />
-                    </Link>
+                      image={r.image}
+                      imageAlt={r.imageAlt}
+                      title={r.title}
+                      label="Ver serviço"
+                    />
                   ))}
-                </div>
+                </Carrossel>
               </div>
             )}
 
             {artigosRel.length > 0 && (
               <div>
-                <h2 className="text-xl font-bold text-slate-900 mb-5">Leia também</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">Leia também</h2>
+                <Carrossel>
                   {artigosRel.map((a) => (
-                    <Link
+                    <CardMidia
                       key={a.slug}
                       to={`/blog/${a.slug}`}
-                      className="group flex items-start gap-3 bg-white border border-slate-200 hover:border-brand-400 rounded-lg px-4 py-3 transition-colors"
-                    >
-                      <FileText size={17} className="shrink-0 mt-0.5 text-brand-500" />
-                      <span className="font-bold text-slate-800 text-sm leading-snug group-hover:text-brand-600">{a.title}</span>
-                    </Link>
+                      image={a.image}
+                      imageAlt={a.imageAlt}
+                      title={a.title}
+                      label="Ler artigo"
+                    />
                   ))}
-                </div>
+                </Carrossel>
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {service.faq && service.faq.length > 0 && (
+        <section className="py-14 md:py-16 bg-white border-t border-slate-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Perguntas frequentes</h2>
+            <div className="space-y-3">
+              {service.faq.map((item, i) => (
+                <details key={i} className="group bg-slate-50 border border-slate-200 rounded-sm">
+                  <summary className="cursor-pointer list-none px-5 py-4 font-bold text-slate-900 flex items-start justify-between gap-3">
+                    <span>{item.q}</span>
+                    <ChevronDown size={18} className="shrink-0 mt-0.5 text-slate-500 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p className="px-5 pb-4 text-slate-700 leading-relaxed">{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       )}

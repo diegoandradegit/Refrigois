@@ -131,9 +131,9 @@ export interface Service {
   seoTitle?: string;
   seoDescription?: string;
   /** Servicos relacionados escolhidos no painel (ja resolvidos pela esteira). */
-  relatedServices?: { title: string; description: string; categorySlug: string; slug: string }[];
+  relatedServices?: { title: string; description: string; categorySlug: string; slug: string; image: string; imageAlt?: string }[];
   /** Artigos relacionados escolhidos no painel (ja resolvidos pela esteira). */
-  relatedArticles?: { title: string; slug: string }[];
+  relatedArticles?: { title: string; slug: string; image: string; imageAlt?: string }[];
 }
 
 /**
