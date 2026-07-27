@@ -360,11 +360,11 @@ async function run() {
 
   const imgServicoRel = new Map();
   for (const x of servicosPublicados) {
-    imgServicoRel.set(x.id, { image: (await resolverImagem(x.og_imagem || x.imagem, baixados)) ?? '', imageAlt: x.imagem_alt ?? undefined });
+    imgServicoRel.set(x.id, { image: (await resolverImagem(x.imagem, baixados)) ?? '', imageAlt: x.imagem_alt ?? undefined });
   }
   const imgArtigoRel = new Map();
   for (const a of artigosPublicados) {
-    imgArtigoRel.set(a.id, { image: (await resolverImagem(a.og_imagem || a.capa, baixados)) ?? '', imageAlt: a.capa_alt ?? undefined });
+    imgArtigoRel.set(a.id, { image: (await resolverImagem(a.capa, baixados)) ?? '', imageAlt: a.capa_alt ?? undefined });
   }
 
   const servicosSaida = [];

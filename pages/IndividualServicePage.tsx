@@ -113,7 +113,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
       <section className="relative py-24 md:py-32 bg-slate-900">
         <div className="absolute inset-0 z-0">
           <img 
-            src={service.ogImage || service.image} 
+            src={service.image} 
             alt={service.title} 
             className="w-full h-full object-cover object-center opacity-30"
             referrerPolicy="no-referrer"
