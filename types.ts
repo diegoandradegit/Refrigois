@@ -130,6 +130,8 @@ export interface Service {
   /** Meta tags proprias. */
   seoTitle?: string;
   seoDescription?: string;
+  /** Imagem de SEO/compartilhamento; quando presente, tem prioridade no hero e nos cards. */
+  ogImage?: string;
   /** Servicos relacionados escolhidos no painel (ja resolvidos pela esteira). */
   relatedServices?: { title: string; description: string; categorySlug: string; slug: string; image: string; imageAlt?: string }[];
   /** Artigos relacionados escolhidos no painel (ja resolvidos pela esteira). */
