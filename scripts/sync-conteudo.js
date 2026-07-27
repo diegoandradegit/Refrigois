@@ -147,7 +147,7 @@ async function run() {
          servicoCategorias, servicos, servicoSegmentos, projetoServicos,
          servicoFotos, redirecionamentos,
          produtoCategorias, produtos, produtoFotos, projetoProdutos,
-         configuracoes] = await Promise.all([
+         configuracoes, servicoRelacionados, servicoArtigos] = await Promise.all([
     consultar('segmentos?select=id,slug,nome,ordem&order=ordem', 'segmentos'),
     consultar(
       'projetos?select=id,slug,titulo,segmento_id,cliente,descricao,prazo,local,features,seo_titulo,seo_descricao,og_imagem,destaque_home,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
@@ -179,6 +179,8 @@ async function run() {
     consultar('produto_fotos?select=produto_id,caminho,alt,legenda,ordem&order=ordem', 'fotos dos produtos'),
     consultar('projeto_produtos?select=projeto_id,produto_id,ordem&order=ordem', 'obras dos produtos'),
     consultar('configuracoes?select=chave,valor', 'configuracoes do site'),
+    consultar('servico_relacionados?select=servico_id,relacionado_id,ordem&order=ordem', 'servicos relacionados'),
+    consultar('servico_artigos?select=servico_id,artigo_id,ordem&order=ordem', 'artigos dos servicos'),
   ]);
 
   const publicados = projetos.filter((p) => p.publicado);
@@ -340,6 +342,22 @@ async function run() {
 
   const slugsCategoria = new Set(categoriasServicoSaida.map((c) => c.slug));
 
+  // Relacionados escolhidos no painel. So entram alvos publicados (e, no caso
+  // de servico, com a categoria mantida) — link para conteudo despublicado
+  // viraria pagina quebrada.
+  const svPubPorId = new Map(servicosPublicados.map((x) => [x.id, x]));
+  const artPubPorId = new Map(artigosPublicados.map((a) => [a.id, a]));
+  const relacionadosPorServico = new Map();
+  for (const v of servicoRelacionados) {
+    if (!relacionadosPorServico.has(v.servico_id)) relacionadosPorServico.set(v.servico_id, []);
+    relacionadosPorServico.get(v.servico_id).push(v);
+  }
+  const artigosPorServico = new Map();
+  for (const v of servicoArtigos) {
+    if (!artigosPorServico.has(v.servico_id)) artigosPorServico.set(v.servico_id, []);
+    artigosPorServico.get(v.servico_id).push(v);
+  }
+
   const servicosSaida = [];
   for (const sv of servicosPublicados) {
     const cat = catServicoPorId.get(sv.categoria_id);
@@ -369,9 +387,29 @@ async function run() {
       galeria.push({ src, alt: f.alt, ...(f.legenda ? { caption: f.legenda } : {}) });
     }
 
+    const relacionadosServico = (relacionadosPorServico.get(sv.id) ?? [])
+      .sort((a, b) => a.ordem - b.ordem)
+      .map((v) => svPubPorId.get(v.relacionado_id))
+      .filter(Boolean)
+      .map((r) => {
+        const rc = catServicoPorId.get(r.categoria_id);
+        return rc && slugsCategoria.has(rc.slug)
+          ? { title: r.titulo, description: r.descricao, categorySlug: rc.slug, slug: r.slug }
+          : null;
+      })
+      .filter(Boolean);
+
+    const artigosServico = (artigosPorServico.get(sv.id) ?? [])
+      .sort((a, b) => a.ordem - b.ordem)
+      .map((v) => artPubPorId.get(v.artigo_id))
+      .filter(Boolean)
+      .map((a) => ({ title: a.titulo, slug: a.slug }));
+
     servicosSaida.push({
       id: sv.id,
       photos: galeria,
+      relatedServices: relacionadosServico.length ? relacionadosServico : undefined,
+      relatedArticles: artigosServico.length ? artigosServico : undefined,
       slug: sv.slug,
       categorySlug: cat.slug,
       title: sv.titulo,

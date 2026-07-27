@@ -4,7 +4,7 @@ import { servicesData, serviceCategoriesData, projectsData } from '../data';
 import { Contact } from '../components/Contact';
 import { ServiceArea } from '../components/ServiceArea';
 import { Breadcrumbs } from '../components/Breadcrumbs';
-import { ArrowLeft, CheckCircle2, MapPin, Shield, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Shield, ChevronDown, FileText } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
 
@@ -25,11 +25,10 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
   const category = serviceCategoriesData.find(c => c.slug === categorySlug);
 
-  // Outros servicos da mesma categoria. Interlinking interno entre paginas que
-  // ja existem e ja estao indexadas — nenhuma URL nova e criada.
-  const relacionados = servicesData.filter(
-    (x) => x.categorySlug === categorySlug && x.slug !== slug,
-  );
+  // Relacionados escolhidos pelo ADM no painel (servicos e artigos), ja
+  // resolvidos pela esteira. Sem escolha, as secoes nao aparecem.
+  const relacionados = service?.relatedServices ?? [];
+  const artigosRel = service?.relatedArticles ?? [];
 
   useSEO({
     // Honra o override de SEO quando preenchido, igual as paginas de produto e
@@ -302,24 +301,44 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
         </div>
       </section>
 
-      {relacionados.length > 0 && (
-        <section className="py-16 bg-slate-50 border-t border-slate-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8">
-              Outros serviços de {category?.title || 'refrigeração'}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relacionados.map((r) => (
-                <Link
-                  key={r.id}
-                  to={`/servicos/${r.categorySlug}/${r.slug}`}
-                  className="group block bg-white border border-slate-100 hover:border-brand-300 rounded-sm p-6 transition-colors"
-                >
-                  <span className="block font-bold text-slate-900 mb-1 group-hover:text-brand-600">{r.title}</span>
-                  <span className="block text-sm text-slate-600 leading-relaxed">{r.description}</span>
-                </Link>
-              ))}
-            </div>
+      {(relacionados.length > 0 || artigosRel.length > 0) && (
+        <section className="py-14 bg-slate-50 border-t border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            {relacionados.length > 0 && (
+              <div>
+                <h2 className="text-xl font-bold text-slate-900 mb-5">Serviços relacionados</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {relacionados.map((r) => (
+                    <Link
+                      key={`${r.categorySlug}/${r.slug}`}
+                      to={`/servicos/${r.categorySlug}/${r.slug}`}
+                      className="group flex items-center justify-between gap-3 bg-white border border-slate-200 hover:border-brand-400 rounded-lg px-4 py-3 transition-colors"
+                    >
+                      <span className="font-bold text-slate-800 text-sm leading-snug group-hover:text-brand-600">{r.title}</span>
+                      <ArrowRight size={16} className="shrink-0 text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {artigosRel.length > 0 && (
+              <div>
+                <h2 className="text-xl font-bold text-slate-900 mb-5">Leia também</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {artigosRel.map((a) => (
+                    <Link
+                      key={a.slug}
+                      to={`/blog/${a.slug}`}
+                      className="group flex items-start gap-3 bg-white border border-slate-200 hover:border-brand-400 rounded-lg px-4 py-3 transition-colors"
+                    >
+                      <FileText size={17} className="shrink-0 mt-0.5 text-brand-500" />
+                      <span className="font-bold text-slate-800 text-sm leading-snug group-hover:text-brand-600">{a.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}

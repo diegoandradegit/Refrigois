@@ -130,6 +130,10 @@ export interface Service {
   /** Meta tags proprias. */
   seoTitle?: string;
   seoDescription?: string;
+  /** Servicos relacionados escolhidos no painel (ja resolvidos pela esteira). */
+  relatedServices?: { title: string; description: string; categorySlug: string; slug: string }[];
+  /** Artigos relacionados escolhidos no painel (ja resolvidos pela esteira). */
+  relatedArticles?: { title: string; slug: string }[];
 }
 
 /**
