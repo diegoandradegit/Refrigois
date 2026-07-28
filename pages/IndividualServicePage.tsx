@@ -7,6 +7,7 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { ArrowLeft, CheckCircle2, MapPin, Shield, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
+import { BlocosConteudo } from '../components/BlocosConteudo';
 import config from '../generated/configuracoes.json';
 
 interface IndividualServicePageProps {
@@ -325,6 +326,14 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({ on
           </div>
         </div>
       </section>
+
+      {service.blocks && service.blocks.length > 0 && (
+        <section className="py-14 md:py-16 bg-white border-t border-slate-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <BlocosConteudo blocks={service.blocks} />
+          </div>
+        </section>
+      )}
 
       {(relacionados.length > 0 || artigosRel.length > 0) && (
         <section className="py-14 bg-slate-50 border-t border-slate-100">

@@ -164,7 +164,7 @@ async function run() {
       'categorias de servico'
     ),
     consultar(
-      'servicos?select=id,slug,categoria_id,titulo,descricao,promessa,imagem,imagem_alt,problema_titulo,problema_paragrafos,descricao_longa,features,como_funciona,info_tecnica,garantia,area_atendimento,faq,seo_titulo,seo_descricao,og_imagem,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
+      'servicos?select=id,slug,categoria_id,titulo,descricao,promessa,imagem,imagem_alt,problema_titulo,problema_paragrafos,descricao_longa,features,como_funciona,info_tecnica,garantia,area_atendimento,faq,seo_titulo,seo_descricao,og_imagem,blocos,ordem,publicado,ao_despublicar,redirect_destino&order=ordem',
       'servicos'
     ),
     consultar('servico_segmentos?select=servico_id,segmento_id,observacao,ordem&order=ordem', 'segmentos dos servicos'),
@@ -417,9 +417,18 @@ async function run() {
         return { title: a.titulo, slug: a.slug, image: img.image ?? '', imageAlt: img.imageAlt };
       });
 
+    // Resolve as imagens dos blocos antes de converter (mesmo padrao dos artigos).
+    for (const b of sv.blocos || []) {
+      if (b.tipo === 'imagem' && b.src && !mapaImagens.has(b.src)) {
+        const src = await resolverImagem(b.src, baixados);
+        if (src) mapaImagens.set(b.src, src);
+      }
+    }
+
     servicosSaida.push({
       id: sv.id,
       photos: galeria,
+      blocks: converterBlocos(sv.blocos, mapaImagens),
       relatedServices: relacionadosServico.length ? relacionadosServico : undefined,
       relatedArticles: artigosServico.length ? artigosServico : undefined,
       slug: sv.slug,
