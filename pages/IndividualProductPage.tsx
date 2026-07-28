@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, Wrench, Images, CheckCircle2 } from 'lucide-react';
 import { productsData, projectsData } from '../data';
 import { SmartImage } from './../components/SmartImage';
@@ -92,7 +92,14 @@ export const IndividualProductPage: React.FC<Props> = ({ onOpenQuote }) => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (!produto) return <Navigate to="/produtos" replace />;
+  if (!produto) {
+    return (
+      <main className="pt-32 pb-24 text-center">
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">Produto não encontrado</h1>
+        <Link to="/produtos" className="text-brand-600 hover:underline">Voltar para produtos</Link>
+      </main>
+    );
+  }
 
   const galeria = produto.photos ?? [];
 
