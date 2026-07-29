@@ -19,11 +19,15 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, hideButton, showFilte
 
   const ordered = [...projectsData].sort((a, b) => (a.ordem ?? 999) - (b.ordem ?? 999));
   const filtered = activeCategory === 'todos' ? ordered : ordered.filter((p) => p.categorySlug === activeCategory);
-  const displayData = isCarousel ? getFeaturedProjects(limit) : filtered;
+  // Home: só os projetos marcados como destaque (fallback para não ficar vazio).
+  const destaques = ordered.filter((p) => p.destaqueHome);
+  const displayData = isCarousel ? (destaques.length ? destaques : getFeaturedProjects(limit ?? 8)) : filtered;
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const carrosselRef = useRef<HTMLDivElement>(null);
+  const scrollCarrossel = (dir: number) => carrosselRef.current?.scrollBy({ left: dir * 340, behavior: 'smooth' });
 
   const gallery = selectedProject ? getProjectPhotos(selectedProject) : [];
 
@@ -124,14 +128,16 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, hideButton, showFilte
           </div>
         )}
 
-        <div
-          className={
-            isCarousel
-              ? 'flex overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-4 gap-4 pb-6 -mx-4 px-4 lg:mx-0 lg:px-0 hide-scrollbar'
-              : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'
-          }
-          style={isCarousel ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : undefined}
-        >
+        <div className="relative">
+          <div
+            ref={carrosselRef}
+            className={
+              isCarousel
+                ? 'flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 lg:mx-0 lg:px-0 hide-scrollbar scroll-smooth'
+                : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'
+            }
+            style={isCarousel ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : undefined}
+          >
           {displayData.map((project, i) => {
             const photos = getProjectPhotos(project);
             return (
@@ -139,7 +145,7 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, hideButton, showFilte
                 key={project.id}
                 className={
                   isCarousel
-                    ? 'snap-center shrink-0 w-[85%] sm:w-[45%] lg:w-auto group relative overflow-hidden aspect-[4/5] sm:aspect-square bg-slate-800 rounded-sm'
+                    ? 'snap-center shrink-0 w-[85%] sm:w-[45%] lg:w-[300px] group relative overflow-hidden aspect-[4/5] sm:aspect-square bg-slate-800 rounded-sm'
                     : 'group relative overflow-hidden aspect-[4/5] sm:aspect-square bg-slate-800 rounded-sm'
                 }
               >
@@ -197,6 +203,14 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, hideButton, showFilte
               </article>
             );
           })}
+          </div>
+
+          {isCarousel && displayData.length > 3 && (
+            <>
+              <button type="button" aria-label="Anterior" onClick={() => scrollCarrossel(-1)} className="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg items-center justify-center hover:bg-brand-400 transition-colors z-10"><ChevronLeft size={22} /></button>
+              <button type="button" aria-label="Próximo" onClick={() => scrollCarrossel(1)} className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg items-center justify-center hover:bg-brand-400 transition-colors z-10"><ChevronRight size={22} /></button>
+            </>
+          )}
         </div>
 
         {!isCarousel && displayData.length === 0 && (
