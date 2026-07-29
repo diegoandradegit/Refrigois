@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { productsData, productCategories } from '../data';
 import { SmartImage } from './SmartImage';
 import { Reveal } from './Reveal';
@@ -8,9 +8,7 @@ import type { Product } from '../types';
 
 /**
  * Linha de especificacao do card: material, medida e faixa de temperatura.
- *
- * E o que torna um catalogo util — da para comparar modelos sem abrir
- * nenhum. Card de produto sem medida e card de servico disfarcado.
+ * E o que torna um catalogo util — da para comparar modelos sem abrir nenhum.
  */
 function resumoTecnico(p: Product): string {
   const buscar = (...termos: string[]) =>
@@ -28,16 +26,18 @@ function resumoTecnico(p: Product): string {
 interface ProductsProps {
   onOpenQuote: () => void;
   hideButton?: boolean;
+  /** Quando definido, a secao vira um carrossel (usado na home). */
+  limit?: number;
 }
 
-export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
+export const Products: React.FC<ProductsProps> = ({ hideButton, limit }) => {
+  const isCarousel = limit != null;
+  const carrosselRef = useRef<HTMLDivElement>(null);
+  const scrollCarrossel = (dir: number) => carrosselRef.current?.scrollBy({ left: dir * 360, behavior: 'smooth' });
+
   const categorias = productCategories.filter((c) =>
     productsData.some((p) => p.categorySlug === c.slug)
   );
-
-  // Modelo sem categoria aparece num grupo proprio no fim. Sem isso ele
-  // sumiria da listagem em silencio, por nao pertencer a nenhum grupo —
-  // conteudo publicado nunca deve desaparecer sem aviso.
   const semCategoria = productsData.filter(
     (p) => !categorias.some((c) => c.slug === p.categorySlug)
   );
@@ -46,76 +46,97 @@ export const Products: React.FC<ProductsProps> = ({ hideButton }) => {
     ...(semCategoria.length ? [{ nome: 'Outros equipamentos', slug: 'outros', itens: semCategoria }] : []),
   ];
 
+  function card(produto: Product, extraCls = '') {
+    const tecnico = resumoTecnico(produto);
+    return (
+      <Link
+        key={produto.slug}
+        to={`/produtos/${produto.slug}`}
+        className={`group flex flex-col h-full bg-white border border-slate-200 rounded-sm overflow-hidden hover:border-brand-400 hover:shadow-lg transition-all ${extraCls}`}
+      >
+        <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+          <SmartImage
+            src={produto.image}
+            alt={produto.imageAlt || produto.title}
+            width={600}
+            height={450}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div className="flex flex-col flex-1 p-5">
+          <h4 className="font-bold text-slate-900 leading-tight mb-2">{produto.title}</h4>
+          {tecnico && <p className="text-xs text-slate-500 mb-2 leading-relaxed">{tecnico}</p>}
+          <span className="inline-block self-start text-[10px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-100 px-2 py-0.5 rounded mb-3">
+            Sob medida
+          </span>
+          <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">{produto.resumo}</p>
+          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-600 group-hover:gap-2.5 transition-all">
+            Ver ficha técnica <ArrowRight size={15} />
+          </span>
+        </div>
+      </Link>
+    );
+  }
+
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideButton && (
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Modelos que fabricamos
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Modelos que fabricamos</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
               Equipamentos em aço inox produzidos sob medida. Veja as fichas técnicas.
             </p>
           </div>
         )}
 
-        {grupos.map((cat) => {
-          const doGrupo = cat.itens;
-          return (
+        {isCarousel ? (
+          <>
+            <div className="relative">
+              <div
+                ref={carrosselRef}
+                className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-4 px-4 lg:mx-0 lg:px-0 hide-scrollbar scroll-smooth"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {productsData.map((produto) => card(produto, 'shrink-0 w-[85%] sm:w-[46%] lg:w-[320px] snap-start'))}
+              </div>
+
+              {productsData.length > 3 && (
+                <>
+                  <button type="button" aria-label="Anterior" onClick={() => scrollCarrossel(-1)} className="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg items-center justify-center hover:bg-brand-400 transition-colors z-10"><ChevronLeft size={22} /></button>
+                  <button type="button" aria-label="Próximo" onClick={() => scrollCarrossel(1)} className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-slate-900 shadow-lg items-center justify-center hover:bg-brand-400 transition-colors z-10"><ChevronRight size={22} /></button>
+                </>
+              )}
+            </div>
+
+            <p className="text-center text-xs text-slate-400 mt-2 lg:hidden">Deslize para ver mais →</p>
+
+            {!hideButton && (
+              <div className="text-center mt-10">
+                <Link
+                  to="/produtos"
+                  className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-3 rounded-sm transition-colors"
+                >
+                  Ver catálogo completo <ArrowRight size={17} />
+                </Link>
+              </div>
+            )}
+          </>
+        ) : (
+          grupos.map((cat) => (
             <div key={cat.slug} className="mb-14 last:mb-0">
               <h3 className="text-sm font-bold uppercase tracking-wider text-brand-600 mb-5 pb-2 border-b border-slate-200">
                 {cat.nome}
               </h3>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {doGrupo.map((produto) => {
-                  const tecnico = resumoTecnico(produto);
-                  return (
-                    <Reveal key={produto.slug}>
-                      <Link
-                        to={`/produtos/${produto.slug}`}
-                        className="group flex flex-col h-full bg-white border border-slate-200 rounded-sm overflow-hidden hover:border-brand-400 hover:shadow-lg transition-all"
-                      >
-                        <div className="aspect-[4/3] overflow-hidden bg-slate-100">
-                          <SmartImage
-                            src={produto.image}
-                            alt={produto.imageAlt || produto.title}
-                            width={600}
-                            height={450}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-
-                        <div className="flex flex-col flex-1 p-5">
-                          <h4 className="font-bold text-slate-900 leading-tight mb-2">
-                            {produto.title}
-                          </h4>
-
-                          {tecnico && (
-                            <p className="text-xs text-slate-500 mb-2 leading-relaxed">{tecnico}</p>
-                          )}
-                          <span className="inline-block self-start text-[10px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-100 px-2 py-0.5 rounded mb-3">
-                            Sob medida
-                          </span>
-
-                          <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
-                            {produto.resumo}
-                          </p>
-
-                          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-600 group-hover:gap-2.5 transition-all">
-                            Ver ficha técnica <ArrowRight size={15} />
-                          </span>
-                        </div>
-                      </Link>
-                    </Reveal>
-                  );
-                })}
+                {cat.itens.map((produto) => (
+                  <Reveal key={produto.slug}>{card(produto)}</Reveal>
+                ))}
               </div>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     </section>
   );
