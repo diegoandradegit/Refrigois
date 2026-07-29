@@ -34,3 +34,13 @@
 .js .reveal-oculto {
   opacity: 0;
 }
+
+/* Efeito flutuante sutil (usado no selo "15 anos" da seção Sobre). */
+@keyframes flutua {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.flutua { animation: flutua 3.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .flutua { animation: none; }
+}
