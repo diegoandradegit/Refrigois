@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
 import { WhatsAppButton } from './components/WhatsAppButton';
-import { AnnouncementPopup } from './components/AnnouncementPopup';
+import { PopupAviso } from './components/PopupAviso';
 import { Home } from './pages/Home';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
@@ -86,7 +86,7 @@ export const AppContent: React.FC = () => {
         <WhatsAppButton />
         
         <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuote} />
-        <AnnouncementPopup onOpenQuote={openQuote} />
+        <PopupAviso onOpenQuote={openQuote} />
       </div>
     </>
   );
