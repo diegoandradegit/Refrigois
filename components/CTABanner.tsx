@@ -1,17 +1,11 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
-import { Button } from './Button';
-import { trackQuoteModalOpen, trackWhatsAppClick } from '../utils/analytics';
+import { trackQuoteModalOpen } from '../utils/analytics';
 
 interface CTABannerProps {
   onOpenQuote: () => void;
   titulo?: string;
   texto?: string;
 }
-
-const WHATSAPP =
-  'https://wa.me/5544999368420?text=' +
-  encodeURIComponent('Olá! Gostaria de um orçamento de refrigeração comercial.');
 
 export const CTABanner: React.FC<CTABannerProps> = ({ onOpenQuote, titulo, texto }) => {
   return (
@@ -24,25 +18,17 @@ export const CTABanner: React.FC<CTABannerProps> = ({ onOpenQuote, titulo, texto
           {texto ??
             'Projeto técnico, fabricação, instalação e manutenção de câmaras frias e equipamentos para o seu negócio. Solicite uma avaliação técnica sem compromisso.'}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
+        <div className="flex justify-center">
+          <button
+            type="button"
             onClick={() => {
               trackQuoteModalOpen('cta_banner');
               onOpenQuote();
             }}
-            className="w-full sm:w-auto min-w-[220px] bg-white text-brand-700 hover:bg-brand-50 border-white font-bold"
+            className="w-full sm:w-auto min-w-[240px] inline-flex items-center justify-center px-8 py-3 rounded-sm font-bold uppercase tracking-wider text-sm text-white border-2 border-white/80 hover:bg-white/10 transition-colors"
           >
             Solicitar Orçamento
-          </Button>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('cta_banner')}
-            className="w-full sm:w-auto min-w-[220px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-bold uppercase tracking-wider text-sm text-white border-2 border-white/70 hover:bg-white/10 transition-colors"
-          >
-            <MessageCircle size={18} /> Chamar no WhatsApp
-          </a>
+          </button>
         </div>
       </div>
     </section>

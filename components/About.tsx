@@ -47,23 +47,23 @@ export const About: React.FC = () => {
               Quem faz a Refrigóis
             </h2>
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-              15 anos cuidando do frio de quem vive dele
+              15 anos de experiência em refrigeração comercial
             </h3>
 
             <p className="text-slate-600 mb-5 leading-relaxed text-sm md:text-base">
-              À frente da Refrigóis está <strong className="text-slate-900">Robert Góis</strong>, que há 15 anos
-              trabalha com refrigeração comercial. Foi nesse tempo, atendendo açougues, mercados, padarias,
-              restaurantes e distribuidoras, que ele construiu o jeito de trabalhar que define a empresa: técnica
-              de verdade, sem enrolação, e a palavra que se cumpre.
+              À frente da Refrigóis está <strong className="text-slate-900">Robert Góis</strong>, profissional com
+              15 anos de experiência em refrigeração comercial. Ao longo desse tempo, atendendo açougues, mercados,
+              padarias, restaurantes e distribuidoras, ele consolidou o padrão que define a empresa: rigor técnico,
+              transparência e compromissos cumpridos.
             </p>
             <p className="text-slate-600 mb-5 leading-relaxed text-sm md:text-base">
-              Honestidade, respeito e dedicação não são frase de efeito aqui — são a forma como cada cliente é
-              atendido, do primeiro orçamento à manutenção anos depois. Como homem de família e de fé, Robert leva
-              esses valores para dentro do trabalho e acredita que bom negócio é o que se sustenta na confiança.
+              Honestidade, respeito e dedicação orientam cada atendimento — do primeiro orçamento à manutenção anos
+              depois. Homem de família e de fé, Robert leva esses valores para a gestão e conduz cada projeto
+              pessoalmente, por entender que a confiança é a base de toda relação comercial duradoura.
             </p>
             <p className="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">
-              Por isso, quando você fala com a Refrigóis, fala com quem entende do assunto e assume o compromisso
-              pessoalmente. É essa seriedade que faz o cliente voltar e indicar.
+              Ao falar com a Refrigóis, você trata diretamente com quem domina o assunto e assume a responsabilidade
+              pelo resultado. É essa seriedade que sustenta a fidelidade e a indicação dos clientes.
             </p>
 
             <div className="mb-8">
@@ -73,9 +73,9 @@ export const About: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: ShieldCheck, titulo: 'Honestidade', texto: 'O que a gente combina é o que a gente cumpre.' },
-                { icon: Handshake, titulo: 'Respeito', texto: 'Cada cliente atendido como a gente gostaria de ser.' },
-                { icon: HeartHandshake, titulo: 'Dedicação', texto: 'Do orçamento à manutenção, presente de verdade.' },
+                { icon: ShieldCheck, titulo: 'Honestidade', texto: 'O combinado é cumprido, do prazo ao orçamento.' },
+                { icon: Handshake, titulo: 'Respeito', texto: 'Cada cliente atendido conforme a operação exige.' },
+                { icon: HeartHandshake, titulo: 'Dedicação', texto: 'Presença real, do projeto à manutenção.' },
               ].map((v) => (
                 <div key={v.titulo} className="bg-white rounded-xl border border-slate-100 p-4">
                   <span className="inline-grid place-items-center w-10 h-10 rounded-full bg-brand-100 text-brand-700 mb-3">
