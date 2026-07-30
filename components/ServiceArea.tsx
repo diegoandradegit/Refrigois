@@ -65,6 +65,16 @@ export const ServiceArea: React.FC = () => {
                 </li>
               ))}
             </ul>
+
+            <img
+              src="/images/mascote/entrega.webp"
+              alt="Técnico da Refrigóis dirigindo a caminhonete com equipamento para atender a região"
+              width={1000}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="hidden sm:block w-full max-w-sm mt-8 drop-shadow-xl"
+            />
           </div>
 
           {/* Mapa real do Paraná com marcadores por cidade */}

@@ -6,7 +6,7 @@ import { Projects } from '../components/Projects';
 import { About } from '../components/About';
 import { FAQ } from '../components/FAQ';
 import { Contact } from '../components/Contact';
-import { ColdChamberVideo } from '../components/ColdChamberVideo';
+import { Diferenciais } from '../components/Diferenciais';
 import { ServiceArea } from '../components/ServiceArea';
 import { BlogPreview } from '../components/BlogPreview';
 import { Reveal } from '../components/Reveal';
@@ -30,7 +30,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenQuote }) => {
       <Reveal><Products onOpenQuote={onOpenQuote} limit={3} /></Reveal>
       <Reveal><Projects limit={4} /></Reveal>
       <Reveal><About /></Reveal>
-      <Reveal><ColdChamberVideo /></Reveal>
+      <Reveal><Diferenciais /></Reveal>
       <Reveal><ServiceArea /></Reveal>
       <Reveal><BlogPreview /></Reveal>
       <Reveal><Contact onOpenQuote={onOpenQuote} compact /></Reveal>
