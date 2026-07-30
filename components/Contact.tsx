@@ -26,7 +26,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
             </p>
 
             {!compact && (
-            <div className="space-y-6 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-brand-50 text-brand-600 rounded-sm mt-1">
                   <MapPin size={24} />
