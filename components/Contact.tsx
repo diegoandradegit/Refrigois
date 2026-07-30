@@ -26,7 +26,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
             </p>
 
             {!compact && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            <div className="space-y-6 mb-10">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-brand-50 text-brand-600 rounded-sm mt-1">
                   <MapPin size={24} />
@@ -102,7 +102,10 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
                 </Link>
               )}
             </div>
+          </div>
 
+          {/* Avatar + Mapa (direita no desktop) */}
+          <div className="flex flex-col gap-8">
             <img
               src="/images/mascote/caminhonete.webp"
               alt="Técnico da Refrigóis ao lado da caminhonete com equipamento para atendimento"
@@ -110,12 +113,9 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
               height={800}
               loading="lazy"
               decoding="async"
-              className="w-full max-w-xs sm:max-w-sm mt-10 mx-auto lg:mx-0 drop-shadow-xl"
+              className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl"
             />
-          </div>
-
-          {/* Map */}
-          <div className="h-[400px] lg:h-auto min-h-[400px] rounded-sm overflow-hidden shadow-lg border border-slate-200">
+            <div className="h-[360px] md:h-[400px] rounded-sm overflow-hidden shadow-lg border border-slate-200">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.0428455142783!2d-51.931602022216204!3d-23.45891895784123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecdb5ad9094565%3A0xc9ecebc295330deb!2sRefrigois%20Refrigera%C3%A7%C3%A3o%20Comercial!5e0!3m2!1spt-BR!2sbr!4v1784536854235!5m2!1spt-BR!2sbr" 
               width="100%" 
@@ -126,6 +126,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
               referrerPolicy="no-referrer-when-downgrade"
               title="Localização Refrigois"
             ></iframe>
+            </div>
           </div>
           
         </div>
