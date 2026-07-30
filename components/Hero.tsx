@@ -14,6 +14,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
         <img 
           src="/images/hero.jpg" 
           alt="Equipamentos de refrigeração comercial: expositor de bebidas, balcão vitrine e mesa refrigerada em aço inox" 
+          width={1600}
+          height={854}
           className="w-full h-full object-cover object-[68%_center] sm:object-[center_center]"
           referrerPolicy="no-referrer"
           fetchPriority="high"
