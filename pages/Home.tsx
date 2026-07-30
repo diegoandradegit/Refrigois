@@ -40,8 +40,8 @@ export const Home: React.FC<HomeProps> = ({ onOpenQuote }) => {
       <Reveal>
         <CTABanner
           onOpenQuote={onOpenQuote}
-          titulo="Vamos cuidar do seu frio?"
-          texto="Peça um orçamento sem compromisso ou fale agora com a nossa equipe. Atendemos Maringá e toda a região."
+          titulo="Vamos conversar sobre o seu projeto?"
+          texto="Atendemos empresas de Maringá e região com projeto técnico, execução e pós-venda. Solicite um orçamento ou uma avaliação sem compromisso."
         />
       </Reveal>
     </main>

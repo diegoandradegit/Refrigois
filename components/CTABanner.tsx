@@ -18,11 +18,11 @@ export const CTABanner: React.FC<CTABannerProps> = ({ onOpenQuote, titulo, texto
     <section className="bg-brand-600">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
-          {titulo ?? 'Precisa resolver seu frio com quem entende?'}
+          {titulo ?? 'Refrigeração comercial sob medida para a sua operação'}
         </h2>
         <p className="text-brand-50 text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
           {texto ??
-            'Fabricação, instalação e manutenção com projeto técnico e atendimento do próprio dono. Peça seu orçamento sem compromisso.'}
+            'Projeto técnico, fabricação, instalação e manutenção de câmaras frias e equipamentos para o seu negócio. Solicite uma avaliação técnica sem compromisso.'}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
