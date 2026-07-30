@@ -38,19 +38,18 @@ export const ServiceArea: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 items-center">
-          {/* Texto */}
-          <div>
-            <h2 className="text-xs md:text-sm font-bold tracking-widest text-brand-400 uppercase mb-3">Área de Atendimento</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Atendimento em todo o Paraná
-            </h3>
-            <p className="text-slate-300 mb-8 leading-relaxed text-sm md:text-base max-w-lg">
-              Base em Maringá (PR), com fabricação, instalação e manutenção de câmara fria e
-              refrigeração comercial para as principais cidades do estado. Passe o mouse ou toque
-              nos marcadores para ver cada cidade atendida.
-            </p>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
+        {/* Texto em cima, largura total */}
+        <div className="mb-10 md:mb-14 max-w-4xl">
+          <h2 className="text-xs md:text-sm font-bold tracking-widest text-brand-400 uppercase mb-3">Área de Atendimento</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Atendimento em todo o Paraná
+          </h3>
+          <p className="text-slate-300 mb-8 leading-relaxed text-sm md:text-base">
+            Base em Maringá (PR), com fabricação, instalação e manutenção de câmara fria e
+            refrigeração comercial para as principais cidades do estado. Passe o mouse ou toque
+            nos marcadores para ver cada cidade atendida.
+          </p>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-2">
               {CITIES.map((c) => (
                 <li
                   key={c.abbr}
@@ -64,8 +63,13 @@ export const ServiceArea: React.FC = () => {
                   <span>{c.name}</span>
                 </li>
               ))}
-            </ul>
+          </ul>
+        </div>
 
+        {/* Embaixo: avatar (esquerda) e mapa (direita) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 items-center">
+          {/* Avatar */}
+          <div className="flex justify-center">
             <img
               src="/images/mascote/entrega.webp"
               alt="Técnico da Refrigóis dirigindo a caminhonete com equipamento para atender a região"
@@ -73,7 +77,7 @@ export const ServiceArea: React.FC = () => {
               height={800}
               loading="lazy"
               decoding="async"
-              className="block w-full max-w-xs sm:max-w-sm mt-8 mx-auto lg:mx-0 drop-shadow-xl"
+              className="w-full max-w-xs sm:max-w-sm drop-shadow-xl"
             />
           </div>
 
