@@ -13,7 +13,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
   return (
     <section id="contact" className="py-16 md:py-24 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
           
           {/* Info */}
           <div>
@@ -104,8 +104,8 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
             </div>
           </div>
 
-          {/* Avatar + Mapa (direita no desktop) */}
-          <div className="flex flex-col gap-8">
+          {/* Avatar (direita no desktop) */}
+          <div className="flex justify-center">
             <img
               src="/images/mascote/caminhonete.webp"
               alt="Técnico da Refrigóis ao lado da caminhonete com equipamento para atendimento"
@@ -113,22 +113,24 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
               height={800}
               loading="lazy"
               decoding="async"
-              className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl"
+              className="w-full max-w-xs sm:max-w-sm drop-shadow-xl"
             />
-            <div className="h-[360px] md:h-[400px] rounded-sm overflow-hidden shadow-lg border border-slate-200">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.0428455142783!2d-51.931602022216204!3d-23.45891895784123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecdb5ad9094565%3A0xc9ecebc295330deb!2sRefrigois%20Refrigera%C3%A7%C3%A3o%20Comercial!5e0!3m2!1spt-BR!2sbr!4v1784536854235!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Localização Refrigois"
-            ></iframe>
-            </div>
           </div>
-          
+
+        </div>
+
+        {/* Mapa: largura total embaixo */}
+        <div className="mt-10 md:mt-12 h-[380px] md:h-[440px] rounded-sm overflow-hidden shadow-lg border border-slate-200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.0428455142783!2d-51.931602022216204!3d-23.45891895784123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecdb5ad9094565%3A0xc9ecebc295330deb!2sRefrigois%20Refrigera%C3%A7%C3%A3o%20Comercial!5e0!3m2!1spt-BR!2sbr!4v1784536854235!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização Refrigois"
+          ></iframe>
         </div>
       </div>
     </section>
