@@ -38,7 +38,7 @@ export const ServiceArea: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 items-center">
           {/* Texto */}
           <div>
             <h2 className="text-xs md:text-sm font-bold tracking-widest text-brand-400 uppercase mb-3">Área de Atendimento</h2>
