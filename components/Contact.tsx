@@ -102,6 +102,16 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote, compact = false }
                 </Link>
               )}
             </div>
+
+            <img
+              src="/images/mascote/caminhonete.webp"
+              alt="Técnico da Refrigóis ao lado da caminhonete com equipamento para atendimento"
+              width={1000}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-xs sm:max-w-sm mt-10 mx-auto lg:mx-0 drop-shadow-xl"
+            />
           </div>
 
           {/* Map */}

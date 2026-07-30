@@ -73,7 +73,7 @@ export const ServiceArea: React.FC = () => {
               height={800}
               loading="lazy"
               decoding="async"
-              className="hidden sm:block w-full max-w-sm mt-8 drop-shadow-xl"
+              className="block w-full max-w-xs sm:max-w-sm mt-8 mx-auto lg:mx-0 drop-shadow-xl"
             />
           </div>
 
