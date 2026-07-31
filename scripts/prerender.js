@@ -397,6 +397,18 @@ function injectMeta(html, meta, routePath) {
   const type = meta.type ?? (meta.schemaKind === 'article' ? 'article' : 'website');
 
   let out = html;
+
+  // O preload da imagem do hero vale so para a home — e la que essa imagem
+  // aparece. Nas outras paginas ele fazia o navegador baixar em prioridade
+  // alta uma imagem que nunca seria mostrada, competindo com o conteudo real
+  // da pagina. O bloco e delimitado no index.html pelos marcadores abaixo.
+  if (routePath !== '/') {
+    out = out.replace(
+      /[ \t]*<!-- inicio: preload do hero \(so a home\) -->[\s\S]*?<!-- fim: preload do hero -->\n?/,
+      ''
+    );
+  }
+
   out = out.replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
   out = out.replace(/<meta name="description" content=".*?"\s*\/?>/i, `<meta name="description" content="${escapeHtml(meta.description)}" />`);
   out = out.replace(/<link rel="canonical" href=".*?"\s*\/?>/i, `<link rel="canonical" href="${url}" />`);
