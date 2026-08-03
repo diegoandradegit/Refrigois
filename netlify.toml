@@ -24,6 +24,12 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Fonte propria: nome fixo e conteudo que nao muda — cache de 1 ano
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # Imagens: cache de 30 dias
 [[headers]]
   for = "/images/*"

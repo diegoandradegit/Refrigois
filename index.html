@@ -14,12 +14,40 @@
          cada troca de rota é disparado manualmente pelo hook useSEO
          (utils/analytics.ts) — sem isso, o GA4 contaria só 1 pageview por
          sessão inteira, não importa quantas páginas a pessoa visitou. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ME19B7BEPB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-ME19B7BEPB', { send_page_view: false });
+
+      // O gtag.js pesa cerca de 160 KB e era o maior arquivo de terceiro da
+      // pagina, baixado antes mesmo do site aparecer. Agora ele so entra
+      // depois que a pagina termina de carregar (ou na primeira interacao do
+      // visitante, o que vier antes).
+      //
+      // Nenhuma medicao e perdida: as chamadas gtag() acima e os pageviews
+      // disparados pelo useSEO ficam na fila do dataLayer e sao processados
+      // assim que o script chega.
+      (function () {
+        var carregado = false;
+        function carregarGA() {
+          if (carregado) return;
+          carregado = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-ME19B7BEPB';
+          document.head.appendChild(s);
+        }
+        ['pointerdown', 'keydown', 'scroll'].forEach(function (evento) {
+          window.addEventListener(evento, carregarGA, { once: true, passive: true });
+        });
+        function aposCarregar() {
+          if (window.requestIdleCallback) requestIdleCallback(carregarGA, { timeout: 2000 });
+          else setTimeout(carregarGA, 1000);
+        }
+        if (document.readyState === 'complete') aposCarregar();
+        else window.addEventListener('load', aposCarregar);
+      })();
     </script>
 
     <!-- Favicon -->
@@ -155,15 +183,26 @@
     }
     </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <!-- Fonte servida pelo proprio dominio (ver o @font-face em index.css).
+         Sem o Google Fonts, somem duas conexoes externas e a corrente
+         "CSS de fora -> descobrir a fonte -> baixar a fonte". -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-var.woff2" crossorigin />
 
-    <!-- Preload da imagem hero para melhorar o LCP (Core Web Vitals) -->
-    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+    <!-- inicio: preload do hero (so a home) -->
+    <!-- Preload da imagem hero para melhorar o LCP (Core Web Vitals).
+         O .jpg (114 KB) so serve de reserva para navegador sem WebP; quem
+         tem suporte baixa a versao do tamanho da tela: 15 KB no celular,
+         49 KB no tablet/notebook, 90 KB em tela grande. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/images/hero-1280.webp"
+      imagesrcset="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+    <!-- fim: preload do hero -->
         <script>
       // Marca que o JavaScript esta ativo, antes da primeira pintura.
       // As secoes so comecam invisiveis (para a animacao de entrada) quando

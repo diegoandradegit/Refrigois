@@ -54,7 +54,7 @@ for (const arquivo of originais) {
       // o que so aumentaria o peso sem ganho de qualidade.
       await sharp(arquivo)
         .resize(largura, null, { withoutEnlargement: true })
-        .webp({ quality: 82 })
+        .webp({ quality: 76, effort: 6 })
         .toFile(destino);
       geradas++;
     }

@@ -11,15 +11,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
     <section id="hero" className="relative min-h-[600px] h-[85vh] sm:h-screen flex items-center overflow-hidden bg-slate-950">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/images/hero.jpg" 
-          alt="Equipamentos de refrigeração comercial: expositor de bebidas, balcão vitrine e mesa refrigerada em aço inox" 
-          width={1600}
-          height={854}
-          className="w-full h-full object-cover object-[68%_center] sm:object-[center_center]"
-          referrerPolicy="no-referrer"
-          fetchPriority="high"
-        />
+        {/* Imagem do LCP: a versao WebP do tamanho da tela vem primeiro
+            (15 KB no celular contra 114 KB do .jpg). O <img> de baixo
+            continua sendo a reserva para navegador sem suporte a WebP.
+            As larguras precisam bater com o preload do index.html. */}
+        {/* block w-full h-full: <picture> e inline por padrao e, sem isso, o
+            h-full da imagem nao encontra altura de referencia e o fundo do
+            hero some. */}
+        <picture className="block w-full h-full">
+          <source
+            type="image/webp"
+            srcSet="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
+            sizes="100vw"
+          />
+          <img
+            src="/images/hero.jpg"
+            alt="Equipamentos de refrigeração comercial: expositor de bebidas, balcão vitrine e mesa refrigerada em aço inox"
+            width={1600}
+            height={854}
+            className="w-full h-full object-cover object-[68%_center] sm:object-[center_center]"
+            referrerPolicy="no-referrer"
+            fetchPriority="high"
+          />
+        </picture>
         {/* Gradiente lateral: escurece a esquerda (onde fica o texto) e preserva o produto visível a direita */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/75 to-slate-950/10 sm:via-slate-950/60 sm:to-transparent" />
         {/* Leve reforço embaixo para o texto não colidir com o chão da imagem em telas baixas */}

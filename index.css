@@ -1,3 +1,18 @@
+/* Fonte Inter hospedada no proprio dominio.
+   Antes vinha do Google Fonts, o que custava duas conexoes externas
+   (fonts.googleapis.com e fonts.gstatic.com) e uma corrente de requisicoes:
+   o navegador baixava o CSS la fora para so entao descobrir qual arquivo de
+   fonte buscar. Agora e um unico arquivo variavel (pesos 100 a 900 no mesmo
+   woff2, subconjunto latino), servido do proprio site e com cache de um ano.
+   font-display: swap mantem o texto visivel enquanto a fonte carrega. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-var.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
