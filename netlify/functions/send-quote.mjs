@@ -193,6 +193,50 @@ async function sendViaResend(apiKey, payload) {
   return response.ok;
 }
 
+const ENDPOINT_LEAD =
+  process.env.ENDPOINT_LEAD ||
+  'https://mpdlwheqvggbfxkhbtqg.supabase.co/functions/v1/lead-landing';
+
+/**
+ * Envia o pedido de orcamento para o registro de leads, o mesmo usado pela
+ * pagina de anuncio. E dali que sai a notificacao no celular.
+ *
+ * O campo origem entra como 'site' para o painel distinguir quem veio do site
+ * institucional de quem veio do anuncio — os dois gravam na mesma tabela.
+ */
+async function registrarLead({ name, email, phone, description, address, productTitle, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid }) {
+  const resposta = await fetch(ENDPOINT_LEAD, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // A funcao de leads confere a origem da chamada. Aqui quem chama e o
+      // servidor do Netlify, e nao o navegador, entao o cabecalho vai a mao.
+      Origin: 'https://refrigois.com.br',
+    },
+    body: JSON.stringify({
+      nome: name,
+      contato: phone,
+      email,
+      // Produto e endereco, quando existirem, entram junto do texto livre para
+      // nao chegarem soltos e sem contexto no aplicativo.
+      necessidade: [productTitle && `Sobre: ${productTitle}`, description, address && `Endereço: ${address}`]
+        .filter(Boolean)
+        .join('\n'),
+      origem: 'site',
+      utm_source,
+      utm_medium,
+      utm_campaign,
+      utm_term,
+      utm_content,
+      gclid,
+    }),
+  });
+
+  if (!resposta.ok) {
+    throw new Error(`registro de lead respondeu ${resposta.status}`);
+  }
+}
+
 export default async (req) => {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Método não permitido' }), { status: 405 });
@@ -241,9 +285,19 @@ export default async (req) => {
     attachments: [logoAttachment],
   };
 
+  // Registrar o lead roda junto com o envio dos e-mails, e nao depois: o
+  // formulario nao pode ficar esperando mais tempo por causa disso.
+  //
+  // Se o registro falhar, o pedido segue normalmente. O e-mail e o caminho
+  // garantido; o registro e o que faz o lead aparecer no aplicativo do celular
+  // e disparar a notificacao. Perder o aviso e ruim, perder o contato do
+  // cliente e inaceitavel — por isso um nao derruba o outro.
   const [internalOk, clientOk] = await Promise.all([
     sendViaResend(apiKey, internalPayload),
     sendViaResend(apiKey, clientPayload),
+    registrarLead(data).catch((e) => {
+      console.error('nao consegui registrar o lead (o e-mail seguiu normalmente):', e);
+    }),
   ]);
 
   if (!internalOk) {
