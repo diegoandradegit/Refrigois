@@ -30,6 +30,25 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Favicon e icones de atalho: cache curto.
+# O nome desses arquivos e fixo (o navegador procura por /favicon.ico), entao
+# nao da para versiona-los como fizemos com a logo. Cache curto e o unico jeito
+# de uma troca de identidade visual chegar em quem ja visitou o site.
+[[headers]]
+  for = "/favicon*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/android-chrome-*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 # Imagens: cache de 30 dias
 [[headers]]
   for = "/images/*"

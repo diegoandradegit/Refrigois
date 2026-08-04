@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img 
-              src="/logo.png" 
+              src="/logo-v2.png" 
               alt="Refrigóis" 
               referrerPolicy="no-referrer"
               className={`h-12 md:h-16 w-auto object-contain transition-all duration-300 ${!shouldBeSolid ? 'brightness-0 invert' : ''}`}

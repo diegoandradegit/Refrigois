@@ -107,7 +107,7 @@ export const AnnouncementPopup: React.FC<AnnouncementPopupProps> = () => {
         {/* Cabeçalho com a logo */}
         <div className="bg-slate-900 px-6 pt-8 pb-6 text-center">
           <img
-            src="/logo.png"
+            src="/logo-v2.png"
             alt="Refrigóis Refrigeração Comercial"
             className="h-14 w-auto mx-auto object-contain brightness-0 invert"
           />
