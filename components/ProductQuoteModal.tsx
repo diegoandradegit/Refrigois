@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Button } from './Button';
 import { Product } from '../types';
-import { trackFormSubmit, getStoredUTMs } from '../utils/analytics';
+import { trackFormSubmit, getOrigemCompleta } from '../utils/analytics';
 
 interface ProductQuoteModalProps {
   isOpen: boolean;
@@ -47,7 +47,7 @@ export const ProductQuoteModal: React.FC<ProductQuoteModalProps> = ({ isOpen, on
           description: `Interesse no produto: ${product.title}. Prazo desejado: ${formData.deadline || 'não informado'}.`,
           productTitle: product.title,
           source: 'Modal de Produto',
-          ...getStoredUTMs(),
+          ...getOrigemCompleta(),
         }),
       });
 

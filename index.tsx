@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { captureUTMs } from './utils/analytics';
+import { captureUTMs, capturarRastreio } from './utils/analytics';
 
 // Guarda os utm_* da URL de entrada (se houver) na sessão do navegador —
 // ver utils/analytics.ts para a convenção de UTM da Refrigóis e o motivo.
 captureUTMs();
+capturarRastreio();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

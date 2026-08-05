@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Button } from './Button';
 import { QuoteFormData } from '../types';
-import { trackFormSubmit, getStoredUTMs } from '../utils/analytics';
+import { trackFormSubmit, getOrigemCompleta } from '../utils/analytics';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -41,7 +41,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
       const res = await fetch('/.netlify/functions/send-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, source: 'Modal de Orçamento', ...getStoredUTMs() }),
+        body: JSON.stringify({ ...formData, source: 'Modal de Orçamento', ...getOrigemCompleta() }),
       });
 
       if (!res.ok) {

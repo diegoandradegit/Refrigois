@@ -52,8 +52,39 @@ function emailFooter() {
     </div>`;
 }
 
-function internalEmailHtml({ name, email, phone, description, source, productTitle, address, deadline, utm_source, utm_medium, utm_campaign }) {
-  const utmLabel = [utm_source, utm_medium, utm_campaign].filter(Boolean).join(' / ');
+/**
+ * Traduz a origem tecnica para uma frase que se entende no celular, sem
+ * precisar decifrar utm_source. E o que responde "de onde veio esse contato?"
+ * na primeira olhada.
+ */
+function descreverOrigem({ gclid, utm_source, utm_medium, utm_campaign, utm_term, referrer }) {
+  if (gclid) {
+    const detalhe = [utm_campaign, utm_term && `busca: "${utm_term}"`].filter(Boolean).join(' · ');
+    return detalhe ? `Google Ads · ${detalhe}` : 'Google Ads';
+  }
+  if (utm_source) {
+    const conhecidos = {
+      'chatgpt.com': 'ChatGPT (assistente de IA)',
+      'perplexity.ai': 'Perplexity (assistente de IA)',
+      'google': 'Google',
+      'instagram': 'Instagram',
+      'facebook.com': 'Facebook',
+    };
+    const base = conhecidos[utm_source] || utm_source;
+    return [base, utm_medium, utm_campaign].filter(Boolean).join(' · ');
+  }
+  if (referrer) {
+    try {
+      return `Veio de ${new URL(referrer).hostname.replace('www.', '')}`;
+    } catch {
+      return 'Indicação externa';
+    }
+  }
+  return 'Acesso direto ou busca no Google';
+}
+
+function internalEmailHtml({ name, email, phone, description, source, productTitle, address, deadline, utm_source, utm_medium, utm_campaign, utm_term, gclid, referrer, pagina, dispositivo }) {
+  const utmLabel = descreverOrigem({ gclid, utm_source, utm_medium, utm_campaign, utm_term, referrer });
   const rows = [
     ['Nome', name],
     ['E-mail', email],
@@ -62,7 +93,9 @@ function internalEmailHtml({ name, email, phone, description, source, productTit
     address ? ['Endereço', address] : null,
     deadline ? ['Prazo desejado', deadline] : null,
     ['Origem', source || 'Site'],
-    utmLabel ? ['Campanha (UTM)', utmLabel] : null,
+    ['Veio de', utmLabel],
+    pagina ? ['Página de entrada', pagina] : null,
+    dispositivo ? ['Aparelho', dispositivo] : null,
   ].filter(Boolean);
 
   const rowsHtml = rows
@@ -133,8 +166,8 @@ function clientEmailHtml({ name }) {
   </div>`;
 }
 
-function internalEmailText({ name, email, phone, description, source, productTitle, address, deadline, utm_source, utm_medium, utm_campaign }) {
-  const utmLabel = [utm_source, utm_medium, utm_campaign].filter(Boolean).join(' / ');
+function internalEmailText({ name, email, phone, description, source, productTitle, address, deadline, utm_source, utm_medium, utm_campaign, utm_term, gclid, referrer, pagina, dispositivo }) {
+  const utmLabel = descreverOrigem({ gclid, utm_source, utm_medium, utm_campaign, utm_term, referrer });
   const lines = [
     'NOVO CONTATO PELO SITE — REFRIGÓIS',
     '',
@@ -145,7 +178,9 @@ function internalEmailText({ name, email, phone, description, source, productTit
     address ? `Endereço: ${address}` : null,
     deadline ? `Prazo desejado: ${deadline}` : null,
     `Origem: ${source || 'Site'}`,
-    utmLabel ? `Campanha (UTM): ${utmLabel}` : null,
+    `Veio de: ${utmLabel}`,
+    pagina ? `Página de entrada: ${pagina}` : null,
+    dispositivo ? `Aparelho: ${dispositivo}` : null,
     '',
     'Necessidade descrita:',
     description,
@@ -204,7 +239,7 @@ const ENDPOINT_LEAD =
  * O campo origem entra como 'site' para o painel distinguir quem veio do site
  * institucional de quem veio do anuncio — os dois gravam na mesma tabela.
  */
-async function registrarLead({ name, email, phone, description, address, productTitle, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid }) {
+async function registrarLead({ name, email, phone, description, address, productTitle, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, pagina, referrer, dispositivo }) {
   const resposta = await fetch(ENDPOINT_LEAD, {
     method: 'POST',
     headers: {
@@ -229,6 +264,9 @@ async function registrarLead({ name, email, phone, description, address, product
       utm_term,
       utm_content,
       gclid,
+      pagina,
+      referrer,
+      dispositivo,
     }),
   });
 

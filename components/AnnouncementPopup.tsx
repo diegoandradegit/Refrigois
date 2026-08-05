@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Loader2 } from 'lucide-react';
-import { trackEvent, trackFormSubmit, getStoredUTMs } from '../utils/analytics';
+import { trackEvent, trackFormSubmit, getOrigemCompleta } from '../utils/analytics';
 
 // Popup de aviso — site em finalização.
 //
@@ -70,7 +70,7 @@ export const AnnouncementPopup: React.FC<AnnouncementPopupProps> = () => {
           phone: form.phone,
           description: form.description || 'Contato pelo aviso do site (site em finalização).',
           source: 'Popup de Aviso',
-          ...getStoredUTMs(),
+          ...getOrigemCompleta(),
         }),
       });
 

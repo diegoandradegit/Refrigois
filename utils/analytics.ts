@@ -59,6 +59,8 @@ const UTM_STORAGE_KEY = 'refrigois_utm';
  * rota do SPA (onde a URL não carrega mais os parâmetros originais).
  * Chamar uma única vez, no bootstrap da aplicação (index.tsx).
  */
+const RASTREIO_KEY = 'refrigois_rastreio';
+
 export function captureUTMs(): void {
   try {
     const params = new URLSearchParams(window.location.search);
@@ -81,6 +83,61 @@ export function captureUTMs(): void {
   } catch {
     // sessionStorage pode falhar em modo privado/restrito — não é crítico
   }
+}
+
+/**
+ * Guarda o resto da origem da visita, além dos utm_*: identificador do clique
+ * do Google Ads, site de onde a pessoa veio, página de entrada e tipo de
+ * aparelho.
+ *
+ * Fica em sessionStorage pelo mesmo motivo dos UTMs: a pessoa navega pelo
+ * site, e quando finalmente abre o modal de orçamento a URL original já se
+ * perdeu. Sem isso o contato chega sem dizer o que o originou.
+ */
+export function capturarRastreio(): void {
+  try {
+    if (sessionStorage.getItem(RASTREIO_KEY)) return; // primeira visita manda
+
+    const params = new URLSearchParams(window.location.search);
+    const ua = navigator.userAgent;
+    const dados: Record<string, string> = {
+      pagina: window.location.pathname,
+      dispositivo: /iPad|Tablet/i.test(ua)
+        ? 'tablet'
+        : /Mobi|Android|iPhone/i.test(ua)
+          ? 'celular'
+          : 'computador',
+    };
+
+    // gclid só existe quando o clique veio de anúncio do Google.
+    const gclid = params.get('gclid') || params.get('wbraid') || params.get('gbraid');
+    if (gclid) dados.gclid = gclid;
+
+    // Referrer de fora: Google orgânico, Instagram, ChatGPT, qualquer site.
+    // O próprio domínio é ignorado, para navegação interna não virar origem.
+    const ref = document.referrer;
+    if (ref && !ref.includes(window.location.host)) dados.referrer = ref.slice(0, 300);
+
+    sessionStorage.setItem(RASTREIO_KEY, JSON.stringify(dados));
+  } catch {
+    // Armazenamento bloqueado: o contato continua sendo enviado, só chega sem
+    // a origem identificada.
+  }
+}
+
+/** Devolve o rastreio guardado nesta sessão. */
+export function getRastreio(): Record<string, string> {
+  try {
+    const raw = sessionStorage.getItem(RASTREIO_KEY);
+    return raw ? (JSON.parse(raw) as Record<string, string>) : {};
+  } catch {
+    return {};
+  }
+}
+
+/** Tudo o que descreve a origem: utm_* mais o rastreio acima. */
+export function getOrigemCompleta(): Record<string, string> {
+  return { ...getStoredUTMs(), ...getRastreio() };
 }
 
 /** Retorna os UTMs guardados nesta sessão (ou objeto vazio se não houver). */
