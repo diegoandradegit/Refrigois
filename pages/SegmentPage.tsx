@@ -70,7 +70,7 @@ export const SegmentPage: React.FC<SegmentPageProps> = ({ onOpenQuote }) => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs dark items={[{ label: 'Soluções por Segmento', href: '/solucoes' }, { label: segment.title }]} />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-3xl">
-            {segment.title}
+            {segment.h1 ?? segment.title}
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">{segment.intro}</p>
         </div>

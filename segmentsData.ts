@@ -4,6 +4,12 @@ export const segmentsData: Segment[] = [
   {
     slug: 'acougues',
     title: 'Refrigeração para Açougue',
+    // O H1 difere do title de propósito. O Search Console mostrou a consulta
+    // comercial "câmara fria completa para açougue" caindo nesta página na
+    // posição 55, e "câmara fria" não aparecia no H1 — só na aba do navegador.
+    // O card em /solucoes e o breadcrumb seguem usando `title`, para a lista
+    // continuar uniforme.
+    h1: 'Câmara Fria para Açougue',
     metaTitle: 'Câmara Fria e Refrigeração para Açougue | Refrigóis',
     description: 'Câmara fria, balcão vitrine e equipamentos de refrigeração comercial para açougue em Maringá — fabricação sob medida, instalação e manutenção.',
     intro: 'No açougue, a temperatura errada não é só prejuízo — é risco sanitário. A Refrigóis fabrica e instala câmaras frias e balcões vitrine sob medida para açougues, com o dimensionamento certo para o volume de carne que você trabalha e atendimento rápido quando algo precisa de manutenção.',

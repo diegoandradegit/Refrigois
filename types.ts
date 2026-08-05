@@ -1,4 +1,6 @@
 export interface Segment {
+  /** Título exibido no H1, quando precisa diferir do usado em cards e breadcrumb. */
+  h1?: string;
   slug: string;
   title: string;
   metaTitle: string;
