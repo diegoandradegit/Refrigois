@@ -17,7 +17,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: 'A Refrigóis atende fora de Maringá?',
-    answer: 'Sim. Nossa base de atendimento técnico é Maringá e região (raio de aproximadamente 150km), mas projetos de fabricação e instalação sob medida são avaliados para todo o território nacional, conforme a viabilidade logística.',
+    answer: 'Sim. Atendemos todo o Paraná: a base fica em Maringá e os serviços em outras cidades do estado são feitos com agenda combinada. Já executamos obras em Guaíra, Cascavel, Londrina e Foz do Iguaçu. Projetos de fabricação sob medida fora do estado são avaliados conforme a viabilidade logística.',
   },
   {
     question: 'Quanto tempo leva para fabricar um equipamento sob medida?',

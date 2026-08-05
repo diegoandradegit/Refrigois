@@ -11,7 +11,7 @@ export const segmentsData: Segment[] = [
     // continuar uniforme.
     h1: 'Câmara Fria para Açougue',
     metaTitle: 'Câmara Fria e Refrigeração para Açougue | Refrigóis',
-    description: 'Câmara fria, balcão vitrine e equipamentos de refrigeração comercial para açougue em Maringá — fabricação sob medida, instalação e manutenção.',
+    description: 'Câmara fria, balcão vitrine e equipamentos de refrigeração comercial para açougue em todo o Paraná — fabricação sob medida, instalação e manutenção.',
     intro: 'No açougue, a temperatura errada não é só prejuízo — é risco sanitário. A Refrigóis fabrica e instala câmaras frias e balcões vitrine sob medida para açougues, com o dimensionamento certo para o volume de carne que você trabalha e atendimento rápido quando algo precisa de manutenção.',
     painPoints: [
       'Câmara fria pequena demais para o volume de carne, forçando o compressor',
@@ -29,7 +29,7 @@ export const segmentsData: Segment[] = [
     slug: 'supermercados',
     title: 'Refrigeração para Supermercado',
     metaTitle: 'Refrigeração Comercial para Supermercado | Refrigóis',
-    description: 'Câmara fria, ilha de congelados, expositores verticais e balcões refrigerados para supermercado em Maringá — projeto completo de refrigeração comercial.',
+    description: 'Câmara fria, ilha de congelados, expositores verticais e balcões refrigerados para supermercado em todo o Paraná — projeto completo de refrigeração comercial.',
     intro: 'Um supermercado depende de dezenas de pontos de refrigeração funcionando ao mesmo tempo — câmara fria de estoque, ilhas de congelados, expositores de bebidas e balcões de frios. A Refrigóis projeta e mantém esse conjunto completo, com atendimento rápido pra minimizar qualquer parada.',
     painPoints: [
       'Múltiplos equipamentos de refrigeração para manter funcionando ao mesmo tempo',
@@ -47,7 +47,7 @@ export const segmentsData: Segment[] = [
     slug: 'restaurantes',
     title: 'Refrigeração para Restaurante',
     metaTitle: 'Refrigeração Comercial para Restaurante | Refrigóis',
-    description: 'Câmara fria, mesa refrigerada (pista fria) e geladeira comercial para restaurante em Maringá — equipamentos sob medida para cozinha profissional.',
+    description: 'Câmara fria, mesa refrigerada (pista fria) e geladeira comercial para restaurante em todo o Paraná — equipamentos sob medida para cozinha profissional.',
     intro: 'A cozinha de um restaurante não pode parar no meio do serviço. A Refrigóis fabrica mesas refrigeradas, câmaras frias e geladeiras comerciais pensadas pro ritmo de uma cozinha profissional, com manutenção rápida pra nunca comprometer o atendimento.',
     painPoints: [
       'Mesa refrigerada (pista fria) perdendo temperatura durante o serviço de pico',
@@ -65,7 +65,7 @@ export const segmentsData: Segment[] = [
     slug: 'padarias',
     title: 'Refrigeração para Padaria',
     metaTitle: 'Refrigeração Comercial para Padaria e Confeitaria | Refrigóis',
-    description: 'Vitrine refrigerada, câmara fria para insumos e balcão vitrine para padaria e confeitaria em Maringá — fabricação sob medida com iluminação em LED.',
+    description: 'Vitrine refrigerada, câmara fria para insumos e balcão vitrine para padaria e confeitaria no Paraná — fabricação sob medida com iluminação em LED.',
     intro: 'Na padaria e confeitaria, a vitrine é vitrine de venda — precisa refrigerar direito e ainda destacar o produto. A Refrigóis fabrica balcões e vitrines refrigeradas sob medida com iluminação em LED, além de câmara fria pra armazenamento de insumos.',
     painPoints: [
       'Vitrine refrigerada que não destaca bem os produtos (iluminação fraca)',
@@ -83,7 +83,7 @@ export const segmentsData: Segment[] = [
     slug: 'distribuidoras-de-bebidas',
     title: 'Refrigeração para Distribuidora de Bebidas',
     metaTitle: 'Refrigeração Comercial para Distribuidora de Bebidas | Refrigóis',
-    description: 'Câmara fria com porta de vidro (walk-in cooler), resfriador de bebidas e chopeira para distribuidora e depósito de bebidas em Maringá.',
+    description: 'Câmara fria com porta de vidro (walk-in cooler), resfriador de bebidas e chopeira para distribuidora e depósito de bebidas em todo o Paraná.',
     intro: 'Distribuidora de bebidas vive de manter grande volume gelado e disponível. A Refrigóis fabrica câmaras frias com porta de vidro (walk-in cooler / beer cave), resfriadores de bebidas e dá manutenção em chopeiras, pra você nunca perder venda por falta de produto gelado.',
     painPoints: [
       'Necessidade de resfriar grande volume de bebida com recuperação rápida de temperatura',
@@ -101,7 +101,7 @@ export const segmentsData: Segment[] = [
     slug: 'farmacias',
     title: 'Refrigeração para Farmácia',
     metaTitle: 'Câmara Fria para Farmácia e Medicamentos | Refrigóis',
-    description: 'Câmara fria para armazenamento de medicamentos e vacinas em farmácia, com controle de temperatura e telemetria, em Maringá.',
+    description: 'Câmara fria para armazenamento de medicamentos e vacinas em farmácia, com controle de temperatura e telemetria, em todo o Paraná.',
     intro: 'Armazenamento de medicamentos e vacinas exige controle de temperatura rigoroso, com margem de erro praticamente zero. A Refrigóis instala câmaras frias com telemetria e alarme de desvio de temperatura, dentro das exigências sanitárias do setor farmacêutico.',
     painPoints: [
       'Necessidade de controle de temperatura preciso, sem oscilações',
@@ -119,7 +119,7 @@ export const segmentsData: Segment[] = [
     slug: 'sorveterias',
     title: 'Refrigeração para Sorveteria',
     metaTitle: 'Refrigeração Comercial para Sorveteria | Refrigóis',
-    description: 'Freezer comercial, ilha refrigerada e câmara fria para sorveteria em Maringá — equipamentos para congelados de alta rotatividade.',
+    description: 'Freezer comercial, ilha refrigerada e câmara fria para sorveteria em todo o Paraná — equipamentos para congelados de alta rotatividade.',
     intro: 'Sorveteria trabalha com produto que não perdoa oscilação de temperatura. A Refrigóis fabrica e instala freezers comerciais, ilhas refrigeradas e câmaras frias para congelados, dimensionados pro volume e pro fluxo intenso de clientes em dias quentes.',
     painPoints: [
       'Freezer ou ilha refrigerada perdendo temperatura em dias de pico de venda',
