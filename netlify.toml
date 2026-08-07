@@ -6,37 +6,6 @@
   directory = "netlify/functions"
 
 # ============================================================
-# URL CANÔNICA — sem barra no final
-# ============================================================
-# O Search Console mostrou a mesma página indexada duas vezes, com e sem barra
-# final, dividindo as impressões ao meio (/servicos com 21 e /servicos/ com 22,
-# /solucoes/acougues com 20 e /solucoes/acougues/ com 39). As duas respondiam
-# 200, então o Google tratava como páginas diferentes e a autoridade ficava
-# repartida.
-#
-# O canonical e o sitemap sempre apontaram para a versão sem barra. Estes
-# redirecionamentos fazem o servidor concordar com eles.
-#
-# Uma regra por profundidade porque o :splat do Netlify não atravessa barras.
-[[redirects]]
-  from = "/:um/"
-  to = "/:um"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:um/:dois/"
-  to = "/:um/:dois"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:um/:dois/:tres/"
-  to = "/:um/:dois/:tres"
-  status = 301
-  force = true
-
-# ============================================================
 # REDIRECT SPA — o Netlify serve os index.html estáticos das
 # subpastas (gerados pelo prerender) ANTES de cair neste catch-all.
 # ============================================================
